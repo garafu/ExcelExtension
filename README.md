@@ -82,4 +82,4 @@ Excel を利用していて微妙に足りなかったあんなことやこん�
 
 ## ライセンス
 
-- [MIT](http://b4b4r07.mit-license.org)
+- [MIT](https://raw.githubusercontent.com/garafu/ExcelExtension/master/MIT-LICENSE.txt)
