@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?define ProductOutputDir="$(var.SolutionDir)AddIn\$(var.OutDir)" ?>
+
+  <!-- インストールディレクトリ -->
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="INSTALLFOLDER" Name="Excel Extension Addin" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <!-- インストールファイル -->
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="ExcelExtensionAddin.dll" DiskId="1" Guid="6B013CE4-1E78-4128-AC18-A1343E4F9F5B">
+        <File Id="ExcelExtensionAddin.dll" Name="ExcelExtensionAddin.dll" Source="$(var.ProductOutputDir)ExcelExtensionAddin.dll" />
+      </Component>
+      <Component Id="ExcelExtensionAddin.dll.manifest" DiskId="1" Guid="CD6E8EF3-D8FE-47CD-82B2-A46C9185F2B4">
+        <File Id="ExcelExtensionAddin.dll.manifest" Name="ExcelExtensionAddin.dll.manifest" Source="$(var.ProductOutputDir)ExcelExtensionAddin.dll.manifest" />
+      </Component>
+      <Component Id="ExcelExtensionAddin.vsto" DiskId="1" Guid="00684B31-0A9B-4E35-8EDD-7CAD7767C63B">
+        <File Id="ExcelExtensionAddin.vsto" Name="ExcelExtensionAddin.vsto" Source="$(var.ProductOutputDir)ExcelExtensionAddin.vsto" KeyPath="yes" />
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\Excel\Addins\ExcelExtension" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+          <RegistryValue Name="Description" Value="Excel Extension Addin" Type="string" Action="write" />
+          <RegistryValue Name="FriendlyName" Value="Excel Extension Addin" Type="string" Action="write" />
+          <RegistryValue Name="LoadBehavior" Value="3" Type="integer" Action="write" />
+          <RegistryValue Name="Manifest" Value="file:///[#ExcelExtensionAddin.vsto]|vstolocal" Type="string" Action="write" />
+        </RegistryKey> 
+        <RemoveFolder Id="ExcelExtensionAddinFolder" Directory="INSTALLFOLDER" On="both"/>
+      </Component>
+      <Component Id="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" DiskId="1" Guid="81DEAF94-FF6A-401A-8803-D4E48B8BC29A">
+        <File Id="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Name="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Source="$(var.ProductOutputDir)Microsoft.Office.Tools.Common.v4.0.Utilities.dll" />
+      </Component>
+      <Component Id="Microsoft.Office.Tools.Excel.v4.0.Utilities.dll" DiskId="1" Guid="1F0BE150-BF55-4C91-B279-44A0421031FE">
+        <File Id="Microsoft.Office.Tools.Excel.v4.0.Utilities.dll" Name="Microsoft.Office.Tools.Excel.v4.0.Utilities.dll" Source="$(var.ProductOutputDir)Microsoft.Office.Tools.Excel.v4.0.Utilities.dll" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+</Wix>

@@ -9,9 +9,9 @@ using System.Security;
 [assembly: AssemblyTitle("ExcelExtension")]
 [assembly: AssemblyDescription("Excel の 機能拡張 を行います。")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ExcelX")]
-[assembly: AssemblyCopyright("Copyright © garafu 2016")]
+[assembly: AssemblyCompany("Garafu Software")]
+[assembly: AssemblyProduct("Excel Extension Addin")]
+[assembly: AssemblyCopyright("Copyright © Garafu Software 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Security;
 // すべての値を指定するか、以下のように '*' を使ってビルドおよびリビジョン番号を
 // 既定値にすることができます。
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.1.0")]
+[assembly: AssemblyFileVersion("1.0.1.0")]
 

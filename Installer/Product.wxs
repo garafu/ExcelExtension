@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="Excel Extension Addin" Language="1041" Version="1.0.1.0" Manufacturer="Garafu Software" UpgradeCode="a32936bd-235b-41b0-b6f5-92076dc2c317">
+    
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" SummaryCodepage="932" />
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <Media Id="1" Cabinet="package.cab" EmbedCab="yes" />
+    
+    <!-- UI設定 -->
+    <UIRef Id="WixUI_Minimal"/>
+    <WixVariable Id="WixUILicenseRtf" Value="Resouces\mit-license.rtf"/>
+
+    <!-- 必要要件のチェック -->
+    <PropertyRef Id="NETFRAMEWORK45" />
+    <Property Id="VSTORUNTIME">
+      <RegistrySearch Id="VstoRuntime" Type="raw" Root="HKLM" Key="SOFTWARE\Microsoft\VSTO Runtime Setup\v4R" Name="Version" Win64="no" />
+    </Property>
+    <Condition Message="This application requires .NET Framework 4.5.">Installed OR NETFRAMEWORK45</Condition>
+    <Condition Message="This application requires Microsoft Visual Studio 2010 Tools for Office Runtime.">Installed OR VSTORUNTIME</Condition>
+
+    <!-- インストールする機能 -->
+    <Feature Id="ProductFeature" Title="Installer" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+    
+  </Product>
+</Wix>
