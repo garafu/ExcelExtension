@@ -35,39 +35,19 @@ Excel を利用していて微妙に足りなかったあんなことやこん�
 
 ## インストール方法
 
-1. ファイルの配置
+1. 任意のバージョンの インストーラ（installer.msi） をダウンロードします。
 
-  以下に記載のファイルを任意のディレクトリに配置します。
+  [Release : garafu/ExcelExtension](https://github.com/garafu/ExcelExtension/releases)
 
-    - ExcelX.dll
-    - ExcelX.dll.manifest
-    - ExcelX.vsto
-    - Microsoft.Office.Tools.Common.v4.0.Utilities.dll
-    - Microsoft.Office.Tools.Excel.v4.0.Utilities.dll
+2. ダウンロードした installer.msi ファイルを実行します。
 
-2. レジストリの追加
+3. 指示に従ってインストールします。
 
-  デスクトップで `[Win] + [R]` を押下して、 `regedit` を指定して「レジストリエディタ」を起動します。
-  以下のキーおよび値を追加します。
+4. インストールが完了したら Excel を起動します。
 
-  - 追加するキー
+  →「拡張ツール」タブが増えているハズ！
 
-      - HKEY_CURRENT_USER\Software\Microsoft\Office\Excel\Addins\ExcelExtension
-
-  - 追加する値
-
-      - Description : ExcelExtension
-      - FriendlyName : ExcelExtension
-      - LoadBehavior : 3
-      - Manifest : [INSTALLDIR]ExcelExtension.vsto
-
-  ※[INSTALLDIR] には 1. で配置したパスを指定します。
-
-3. アドイン登録
-
-  Excelを起動してアドイン登録を行います。
-  「COMアドイン」 に項目追加されているため、チェックを入れて「OK」を選択します。
-  インストールが始まり、利用可能になります。
+※アンインストールは「コントロールパネル」の「プログラムと機能」から「Excel Extension Addin」を削除してください。
 
 
 ## その他
@@ -83,3 +63,4 @@ Excel を利用していて微妙に足りなかったあんなことやこん�
 ## ライセンス
 
 - [MIT](https://raw.githubusercontent.com/garafu/ExcelExtension/master/MIT-LICENSE.txt)
+
