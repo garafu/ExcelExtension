@@ -158,6 +158,14 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\OpenActiveWorkbookFolderCommand.cs" />
+    <Compile Include="Command\OpenActiveWorkbookEditableCommand.cs" />
+    <Compile Include="Command\OpenFileCommand.cs" />
+    <Compile Include="Command\OpenActiveWorkbookReadOnlyCommand.cs" />
+    <Compile Include="Command\OpenSelectWorkbookEditableCommand.cs" />
+    <Compile Include="Command\OpenSelectWorkbookReadOnlyCommand.cs" />
+    <Compile Include="Command\ToggleEditModeCommand.cs" />
     <Compile Include="Dialog\SearchReplaceWindow.cs">
       <SubType>Form</SubType>
     </Compile>
