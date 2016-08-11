@@ -111,5 +111,16 @@
             var command = new SetA1Command();
             command.Execute();
         }
+
+        /// <summary>
+        /// 「スタイル初期化」ボタンを押下したとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元</param>
+        /// <param name="e">イベント変数</param>
+        private void InitializeStyleButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            var command = new InitializeStyleCommand();
+            command.Execute();
+        }
     }
 }

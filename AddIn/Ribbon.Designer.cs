@@ -50,6 +50,7 @@
             this.SearchButton = this.Factory.CreateRibbonButton();
             this.ReplaceButton = this.Factory.CreateRibbonButton();
             this.SetA1Button = this.Factory.CreateRibbonButton();
+            this.InitializeStyleButton = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
             this.FileGroup.SuspendLayout();
             this.EditGroup.SuspendLayout();
@@ -153,6 +154,7 @@
             // 
             this.EditGroup.Items.Add(this.SearchSplitButton);
             this.EditGroup.Items.Add(this.SetA1Button);
+            this.EditGroup.Items.Add(this.InitializeStyleButton);
             this.EditGroup.Label = "編集";
             this.EditGroup.Name = "EditGroup";
             // 
@@ -192,6 +194,15 @@
             this.SetA1Button.ShowImage = true;
             this.SetA1Button.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SetA1Button_Click);
             // 
+            // InitializeStyleButton
+            // 
+            this.InitializeStyleButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.InitializeStyleButton.Label = "スタイル初期化";
+            this.InitializeStyleButton.Name = "InitializeStyleButton";
+            this.InitializeStyleButton.OfficeImageId = "RemoveCitation";
+            this.InitializeStyleButton.ShowImage = true;
+            this.InitializeStyleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.InitializeStyleButton_Click);
+            // 
             // Ribbon
             // 
             this.Name = "Ribbon";
@@ -225,6 +236,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenSelectWorkbookReadOnlyButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenSelectWorkbookEditableButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton SetA1Button;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton InitializeStyleButton;
     }
 
     partial class ThisRibbonCollection
