@@ -163,6 +163,7 @@
     <Compile Include="Command\OpenActiveWorkbookEditableCommand.cs" />
     <Compile Include="Command\OpenFileCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookReadOnlyCommand.cs" />
+    <Compile Include="Command\OpenSearchReplaceCommand.cs" />
     <Compile Include="Command\OpenSelectWorkbookEditableCommand.cs" />
     <Compile Include="Command\OpenSelectWorkbookReadOnlyCommand.cs" />
     <Compile Include="Command\SetA1Command.cs" />
@@ -172,6 +173,7 @@
     </Compile>
     <Compile Include="Dialog\SearchReplaceWindow.Designer.cs">
       <DependentUpon>SearchReplaceWindow.cs</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="DisplayNameAttribute.cs" />
     <Compile Include="EnumExtensions.cs" />
@@ -185,6 +187,7 @@
     <Compile Include="Module\SearchReplace\SearchScopeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <EmbeddedResource Include="Dialog\SearchReplaceWindow.resx">
       <DependentUpon>SearchReplaceWindow.cs</DependentUpon>
@@ -197,6 +200,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <EmbeddedResource Include="Ribbon.resx">
       <DependentUpon>Ribbon.cs</DependentUpon>
@@ -208,12 +212,14 @@
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Ribbon.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ribbon.Designer.cs">
       <DependentUpon>Ribbon.cs</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="ThisAddin.cs">
       <SubType>Code</SubType>
@@ -224,6 +230,7 @@
     </None>
     <Compile Include="ThisAddin.Designer.cs">
       <DependentUpon>ThisAddin.Designer.xml</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <AppDesigner Include="Properties\" />
   </ItemGroup>

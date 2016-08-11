@@ -42,12 +42,4 @@
         [DisplayName("グラフ")]
         CHART   = 0x010
     }
-
-    public static class SearchTargetTypeExtensions
-    {
-        public static string ToString(this SearchTargetType val)
-        {
-            return val.GetDisplayName();
-        }
-    }
 }

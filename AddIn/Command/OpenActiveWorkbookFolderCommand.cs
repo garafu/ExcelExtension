@@ -1,12 +1,12 @@
 ﻿namespace ExcelX.Addin.Command
 {
-    using ExcelX.AddIn;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using ExcelX.AddIn;
 
     /// <summary>
     /// 「現在のワークブックが存在するフォルダを開く」コマンド

@@ -11,37 +11,59 @@
     /// </summary>
     public class SearchTarget
     {
+        /// <summary>
+        /// 検索対象種別
+        /// </summary>
         private SearchTargetType targets;
 
+        /// <summary>
+        /// 検索対象種別を指定して SearchTarget クラスを初期化します。
+        /// </summary>
+        /// <param name="targets">検索対象種別</param>
         public SearchTarget(SearchTargetType targets)
         {
             this.targets = targets;
         }
 
+        /// <summary>
+        /// 検索対象を個別に指定して SearchTarget クラスを初期化します。
+        /// </summary>
+        /// <param name="includeFormula">セル(式)を対象とするかどうか</param>
+        /// <param name="includeValue">セル(値)を対象とするかどうか</param>
+        /// <param name="includeComment">コメントを対象とするかどうか</param>
+        /// <param name="includeShape">シェイプを対象とするかどうか</param>
+        /// <param name="includeChart">グラフを対象とするかどうか</param>
         public SearchTarget(bool includeFormula, bool includeValue, bool includeComment, bool includeShape, bool includeChart)
         {
             if (includeFormula)
             {
                 this.targets |= SearchTargetType.FORMULA;
             }
+
             if (includeValue)
             {
                 this.targets |= SearchTargetType.VALUE;
             }
+
             if (includeComment)
             {
                 this.targets |= SearchTargetType.COMMENT;
             }
+
             if (includeShape)
             {
                 this.targets |= SearchTargetType.SHAPE;
             }
+
             if (includeChart)
             {
                 this.targets |= SearchTargetType.CHART;
             }
         }
 
+        /// <summary>
+        /// セル(式)を対象とするかどうかを取得します。
+        /// </summary>
         public bool IncludeFormula
         {
             get
@@ -50,6 +72,9 @@
             }
         }
 
+        /// <summary>
+        /// セル(値)を対象とするかどうかを取得します。
+        /// </summary>
         public bool IncludeValue
         {
             get
@@ -58,6 +83,9 @@
             }
         }
 
+        /// <summary>
+        /// コメントを対象とするかどうかを取得します。
+        /// </summary>
         public bool IncludeComment
         {
             get
@@ -66,6 +94,9 @@
             }
         }
 
+        /// <summary>
+        /// シェイプを対象とするかどうかを取得します。
+        /// </summary>
         public bool IncludeShape
         {
             get
@@ -74,6 +105,9 @@
             }
         }
 
+        /// <summary>
+        /// グラフを対象とするかどうかを取得します。
+        /// </summary>
         public bool IncludeChart
         {
             get

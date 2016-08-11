@@ -1,20 +1,27 @@
 ﻿namespace ExcelX.AddIn
 {
-    using ExcelX.Addin.Command;
-    using ExcelX.AddIn.Dialog;
-    using Microsoft.Office.Tools.Ribbon;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
     using System.Text;
     using System.Windows.Forms;
+    using ExcelX.Addin.Command;
+    using ExcelX.AddIn.Dialog;
+    using Microsoft.Office.Tools.Ribbon;
 
+    /// <summary>
+    /// リボンを表現するクラス
+    /// </summary>
     public partial class Ribbon
     {
+        /// <summary>
+        /// リボンが読み込まれたとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元オブジェクト</param>
+        /// <param name="e">イベント変数</param>
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
-
         }
 
         /// <summary>
@@ -83,29 +90,15 @@
             command.Execute();
         }
 
+        /// <summary>
+        /// 「検索」ボタンを押下したとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元</param>
+        /// <param name="e">イベント変数</param>
         private void SearchSplitButton_Click(object sender, RibbonControlEventArgs e)
         {
-            this.OpenSearchReplaceWindow();
-        }
-
-        private void OpenSearchReplaceWindow()
-        {
-            // ダイアログのインスタンスを取得
-            var dialog = SearchReplaceWindow.GetInstance();
-
-            if (dialog.Visible == false)
-            {
-                // Excelのウィンドウハンドルを取得
-                var owner = Control.FromHandle(Process.GetCurrentProcess().MainWindowHandle);
-
-                // オーナーを指定してダイアログの表示
-                dialog.Show(owner);
-            }
-            else
-            {
-                // 既に表示済みなのでフォーカス
-                dialog.Focus();
-            }
+            var command = new OpenSearchReplaceCommand();
+            command.Execute();
         }
 
         /// <summary>

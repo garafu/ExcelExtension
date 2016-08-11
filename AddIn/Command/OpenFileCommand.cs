@@ -1,14 +1,14 @@
 ﻿namespace ExcelX.Addin.Command
 {
-    using Excel = Microsoft.Office.Interop.Excel;
-    using ExcelX.AddIn;
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
-    using System.IO;
+    using ExcelX.AddIn;
+    using Excel = Microsoft.Office.Interop.Excel;
 
     /// <summary>
     /// 「ファイルを開く」コマンドの基底クラス
@@ -105,66 +105,26 @@
             builder.Append(new FilterInfo(
                 "すべてのファイル",
                 "*"));
-            builder.Append(new FilterInfo(
-                "すべての Excel ファイル",
-                "xl", "xlsx", "xlsm", "xlsb", "xlam", "xltx", "xltm", "xls", "xlt", "htm", "html", "mht", "mhtml", "xml", "xla", "xlm", "xlw", "odc", "ods"));
-            builder.Append(new FilterInfo(
-                "Excel ファイル",
-                "xl", "xlsx", "xlsm", "xlsb", "xlam", "xltx", "xltm", "xls", "xla", "xlt", "xlm", "xlw", "xjs", "xjm", "xjc"));
-            builder.Append(new FilterInfo(
-                "すべての Web ページ",
-                "htm", "html", "mht", "mhtml"));
-            builder.Append(new FilterInfo(
-                "XML ファイル",
-                "xml"));
-            builder.Append(new FilterInfo(
-                "テキスト ファイル",
-                "prn", "txt", "csv"));
-            builder.Append(new FilterInfo(
-                "すべてのデータソース",
-                "odc", "udl", "dsn", "mdb", "mde", "accdb", "accde", "dbc", "iqy", "dqy", "rqy", "oqy", "cub", "atom", "atomsvc"));
-            builder.Append(new FilterInfo(
-                "Access データベース",
-                "mdb", "mde", "accdb", "accde"));
-            builder.Append(new FilterInfo(
-                "クエリ ファイル",
-                "iqy", "dqy", "oqy", "rqy"));
-            builder.Append(new FilterInfo(
-                "dBASE ファイル",
-                "dbf"));
-            builder.Append(new FilterInfo(
-                "Microsoft Excel 4.0 マクロシート",
-                "xlm", "xla"));
-            builder.Append(new FilterInfo(
-                "Microsoft Excel 4.0 ブック",
-                "xlw"));
-            builder.Append(new FilterInfo(
-                "ワークシート",
-                "xlsx", "xlsm", "xlsb", "xls", "xjs"));
-            builder.Append(new FilterInfo(
-                "作業状態ファイル",
-                "xlw"));
-            builder.Append(new FilterInfo(
-                "テンプレート",
-                "xltx", "xltm", "xlt", "xjt"));
-            builder.Append(new FilterInfo(
-                "アドイン",
-                "xlam", "xla", "xll", "xja"));
-            builder.Append(new FilterInfo(
-                "ツールバー ファイル",
-                "xlb"));
-            builder.Append(new FilterInfo(
-                "SYLK ファイル",
-                "slk"));
-            builder.Append(new FilterInfo(
-                "DIF ファイル",
-                "dif"));
-            builder.Append(new FilterInfo(
-                "バックアップ ファイル",
-                "xlk", "bak"));
-            builder.Append(new FilterInfo(
-                "OpenDocument スプレッドシート",
-                "ods"));
+            builder.Append(new FilterInfo("すべての Excel ファイル", "xl", "xlsx", "xlsm", "xlsb", "xlam", "xltx", "xltm", "xls", "xlt", "htm", "html", "mht", "mhtml", "xml", "xla", "xlm", "xlw", "odc", "ods"));
+            builder.Append(new FilterInfo("Excel ファイル", "xl", "xlsx", "xlsm", "xlsb", "xlam", "xltx", "xltm", "xls", "xla", "xlt", "xlm", "xlw", "xjs", "xjm", "xjc"));
+            builder.Append(new FilterInfo("すべての Web ページ", "htm", "html", "mht", "mhtml"));
+            builder.Append(new FilterInfo("XML ファイル", "xml"));
+            builder.Append(new FilterInfo("テキスト ファイル", "prn", "txt", "csv"));
+            builder.Append(new FilterInfo("すべてのデータソース", "odc", "udl", "dsn", "mdb", "mde", "accdb", "accde", "dbc", "iqy", "dqy", "rqy", "oqy", "cub", "atom", "atomsvc"));
+            builder.Append(new FilterInfo("Access データベース", "mdb", "mde", "accdb", "accde"));
+            builder.Append(new FilterInfo("クエリ ファイル", "iqy", "dqy", "oqy", "rqy"));
+            builder.Append(new FilterInfo("dBASE ファイル", "dbf"));
+            builder.Append(new FilterInfo("Microsoft Excel 4.0 マクロシート", "xlm", "xla"));
+            builder.Append(new FilterInfo("Microsoft Excel 4.0 ブック", "xlw"));
+            builder.Append(new FilterInfo("ワークシート", "xlsx", "xlsm", "xlsb", "xls", "xjs"));
+            builder.Append(new FilterInfo("作業状態ファイル", "xlw"));
+            builder.Append(new FilterInfo("テンプレート", "xltx", "xltm", "xlt", "xjt"));
+            builder.Append(new FilterInfo("アドイン", "xlam", "xla", "xll", "xja"));
+            builder.Append(new FilterInfo("ツールバー ファイル", "xlb"));
+            builder.Append(new FilterInfo("SYLK ファイル", "slk"));
+            builder.Append(new FilterInfo("DIF ファイル", "dif"));
+            builder.Append(new FilterInfo("バックアップ ファイル", "xlk", "bak"));
+            builder.Append(new FilterInfo("OpenDocument スプレッドシート", "ods"));
 
             return builder.ToString();
         }
@@ -174,22 +134,40 @@
         /// </summary>
         public class FilterInfo
         {
+            /// <summary>
+            /// FilterInfo クラス を初期化します。
+            /// </summary>
             public FilterInfo()
             {
                 this.DisplayName = string.Empty;
                 this.Extensions = new List<string>();
             }
 
+            /// <summary>
+            /// 表示名、拡張子を指定して FilterInfo クラス を初期化します。
+            /// </summary>
+            /// <param name="displayName">表示名</param>
+            /// <param name="extensions">拡張子</param>
             public FilterInfo(string displayName, params string[] extensions)
             {
                 this.DisplayName = displayName;
                 this.Extensions = new List<string>(extensions);
             }
 
+            /// <summary>
+            /// 表示名を取得または設定します。
+            /// </summary>
             public string DisplayName { get; set; }
 
+            /// <summary>
+            /// 拡張子を取得または設定します。
+            /// </summary>
             public List<string> Extensions { get; set; }
 
+            /// <summary>
+            /// フィルターを表す文字列を取得します。
+            /// </summary>
+            /// <returns>フィルター文字列</returns>
             public override string ToString()
             {
                 var extensions = new StringBuilder();
@@ -220,18 +198,32 @@
         /// </summary>
         public class FilterStringBuilder
         {
+            /// <summary>
+            /// フィルターリスト
+            /// </summary>
             private List<FilterInfo> filters;
 
+            /// <summary>
+            /// FilterStringBuilder クラス を初期化します。
+            /// </summary>
             public FilterStringBuilder()
             {
                 this.filters = new List<FilterInfo>();
             }
 
+            /// <summary>
+            /// フィルターを追加します。
+            /// </summary>
+            /// <param name="filterInfo">フィルター情報</param>
             public void Append(FilterInfo filterInfo)
             {
                 this.filters.Add(filterInfo);
             }
 
+            /// <summary>
+            /// フィルター文字列を生成します。
+            /// </summary>
+            /// <returns>フィルター文字列</returns>
             public override string ToString()
             {
                 var result = new StringBuilder();

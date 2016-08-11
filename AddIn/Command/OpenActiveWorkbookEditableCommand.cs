@@ -11,6 +11,9 @@
     /// </summary>
     public class OpenActiveWorkbookEditableCommand : OpenFileCommand, ICommand
     {
+        /// <summary>
+        /// コマンドを実行します。
+        /// </summary>
         public async void Execute()
         {
             // 新規ブックの場合何もしない
