@@ -36,7 +36,6 @@
         {
             this.tab = this.Factory.CreateRibbonTab();
             this.FileGroup = this.Factory.CreateRibbonGroup();
-            this.EditGroup = this.Factory.CreateRibbonGroup();
             this.OpenFileMenu = this.Factory.CreateRibbonMenu();
             this.separator1 = this.Factory.CreateRibbonSeparator();
             this.OpenActiveWorkbookReadOnlyButton = this.Factory.CreateRibbonButton();
@@ -46,9 +45,11 @@
             this.OpenSelectWorkbookEditableButton = this.Factory.CreateRibbonButton();
             this.OpenFolderButton = this.Factory.CreateRibbonButton();
             this.ToggleEditModeButton = this.Factory.CreateRibbonButton();
+            this.EditGroup = this.Factory.CreateRibbonGroup();
             this.SearchSplitButton = this.Factory.CreateRibbonSplitButton();
             this.SearchButton = this.Factory.CreateRibbonButton();
             this.ReplaceButton = this.Factory.CreateRibbonButton();
+            this.SetA1Button = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
             this.FileGroup.SuspendLayout();
             this.EditGroup.SuspendLayout();
@@ -68,12 +69,6 @@
             this.FileGroup.Items.Add(this.ToggleEditModeButton);
             this.FileGroup.Label = "ファイル";
             this.FileGroup.Name = "FileGroup";
-            // 
-            // EditGroup
-            // 
-            this.EditGroup.Items.Add(this.SearchSplitButton);
-            this.EditGroup.Label = "編集";
-            this.EditGroup.Name = "EditGroup";
             // 
             // OpenFileMenu
             // 
@@ -154,6 +149,13 @@
             this.ToggleEditModeButton.ShowImage = true;
             this.ToggleEditModeButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ToggleEditModeButton_Click);
             // 
+            // EditGroup
+            // 
+            this.EditGroup.Items.Add(this.SearchSplitButton);
+            this.EditGroup.Items.Add(this.SetA1Button);
+            this.EditGroup.Label = "編集";
+            this.EditGroup.Name = "EditGroup";
+            // 
             // SearchSplitButton
             // 
             this.SearchSplitButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -180,6 +182,15 @@
             this.ReplaceButton.Name = "ReplaceButton";
             this.ReplaceButton.OfficeImageId = "FindDialog";
             this.ReplaceButton.ShowImage = true;
+            // 
+            // SetA1Button
+            // 
+            this.SetA1Button.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.SetA1Button.Label = "A1";
+            this.SetA1Button.Name = "SetA1Button";
+            this.SetA1Button.OfficeImageId = "BlogHomePage";
+            this.SetA1Button.ShowImage = true;
+            this.SetA1Button.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SetA1Button_Click);
             // 
             // Ribbon
             // 
@@ -213,6 +224,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenSelectWorkbookReadOnlyButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenSelectWorkbookEditableButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton SetA1Button;
     }
 
     partial class ThisRibbonCollection
