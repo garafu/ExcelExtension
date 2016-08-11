@@ -95,7 +95,7 @@
         /// </summary>
         /// <param name="sender">呼び出し元</param>
         /// <param name="e">イベント変数</param>
-        private void SearchSplitButton_Click(object sender, RibbonControlEventArgs e)
+        private void SearchButton_Click(object sender, RibbonControlEventArgs e)
         {
             var command = new OpenSearchReplaceCommand();
             command.Execute();

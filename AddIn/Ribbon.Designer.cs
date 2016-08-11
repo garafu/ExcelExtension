@@ -36,6 +36,7 @@
         {
             this.tab = this.Factory.CreateRibbonTab();
             this.FileGroup = this.Factory.CreateRibbonGroup();
+            this.EditGroup = this.Factory.CreateRibbonGroup();
             this.OpenFileMenu = this.Factory.CreateRibbonMenu();
             this.separator1 = this.Factory.CreateRibbonSeparator();
             this.OpenActiveWorkbookReadOnlyButton = this.Factory.CreateRibbonButton();
@@ -45,10 +46,7 @@
             this.OpenSelectWorkbookEditableButton = this.Factory.CreateRibbonButton();
             this.OpenFolderButton = this.Factory.CreateRibbonButton();
             this.ToggleEditModeButton = this.Factory.CreateRibbonButton();
-            this.EditGroup = this.Factory.CreateRibbonGroup();
-            this.SearchSplitButton = this.Factory.CreateRibbonSplitButton();
             this.SearchButton = this.Factory.CreateRibbonButton();
-            this.ReplaceButton = this.Factory.CreateRibbonButton();
             this.SetA1Button = this.Factory.CreateRibbonButton();
             this.InitializeStyleButton = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
@@ -70,6 +68,14 @@
             this.FileGroup.Items.Add(this.ToggleEditModeButton);
             this.FileGroup.Label = "ファイル";
             this.FileGroup.Name = "FileGroup";
+            // 
+            // EditGroup
+            // 
+            this.EditGroup.Items.Add(this.SearchButton);
+            this.EditGroup.Items.Add(this.SetA1Button);
+            this.EditGroup.Items.Add(this.InitializeStyleButton);
+            this.EditGroup.Label = "編集";
+            this.EditGroup.Name = "EditGroup";
             // 
             // OpenFileMenu
             // 
@@ -150,25 +156,6 @@
             this.ToggleEditModeButton.ShowImage = true;
             this.ToggleEditModeButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ToggleEditModeButton_Click);
             // 
-            // EditGroup
-            // 
-            this.EditGroup.Items.Add(this.SearchSplitButton);
-            this.EditGroup.Items.Add(this.SetA1Button);
-            this.EditGroup.Items.Add(this.InitializeStyleButton);
-            this.EditGroup.Label = "編集";
-            this.EditGroup.Name = "EditGroup";
-            // 
-            // SearchSplitButton
-            // 
-            this.SearchSplitButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.SearchSplitButton.Items.Add(this.SearchButton);
-            this.SearchSplitButton.Items.Add(this.ReplaceButton);
-            this.SearchSplitButton.ItemSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.SearchSplitButton.Label = "検索";
-            this.SearchSplitButton.Name = "SearchSplitButton";
-            this.SearchSplitButton.OfficeImageId = "FindDialog";
-            this.SearchSplitButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SearchSplitButton_Click);
-            // 
             // SearchButton
             // 
             this.SearchButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -176,14 +163,7 @@
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.OfficeImageId = "FindDialog";
             this.SearchButton.ShowImage = true;
-            // 
-            // ReplaceButton
-            // 
-            this.ReplaceButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.ReplaceButton.Label = "置換";
-            this.ReplaceButton.Name = "ReplaceButton";
-            this.ReplaceButton.OfficeImageId = "FindDialog";
-            this.ReplaceButton.ShowImage = true;
+            this.SearchButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SearchButton_Click);
             // 
             // SetA1Button
             // 
@@ -199,7 +179,7 @@
             this.InitializeStyleButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.InitializeStyleButton.Label = "スタイル初期化";
             this.InitializeStyleButton.Name = "InitializeStyleButton";
-            this.InitializeStyleButton.OfficeImageId = "RemoveCitation";
+            this.InitializeStyleButton.OfficeImageId = "TableOfContentsRemove";
             this.InitializeStyleButton.ShowImage = true;
             this.InitializeStyleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.InitializeStyleButton_Click);
             // 
@@ -222,9 +202,7 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup EditGroup;
-        internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton SearchSplitButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton SearchButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton ReplaceButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup FileGroup;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenFolderButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ToggleEditModeButton;
