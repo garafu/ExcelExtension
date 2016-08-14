@@ -122,5 +122,16 @@
             var command = new InitializeStyleCommand();
             command.Execute();
         }
+
+        /// <summary>
+        /// 「シート管理」ボタンを押下したときに呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元</param>
+        /// <param name="e">イベント変数</param>
+        private void ManageWorksheetButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            var command = new OpenWorksheetManageWindowCommand();
+            command.Execute();
+        }
     }
 }

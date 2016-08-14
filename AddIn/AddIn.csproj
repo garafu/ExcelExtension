@@ -167,6 +167,7 @@
     <Compile Include="Command\OpenSearchReplaceCommand.cs" />
     <Compile Include="Command\OpenSelectWorkbookEditableCommand.cs" />
     <Compile Include="Command\OpenSelectWorkbookReadOnlyCommand.cs" />
+    <Compile Include="Command\OpenWorksheetManageWindowCommand.cs" />
     <Compile Include="Command\SetA1Command.cs" />
     <Compile Include="Command\ToggleEditModeCommand.cs" />
     <Compile Include="Dialog\SearchReplaceWindow.cs">
@@ -174,6 +175,13 @@
     </Compile>
     <Compile Include="Dialog\SearchReplaceWindow.Designer.cs">
       <DependentUpon>SearchReplaceWindow.cs</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Dialog\WorksheetManageWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\WorksheetManageWindow.Designer.cs">
+      <DependentUpon>WorksheetManageWindow.cs</DependentUpon>
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="DisplayNameAttribute.cs" />
@@ -186,12 +194,17 @@
     <Compile Include="Module\SearchReplace\SearchTarget.cs" />
     <Compile Include="Module\SearchReplace\SearchTargetType.cs" />
     <Compile Include="Module\SearchReplace\SearchScopeType.cs" />
+    <Compile Include="Module\WorksheetManage\WorksheetInfo.cs" />
+    <Compile Include="Module\WorksheetManage\WorksheetManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <EmbeddedResource Include="Dialog\SearchReplaceWindow.resx">
       <DependentUpon>SearchReplaceWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\WorksheetManageWindow.resx">
+      <DependentUpon>WorksheetManageWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -222,6 +235,7 @@
       <DependentUpon>Ribbon.cs</DependentUpon>
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
+    <Compile Include="SortableBindingList.cs" />
     <Compile Include="ThisAddin.cs">
       <SubType>Code</SubType>
     </Compile>
