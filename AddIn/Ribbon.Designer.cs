@@ -36,6 +36,8 @@
         {
             this.tab = this.Factory.CreateRibbonTab();
             this.FileGroup = this.Factory.CreateRibbonGroup();
+            this.EditGroup = this.Factory.CreateRibbonGroup();
+            this.HelpGroup = this.Factory.CreateRibbonGroup();
             this.OpenFileMenu = this.Factory.CreateRibbonMenu();
             this.separator1 = this.Factory.CreateRibbonSeparator();
             this.OpenActiveWorkbookReadOnlyButton = this.Factory.CreateRibbonButton();
@@ -45,21 +47,23 @@
             this.OpenSelectWorkbookEditableButton = this.Factory.CreateRibbonButton();
             this.OpenFolderButton = this.Factory.CreateRibbonButton();
             this.ToggleEditModeButton = this.Factory.CreateRibbonButton();
-            this.EditGroup = this.Factory.CreateRibbonGroup();
             this.SearchButton = this.Factory.CreateRibbonButton();
             this.SetA1Button = this.Factory.CreateRibbonButton();
             this.InitializeStyleButton = this.Factory.CreateRibbonButton();
-            this.ManageWorksheetButton = this.Factory.CreateRibbonButton();
             this.MakeGridButton = this.Factory.CreateRibbonButton();
+            this.ManageWorksheetButton = this.Factory.CreateRibbonButton();
+            this.OpenHelpButton = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
             this.FileGroup.SuspendLayout();
             this.EditGroup.SuspendLayout();
+            this.HelpGroup.SuspendLayout();
             // 
             // tab
             // 
             this.tab.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab.Groups.Add(this.FileGroup);
             this.tab.Groups.Add(this.EditGroup);
+            this.tab.Groups.Add(this.HelpGroup);
             this.tab.Label = "拡張ツール";
             this.tab.Name = "tab";
             // 
@@ -70,6 +74,22 @@
             this.FileGroup.Items.Add(this.ToggleEditModeButton);
             this.FileGroup.Label = "ファイル";
             this.FileGroup.Name = "FileGroup";
+            // 
+            // EditGroup
+            // 
+            this.EditGroup.Items.Add(this.SearchButton);
+            this.EditGroup.Items.Add(this.SetA1Button);
+            this.EditGroup.Items.Add(this.InitializeStyleButton);
+            this.EditGroup.Items.Add(this.MakeGridButton);
+            this.EditGroup.Items.Add(this.ManageWorksheetButton);
+            this.EditGroup.Label = "編集";
+            this.EditGroup.Name = "EditGroup";
+            // 
+            // HelpGroup
+            // 
+            this.HelpGroup.Items.Add(this.OpenHelpButton);
+            this.HelpGroup.Label = "ヘルプ";
+            this.HelpGroup.Name = "HelpGroup";
             // 
             // OpenFileMenu
             // 
@@ -150,16 +170,6 @@
             this.ToggleEditModeButton.ShowImage = true;
             this.ToggleEditModeButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ToggleEditModeButton_Click);
             // 
-            // EditGroup
-            // 
-            this.EditGroup.Items.Add(this.SearchButton);
-            this.EditGroup.Items.Add(this.SetA1Button);
-            this.EditGroup.Items.Add(this.InitializeStyleButton);
-            this.EditGroup.Items.Add(this.MakeGridButton);
-            this.EditGroup.Items.Add(this.ManageWorksheetButton);
-            this.EditGroup.Label = "編集";
-            this.EditGroup.Name = "EditGroup";
-            // 
             // SearchButton
             // 
             this.SearchButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -187,6 +197,15 @@
             this.InitializeStyleButton.ShowImage = true;
             this.InitializeStyleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.InitializeStyleButton_Click);
             // 
+            // MakeGridButton
+            // 
+            this.MakeGridButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.MakeGridButton.Label = "方眼紙";
+            this.MakeGridButton.Name = "MakeGridButton";
+            this.MakeGridButton.OfficeImageId = "ViewNormalViewExcel";
+            this.MakeGridButton.ShowImage = true;
+            this.MakeGridButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.MakeGridButton_Click);
+            // 
             // ManageWorksheetButton
             // 
             this.ManageWorksheetButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -196,14 +215,13 @@
             this.ManageWorksheetButton.ShowImage = true;
             this.ManageWorksheetButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ManageWorksheetButton_Click);
             // 
-            // MakeGridButton
+            // OpenHelpButton
             // 
-            this.MakeGridButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.MakeGridButton.Label = "方眼紙";
-            this.MakeGridButton.Name = "MakeGridButton";
-            this.MakeGridButton.OfficeImageId = "ViewNormalViewExcel";
-            this.MakeGridButton.ShowImage = true;
-            this.MakeGridButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.MakeGridButton_Click);
+            this.OpenHelpButton.Label = "ヘルプ";
+            this.OpenHelpButton.Name = "OpenHelpButton";
+            this.OpenHelpButton.OfficeImageId = "ContentsAndIndex";
+            this.OpenHelpButton.ShowImage = true;
+            this.OpenHelpButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenHelpButton_Click);
             // 
             // Ribbon
             // 
@@ -217,6 +235,8 @@
             this.FileGroup.PerformLayout();
             this.EditGroup.ResumeLayout(false);
             this.EditGroup.PerformLayout();
+            this.HelpGroup.ResumeLayout(false);
+            this.HelpGroup.PerformLayout();
 
         }
 
@@ -239,6 +259,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton InitializeStyleButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ManageWorksheetButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton MakeGridButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup HelpGroup;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenHelpButton;
     }
 
     partial class ThisRibbonCollection

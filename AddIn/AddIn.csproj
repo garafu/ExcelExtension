@@ -165,6 +165,7 @@
     <Compile Include="Command\OpenActiveWorkbookEditableCommand.cs" />
     <Compile Include="Command\OpenFileCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookReadOnlyCommand.cs" />
+    <Compile Include="Command\OpenHelpCommand.cs" />
     <Compile Include="Command\OpenSearchReplaceCommand.cs" />
     <Compile Include="Command\OpenSelectWorkbookEditableCommand.cs" />
     <Compile Include="Command\OpenSelectWorkbookReadOnlyCommand.cs" />
