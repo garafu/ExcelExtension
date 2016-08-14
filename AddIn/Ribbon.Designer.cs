@@ -50,6 +50,7 @@
             this.SetA1Button = this.Factory.CreateRibbonButton();
             this.InitializeStyleButton = this.Factory.CreateRibbonButton();
             this.ManageWorksheetButton = this.Factory.CreateRibbonButton();
+            this.MakeGridButton = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
             this.FileGroup.SuspendLayout();
             this.EditGroup.SuspendLayout();
@@ -154,6 +155,7 @@
             this.EditGroup.Items.Add(this.SearchButton);
             this.EditGroup.Items.Add(this.SetA1Button);
             this.EditGroup.Items.Add(this.InitializeStyleButton);
+            this.EditGroup.Items.Add(this.MakeGridButton);
             this.EditGroup.Items.Add(this.ManageWorksheetButton);
             this.EditGroup.Label = "編集";
             this.EditGroup.Name = "EditGroup";
@@ -194,6 +196,15 @@
             this.ManageWorksheetButton.ShowImage = true;
             this.ManageWorksheetButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ManageWorksheetButton_Click);
             // 
+            // MakeGridButton
+            // 
+            this.MakeGridButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.MakeGridButton.Label = "方眼紙";
+            this.MakeGridButton.Name = "MakeGridButton";
+            this.MakeGridButton.OfficeImageId = "ViewNormalViewExcel";
+            this.MakeGridButton.ShowImage = true;
+            this.MakeGridButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.MakeGridButton_Click);
+            // 
             // Ribbon
             // 
             this.Name = "Ribbon";
@@ -227,6 +238,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton SetA1Button;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton InitializeStyleButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ManageWorksheetButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton MakeGridButton;
     }
 
     partial class ThisRibbonCollection

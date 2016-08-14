@@ -124,6 +124,17 @@
         }
 
         /// <summary>
+        /// 「方眼紙」ボタンを押下したときに呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元</param>
+        /// <param name="e">イベント変数</param>
+        private void MakeGridButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            var command = new MakeGridCommand();
+            command.Execute();
+        }
+
+        /// <summary>
         /// 「シート管理」ボタンを押下したときに呼び出されます。
         /// </summary>
         /// <param name="sender">呼び出し元</param>

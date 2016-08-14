@@ -160,6 +160,7 @@
   <ItemGroup>
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\InitializeStyleCommand.cs" />
+    <Compile Include="Command\MakeGridCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookFolderCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookEditableCommand.cs" />
     <Compile Include="Command\OpenFileCommand.cs" />
