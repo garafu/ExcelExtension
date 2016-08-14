@@ -1,4 +1,4 @@
-﻿namespace ExcelX.Addin.Module.WorksheetManage
+﻿namespace ExcelX.AddIn.Module.WorksheetManage
 {
     using System;
     using System.Collections.Generic;

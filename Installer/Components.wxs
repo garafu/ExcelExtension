@@ -7,7 +7,7 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="LocalAppDataFolder">
-        <Directory Id="INSTALLFOLDER" Name="Excel Extension Addin" />
+        <Directory Id="INSTALLFOLDER" Name="Excel Extension AddIn" />
       </Directory>
     </Directory>
   </Fragment>
@@ -24,8 +24,8 @@
       <Component Id="ExcelExtensionAddin.vsto" DiskId="1" Guid="00684B31-0A9B-4E35-8EDD-7CAD7767C63B">
         <File Id="ExcelExtensionAddin.vsto" Name="ExcelExtensionAddin.vsto" Source="$(var.ProductOutputDir)ExcelExtensionAddin.vsto" KeyPath="yes" />
         <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\Excel\Addins\ExcelExtension" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
-          <RegistryValue Name="Description" Value="Excel Extension Addin" Type="string" Action="write" />
-          <RegistryValue Name="FriendlyName" Value="Excel Extension Addin" Type="string" Action="write" />
+          <RegistryValue Name="Description" Value="Excel Extension AddIn" Type="string" Action="write" />
+          <RegistryValue Name="FriendlyName" Value="Excel Extension AddIn" Type="string" Action="write" />
           <RegistryValue Name="LoadBehavior" Value="3" Type="integer" Action="write" />
           <RegistryValue Name="Manifest" Value="file:///[#ExcelExtensionAddin.vsto]|vstolocal" Type="string" Action="write" />
         </RegistryKey> 

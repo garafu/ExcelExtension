@@ -1,4 +1,4 @@
-﻿namespace ExcelX.Addin.Command
+﻿namespace ExcelX.AddIn.Command
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
-    using ExcelX.Addin.Dialog;
+    using ExcelX.AddIn.Dialog;
 
     /// <summary>
     /// 「ワークシート管理を開く」コマンド

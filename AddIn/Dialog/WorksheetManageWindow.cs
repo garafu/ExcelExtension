@@ -1,4 +1,4 @@
-﻿namespace ExcelX.Addin.Dialog
+﻿namespace ExcelX.AddIn.Dialog
 {
     using System;
     using System.Collections.Generic;
@@ -9,7 +9,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
-    using ExcelX.Addin.Module.WorksheetManage;
+    using ExcelX.AddIn.Module.WorksheetManage;
 
     /// <summary>
     /// ワークシート管理ダイアログ

@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Text;
     using System.Windows.Forms;
-    using ExcelX.Addin.Command;
+    using ExcelX.AddIn.Command;
     using ExcelX.AddIn.Dialog;
     using Microsoft.Office.Tools.Ribbon;
 

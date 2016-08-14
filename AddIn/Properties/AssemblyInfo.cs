@@ -10,7 +10,7 @@ using System.Security;
 [assembly: AssemblyDescription("Excel の 機能拡張 を行います。")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Garafu Software")]
-[assembly: AssemblyProduct("Excel Extension Addin")]
+[assembly: AssemblyProduct("Excel Extension AddIn")]
 [assembly: AssemblyCopyright("Copyright © Garafu Software 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

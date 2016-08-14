@@ -1,4 +1,4 @@
-﻿namespace ExcelX.Addin.Command
+﻿namespace ExcelX.AddIn.Command
 {
     using System;
     using System.Collections.Generic;

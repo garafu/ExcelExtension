@@ -1,4 +1,4 @@
-﻿namespace ExcelX.Addin.Dialog
+﻿namespace ExcelX.AddIn.Dialog
 {
     partial class WorksheetManageWindow
     {
