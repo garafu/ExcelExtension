@@ -35,7 +35,7 @@
         /// <param name="target">検索対象</param>
         /// <param name="condition">検索条件</param>
         /// <returns>検索結果</returns>
-        public List<SearchResult> Execute(SearchScope scope, SearchTarget target, SearchCondition condition)
+        public SortableBindingList<SearchResult> Execute(SearchScope scope, SearchTarget target, SearchCondition condition)
         {
             var result = new List<SearchResult>();
 
@@ -75,7 +75,7 @@
                 }
             }
 
-            return result;
+            return new SortableBindingList<SearchResult>(result);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@
         /// <param name="target">検索対象</param>
         /// <param name="condition">検索条件</param>
         /// <returns>検索結果</returns>
-        public Task<List<SearchResult>> ExecuteAsync(SearchScope scope, SearchTarget target, SearchCondition condition)
+        public Task<SortableBindingList<SearchResult>> ExecuteAsync(SearchScope scope, SearchTarget target, SearchCondition condition)
         {
             return Task.Factory.StartNew(() =>
             {
