@@ -53,6 +53,7 @@
             this.MakeGridButton = this.Factory.CreateRibbonButton();
             this.ManageWorksheetButton = this.Factory.CreateRibbonButton();
             this.OpenHelpButton = this.Factory.CreateRibbonButton();
+            this.OpenVersionInfoButton = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
             this.FileGroup.SuspendLayout();
             this.EditGroup.SuspendLayout();
@@ -88,6 +89,7 @@
             // HelpGroup
             // 
             this.HelpGroup.Items.Add(this.OpenHelpButton);
+            this.HelpGroup.Items.Add(this.OpenVersionInfoButton);
             this.HelpGroup.Label = "ヘルプ";
             this.HelpGroup.Name = "HelpGroup";
             // 
@@ -223,6 +225,14 @@
             this.OpenHelpButton.ShowImage = true;
             this.OpenHelpButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenHelpButton_Click);
             // 
+            // OpenVersionInfoButton
+            // 
+            this.OpenVersionInfoButton.Label = "バージョン";
+            this.OpenVersionInfoButton.Name = "OpenVersionInfoButton";
+            this.OpenVersionInfoButton.OfficeImageId = "Info";
+            this.OpenVersionInfoButton.ShowImage = true;
+            this.OpenVersionInfoButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenVersionInfoButton_Click);
+            // 
             // Ribbon
             // 
             this.Name = "Ribbon";
@@ -261,6 +271,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton MakeGridButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup HelpGroup;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenHelpButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenVersionInfoButton;
     }
 
     partial class ThisRibbonCollection

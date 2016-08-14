@@ -155,5 +155,16 @@
             var command = new OpenHelpCommand();
             command.Execute();
         }
+
+        /// <summary>
+        /// 「バージョン」ボタンを押下したときに呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元</param>
+        /// <param name="e">イベント変数</param>
+        private void OpenVersionInfoButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            var command = new OpenVersionInfoWindowCommand();
+            command.Execute();
+        }
     }
 }
