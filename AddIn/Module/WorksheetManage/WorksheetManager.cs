@@ -43,12 +43,9 @@
         /// <returns>ワークシート情報</returns>
         public WorksheetInfo CreateNewWorksheet()
         {
-            var sequence = this.GetSequence();
-
             var info = new WorksheetInfo()
             {
-                NewIndex = sequence,
-                NewName = string.Format("ワークシート({0})", sequence),
+                NewName = string.Format("ワークシート({0})", this.GetSequence()),
                 NewVisible = true,
             };
 
@@ -80,18 +77,6 @@
             // 警告の抑止
             application.DisplayAlerts = false;
 
-            // シートの削除
-            foreach (var info in this.deleteList)
-            {
-                if (info.IsCreated)
-                {
-                    continue;
-                }
-
-                worksheet = workbook.Sheets[info.NewName];
-                worksheet.Delete();
-            }
-
             // シートの追加または更新
             for (var i = 0; i < datasource.Count; i++)
             {
@@ -100,13 +85,13 @@
                 if (info.IsCreated)
                 {
                     // 追加
-                    if (info.NewIndex == 0)
+                    if (info.NewIndex != 0 && bfrWorksheet != null)
                     {
-                        crrWorksheet = workbook.Sheets.Add();
+                        crrWorksheet = workbook.Sheets.Add(After: bfrWorksheet);
                     }
                     else
                     {
-                        crrWorksheet = workbook.Sheets.Add(After: bfrWorksheet);
+                        crrWorksheet = workbook.Sheets.Add();
                     }
 
                     crrWorksheet.Name = info.NewName;
@@ -128,6 +113,18 @@
                 }
 
                 bfrWorksheet = info.Worksheet;
+            }
+
+            // シートの削除
+            foreach (var info in this.deleteList)
+            {
+                if (info.IsCreated)
+                {
+                    continue;
+                }
+
+                worksheet = workbook.Sheets[info.NewName];
+                worksheet.Delete();
             }
 
             // 削除対象リストを初期化

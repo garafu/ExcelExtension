@@ -81,6 +81,9 @@
         {
             var item = this.manager.CreateNewWorksheet();
             this.datasource.Add(item);
+
+            // インデックスを更新
+            this.UpdateListIndex();
         }
 
         /// <summary>
@@ -90,12 +93,21 @@
         /// <param name="e">イベント変数</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            if (this.datasource.Count == this.DataGridView.SelectedRows.Count)
+            {
+                return;
+            }
+
+            // 選択された行を削除
             foreach (DataGridViewRow row in this.DataGridView.SelectedRows)
             {
                 var target = this.datasource[row.Index] as WorksheetInfo;
                 this.datasource.RemoveAt(row.Index);
                 this.manager.Delete(target);
             }
+
+            // インデックスを更新
+            this.UpdateListIndex();
         }
 
         /// <summary>
@@ -260,6 +272,19 @@
                     e.Cancel = true;
                     return;
                 }
+            }
+        }
+
+        /// <summary>
+        /// リストのインデックスをすべて更新します。
+        /// </summary>
+        private void UpdateListIndex()
+        {
+            var intex = 1;
+
+            foreach (WorksheetInfo item in this.datasource)
+            {
+                item.NewIndex = intex++;
             }
         }
     }
