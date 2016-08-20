@@ -55,6 +55,8 @@
             this.ConfigButton = this.Factory.CreateRibbonButton();
             this.OpenHelpButton = this.Factory.CreateRibbonButton();
             this.OpenVersionInfoButton = this.Factory.CreateRibbonButton();
+            this.HelpMenu = this.Factory.CreateRibbonMenu();
+            this.ReportIssuesButton = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
             this.FileGroup.SuspendLayout();
             this.EditGroup.SuspendLayout();
@@ -214,8 +216,7 @@
             // HelpGroup
             // 
             this.HelpGroup.Items.Add(this.ConfigButton);
-            this.HelpGroup.Items.Add(this.OpenHelpButton);
-            this.HelpGroup.Items.Add(this.OpenVersionInfoButton);
+            this.HelpGroup.Items.Add(this.HelpMenu);
             this.HelpGroup.Name = "HelpGroup";
             // 
             // ConfigButton
@@ -228,7 +229,7 @@
             // 
             // OpenHelpButton
             // 
-            this.OpenHelpButton.Label = "ヘルプ";
+            this.OpenHelpButton.Label = "ヘルプの表示";
             this.OpenHelpButton.Name = "OpenHelpButton";
             this.OpenHelpButton.OfficeImageId = "ContentsAndIndex";
             this.OpenHelpButton.ShowImage = true;
@@ -236,11 +237,29 @@
             // 
             // OpenVersionInfoButton
             // 
-            this.OpenVersionInfoButton.Label = "バージョン";
+            this.OpenVersionInfoButton.Label = "バージョン情報";
             this.OpenVersionInfoButton.Name = "OpenVersionInfoButton";
             this.OpenVersionInfoButton.OfficeImageId = "Info";
             this.OpenVersionInfoButton.ShowImage = true;
             this.OpenVersionInfoButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenVersionInfoButton_Click);
+            // 
+            // HelpMenu
+            // 
+            this.HelpMenu.Items.Add(this.OpenHelpButton);
+            this.HelpMenu.Items.Add(this.OpenVersionInfoButton);
+            this.HelpMenu.Items.Add(this.ReportIssuesButton);
+            this.HelpMenu.Label = "ヘルプ";
+            this.HelpMenu.Name = "HelpMenu";
+            this.HelpMenu.OfficeImageId = "ContentsAndIndex";
+            this.HelpMenu.ShowImage = true;
+            // 
+            // ReportIssuesButton
+            // 
+            this.ReportIssuesButton.Label = "問題の報告";
+            this.ReportIssuesButton.Name = "ReportIssuesButton";
+            this.ReportIssuesButton.OfficeImageId = "HighImportance";
+            this.ReportIssuesButton.ShowImage = true;
+            this.ReportIssuesButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ReportIssuesButton_Click);
             // 
             // Ribbon
             // 
@@ -282,6 +301,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenHelpButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenVersionInfoButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ConfigButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonMenu HelpMenu;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ReportIssuesButton;
     }
 
     partial class ThisRibbonCollection
