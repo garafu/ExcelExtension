@@ -35,231 +35,231 @@
         private void InitializeComponent()
         {
             this.tab = this.Factory.CreateRibbonTab();
-            this.FileGroup = this.Factory.CreateRibbonGroup();
-            this.OpenFileMenu = this.Factory.CreateRibbonMenu();
+            this.fileGroup = this.Factory.CreateRibbonGroup();
+            this.editGroup = this.Factory.CreateRibbonGroup();
+            this.helpGroup = this.Factory.CreateRibbonGroup();
+            this.openFileMenu = this.Factory.CreateRibbonMenu();
             this.separator1 = this.Factory.CreateRibbonSeparator();
-            this.OpenActiveWorkbookReadOnlyButton = this.Factory.CreateRibbonButton();
-            this.OpenActiveWorkbookEditableButton = this.Factory.CreateRibbonButton();
+            this.openActiveWorkbookReadOnlyButton = this.Factory.CreateRibbonButton();
+            this.openActiveWorkbookEditableButton = this.Factory.CreateRibbonButton();
             this.separator2 = this.Factory.CreateRibbonSeparator();
-            this.OpenSelectWorkbookReadOnlyButton = this.Factory.CreateRibbonButton();
-            this.OpenSelectWorkbookEditableButton = this.Factory.CreateRibbonButton();
-            this.OpenFolderButton = this.Factory.CreateRibbonButton();
-            this.ToggleEditModeButton = this.Factory.CreateRibbonButton();
-            this.EditGroup = this.Factory.CreateRibbonGroup();
-            this.SearchButton = this.Factory.CreateRibbonButton();
-            this.SetA1Button = this.Factory.CreateRibbonButton();
-            this.InitializeStyleButton = this.Factory.CreateRibbonButton();
-            this.MakeGridButton = this.Factory.CreateRibbonButton();
-            this.ManageWorksheetButton = this.Factory.CreateRibbonButton();
-            this.HelpGroup = this.Factory.CreateRibbonGroup();
-            this.ConfigButton = this.Factory.CreateRibbonButton();
-            this.OpenHelpButton = this.Factory.CreateRibbonButton();
-            this.OpenVersionInfoButton = this.Factory.CreateRibbonButton();
-            this.HelpMenu = this.Factory.CreateRibbonMenu();
-            this.ReportIssuesButton = this.Factory.CreateRibbonButton();
+            this.openSelectWorkbookReadOnlyButton = this.Factory.CreateRibbonButton();
+            this.openSelectWorkbookEditableButton = this.Factory.CreateRibbonButton();
+            this.openFolderButton = this.Factory.CreateRibbonButton();
+            this.toggleEditModeButton = this.Factory.CreateRibbonButton();
+            this.searchButton = this.Factory.CreateRibbonButton();
+            this.setA1Button = this.Factory.CreateRibbonButton();
+            this.initializeStyleButton = this.Factory.CreateRibbonButton();
+            this.makeGridButton = this.Factory.CreateRibbonButton();
+            this.manageWorksheetButton = this.Factory.CreateRibbonButton();
+            this.configButton = this.Factory.CreateRibbonButton();
+            this.helpMenu = this.Factory.CreateRibbonMenu();
+            this.openHelpButton = this.Factory.CreateRibbonButton();
+            this.openVersionInfoButton = this.Factory.CreateRibbonButton();
+            this.reportIssuesButton = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
-            this.FileGroup.SuspendLayout();
-            this.EditGroup.SuspendLayout();
-            this.HelpGroup.SuspendLayout();
+            this.fileGroup.SuspendLayout();
+            this.editGroup.SuspendLayout();
+            this.helpGroup.SuspendLayout();
             // 
             // tab
             // 
             this.tab.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-            this.tab.Groups.Add(this.FileGroup);
-            this.tab.Groups.Add(this.EditGroup);
-            this.tab.Groups.Add(this.HelpGroup);
+            this.tab.Groups.Add(this.fileGroup);
+            this.tab.Groups.Add(this.editGroup);
+            this.tab.Groups.Add(this.helpGroup);
             this.tab.Label = "拡張ツール";
             this.tab.Name = "tab";
             // 
-            // FileGroup
+            // fileGroup
             // 
-            this.FileGroup.Items.Add(this.OpenFileMenu);
-            this.FileGroup.Items.Add(this.OpenFolderButton);
-            this.FileGroup.Items.Add(this.ToggleEditModeButton);
-            this.FileGroup.Label = "ファイル";
-            this.FileGroup.Name = "FileGroup";
+            this.fileGroup.Items.Add(this.openFileMenu);
+            this.fileGroup.Items.Add(this.openFolderButton);
+            this.fileGroup.Items.Add(this.toggleEditModeButton);
+            this.fileGroup.Label = "ファイル";
+            this.fileGroup.Name = "fileGroup";
             // 
-            // OpenFileMenu
+            // editGroup
             // 
-            this.OpenFileMenu.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.OpenFileMenu.Items.Add(this.separator1);
-            this.OpenFileMenu.Items.Add(this.OpenActiveWorkbookReadOnlyButton);
-            this.OpenFileMenu.Items.Add(this.OpenActiveWorkbookEditableButton);
-            this.OpenFileMenu.Items.Add(this.separator2);
-            this.OpenFileMenu.Items.Add(this.OpenSelectWorkbookReadOnlyButton);
-            this.OpenFileMenu.Items.Add(this.OpenSelectWorkbookEditableButton);
-            this.OpenFileMenu.ItemSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.OpenFileMenu.Label = "ファイルを開く";
-            this.OpenFileMenu.Name = "OpenFileMenu";
-            this.OpenFileMenu.OfficeImageId = "FileOpen";
-            this.OpenFileMenu.ShowImage = true;
+            this.editGroup.Items.Add(this.searchButton);
+            this.editGroup.Items.Add(this.setA1Button);
+            this.editGroup.Items.Add(this.initializeStyleButton);
+            this.editGroup.Items.Add(this.makeGridButton);
+            this.editGroup.Items.Add(this.manageWorksheetButton);
+            this.editGroup.Label = "編集";
+            this.editGroup.Name = "editGroup";
+            // 
+            // helpGroup
+            // 
+            this.helpGroup.Items.Add(this.configButton);
+            this.helpGroup.Items.Add(this.helpMenu);
+            this.helpGroup.Name = "helpGroup";
+            // 
+            // openFileMenu
+            // 
+            this.openFileMenu.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.openFileMenu.Items.Add(this.separator1);
+            this.openFileMenu.Items.Add(this.openActiveWorkbookReadOnlyButton);
+            this.openFileMenu.Items.Add(this.openActiveWorkbookEditableButton);
+            this.openFileMenu.Items.Add(this.separator2);
+            this.openFileMenu.Items.Add(this.openSelectWorkbookReadOnlyButton);
+            this.openFileMenu.Items.Add(this.openSelectWorkbookEditableButton);
+            this.openFileMenu.ItemSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.openFileMenu.Label = "ファイルを開く";
+            this.openFileMenu.Name = "openFileMenu";
+            this.openFileMenu.OfficeImageId = "FileOpen";
+            this.openFileMenu.ShowImage = true;
             // 
             // separator1
             // 
             this.separator1.Name = "separator1";
             this.separator1.Title = "現在のブックを開く";
             // 
-            // OpenActiveWorkbookReadOnlyButton
+            // openActiveWorkbookReadOnlyButton
             // 
-            this.OpenActiveWorkbookReadOnlyButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.OpenActiveWorkbookReadOnlyButton.Label = "現在のブックを別ウィンドウの読み取り専用で開く";
-            this.OpenActiveWorkbookReadOnlyButton.Name = "OpenActiveWorkbookReadOnlyButton";
-            this.OpenActiveWorkbookReadOnlyButton.OfficeImageId = "FilePermission";
-            this.OpenActiveWorkbookReadOnlyButton.ShowImage = true;
-            this.OpenActiveWorkbookReadOnlyButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenActiveWorkbookReadOnlyButton_Click);
+            this.openActiveWorkbookReadOnlyButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.openActiveWorkbookReadOnlyButton.Label = "現在のブックを別ウィンドウの読み取り専用で開く";
+            this.openActiveWorkbookReadOnlyButton.Name = "openActiveWorkbookReadOnlyButton";
+            this.openActiveWorkbookReadOnlyButton.OfficeImageId = "FilePermission";
+            this.openActiveWorkbookReadOnlyButton.ShowImage = true;
+            this.openActiveWorkbookReadOnlyButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenActiveWorkbookReadOnlyButton_Click);
             // 
-            // OpenActiveWorkbookEditableButton
+            // openActiveWorkbookEditableButton
             // 
-            this.OpenActiveWorkbookEditableButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.OpenActiveWorkbookEditableButton.Label = "現在のブックを別ウィンドウの編集用で開く";
-            this.OpenActiveWorkbookEditableButton.Name = "OpenActiveWorkbookEditableButton";
-            this.OpenActiveWorkbookEditableButton.OfficeImageId = "SignatureLineInsert";
-            this.OpenActiveWorkbookEditableButton.ShowImage = true;
-            this.OpenActiveWorkbookEditableButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenActiveWorkbookEditableButton_Click);
+            this.openActiveWorkbookEditableButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.openActiveWorkbookEditableButton.Label = "現在のブックを別ウィンドウの編集用で開く";
+            this.openActiveWorkbookEditableButton.Name = "openActiveWorkbookEditableButton";
+            this.openActiveWorkbookEditableButton.OfficeImageId = "SignatureLineInsert";
+            this.openActiveWorkbookEditableButton.ShowImage = true;
+            this.openActiveWorkbookEditableButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenActiveWorkbookEditableButton_Click);
             // 
             // separator2
             // 
             this.separator2.Name = "separator2";
             this.separator2.Title = "ファイルを選択して開く";
             // 
-            // OpenSelectWorkbookReadOnlyButton
+            // openSelectWorkbookReadOnlyButton
             // 
-            this.OpenSelectWorkbookReadOnlyButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.OpenSelectWorkbookReadOnlyButton.Label = "ファイルを選択して別ウィンドウの読み取り専用で開く";
-            this.OpenSelectWorkbookReadOnlyButton.Name = "OpenSelectWorkbookReadOnlyButton";
-            this.OpenSelectWorkbookReadOnlyButton.OfficeImageId = "FileOpen";
-            this.OpenSelectWorkbookReadOnlyButton.ShowImage = true;
-            this.OpenSelectWorkbookReadOnlyButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenSelectWorkbookReadOnlyButton_Click);
+            this.openSelectWorkbookReadOnlyButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.openSelectWorkbookReadOnlyButton.Label = "ファイルを選択して別ウィンドウの読み取り専用で開く";
+            this.openSelectWorkbookReadOnlyButton.Name = "openSelectWorkbookReadOnlyButton";
+            this.openSelectWorkbookReadOnlyButton.OfficeImageId = "FileOpen";
+            this.openSelectWorkbookReadOnlyButton.ShowImage = true;
+            this.openSelectWorkbookReadOnlyButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenSelectWorkbookReadOnlyButton_Click);
             // 
-            // OpenSelectWorkbookEditableButton
+            // openSelectWorkbookEditableButton
             // 
-            this.OpenSelectWorkbookEditableButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.OpenSelectWorkbookEditableButton.Label = "ファイルを選択して別ウィンドウの編集用で開く";
-            this.OpenSelectWorkbookEditableButton.Name = "OpenSelectWorkbookEditableButton";
-            this.OpenSelectWorkbookEditableButton.OfficeImageId = "FileOpen";
-            this.OpenSelectWorkbookEditableButton.ShowImage = true;
-            this.OpenSelectWorkbookEditableButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenSelectWorkbookEditableButton_Click);
+            this.openSelectWorkbookEditableButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.openSelectWorkbookEditableButton.Label = "ファイルを選択して別ウィンドウの編集用で開く";
+            this.openSelectWorkbookEditableButton.Name = "openSelectWorkbookEditableButton";
+            this.openSelectWorkbookEditableButton.OfficeImageId = "FileOpen";
+            this.openSelectWorkbookEditableButton.ShowImage = true;
+            this.openSelectWorkbookEditableButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenSelectWorkbookEditableButton_Click);
             // 
-            // OpenFolderButton
+            // openFolderButton
             // 
-            this.OpenFolderButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.OpenFolderButton.Label = "フォルダを開く";
-            this.OpenFolderButton.Name = "OpenFolderButton";
-            this.OpenFolderButton.OfficeImageId = "Folder";
-            this.OpenFolderButton.ShowImage = true;
-            this.OpenFolderButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenFolderButton_Click);
+            this.openFolderButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.openFolderButton.Label = "フォルダを開く";
+            this.openFolderButton.Name = "openFolderButton";
+            this.openFolderButton.OfficeImageId = "Folder";
+            this.openFolderButton.ShowImage = true;
+            this.openFolderButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenFolderButton_Click);
             // 
-            // ToggleEditModeButton
+            // toggleEditModeButton
             // 
-            this.ToggleEditModeButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.ToggleEditModeButton.Label = "読み取り専用の設定/解除";
-            this.ToggleEditModeButton.Name = "ToggleEditModeButton";
-            this.ToggleEditModeButton.OfficeImageId = "ReadOnly";
-            this.ToggleEditModeButton.ShowImage = true;
-            this.ToggleEditModeButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ToggleEditModeButton_Click);
+            this.toggleEditModeButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.toggleEditModeButton.Label = "読み取り専用の設定/解除";
+            this.toggleEditModeButton.Name = "toggleEditModeButton";
+            this.toggleEditModeButton.OfficeImageId = "ReadOnly";
+            this.toggleEditModeButton.ShowImage = true;
+            this.toggleEditModeButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ToggleEditModeButton_Click);
             // 
-            // EditGroup
+            // searchButton
             // 
-            this.EditGroup.Items.Add(this.SearchButton);
-            this.EditGroup.Items.Add(this.SetA1Button);
-            this.EditGroup.Items.Add(this.InitializeStyleButton);
-            this.EditGroup.Items.Add(this.MakeGridButton);
-            this.EditGroup.Items.Add(this.ManageWorksheetButton);
-            this.EditGroup.Label = "編集";
-            this.EditGroup.Name = "EditGroup";
+            this.searchButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.searchButton.Label = "検索";
+            this.searchButton.Name = "searchButton";
+            this.searchButton.OfficeImageId = "FindDialog";
+            this.searchButton.ShowImage = true;
+            this.searchButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SearchButton_Click);
             // 
-            // SearchButton
+            // setA1Button
             // 
-            this.SearchButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.SearchButton.Label = "検索";
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.OfficeImageId = "FindDialog";
-            this.SearchButton.ShowImage = true;
-            this.SearchButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SearchButton_Click);
+            this.setA1Button.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.setA1Button.Label = "A1";
+            this.setA1Button.Name = "setA1Button";
+            this.setA1Button.OfficeImageId = "BlogHomePage";
+            this.setA1Button.ShowImage = true;
+            this.setA1Button.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SetA1Button_Click);
             // 
-            // SetA1Button
+            // initializeStyleButton
             // 
-            this.SetA1Button.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.SetA1Button.Label = "A1";
-            this.SetA1Button.Name = "SetA1Button";
-            this.SetA1Button.OfficeImageId = "BlogHomePage";
-            this.SetA1Button.ShowImage = true;
-            this.SetA1Button.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SetA1Button_Click);
+            this.initializeStyleButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.initializeStyleButton.Label = "スタイル初期化";
+            this.initializeStyleButton.Name = "initializeStyleButton";
+            this.initializeStyleButton.OfficeImageId = "TableOfContentsRemove";
+            this.initializeStyleButton.ShowImage = true;
+            this.initializeStyleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.InitializeStyleButton_Click);
             // 
-            // InitializeStyleButton
+            // makeGridButton
             // 
-            this.InitializeStyleButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.InitializeStyleButton.Label = "スタイル初期化";
-            this.InitializeStyleButton.Name = "InitializeStyleButton";
-            this.InitializeStyleButton.OfficeImageId = "TableOfContentsRemove";
-            this.InitializeStyleButton.ShowImage = true;
-            this.InitializeStyleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.InitializeStyleButton_Click);
+            this.makeGridButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.makeGridButton.Label = "方眼紙";
+            this.makeGridButton.Name = "makeGridButton";
+            this.makeGridButton.OfficeImageId = "ViewNormalViewExcel";
+            this.makeGridButton.ShowImage = true;
+            this.makeGridButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.MakeGridButton_Click);
             // 
-            // MakeGridButton
+            // manageWorksheetButton
             // 
-            this.MakeGridButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.MakeGridButton.Label = "方眼紙";
-            this.MakeGridButton.Name = "MakeGridButton";
-            this.MakeGridButton.OfficeImageId = "ViewNormalViewExcel";
-            this.MakeGridButton.ShowImage = true;
-            this.MakeGridButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.MakeGridButton_Click);
+            this.manageWorksheetButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.manageWorksheetButton.Label = "シート管理";
+            this.manageWorksheetButton.Name = "manageWorksheetButton";
+            this.manageWorksheetButton.OfficeImageId = "DefinePrintStyles";
+            this.manageWorksheetButton.ShowImage = true;
+            this.manageWorksheetButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ManageWorksheetButton_Click);
             // 
-            // ManageWorksheetButton
+            // configButton
             // 
-            this.ManageWorksheetButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.ManageWorksheetButton.Label = "シート管理";
-            this.ManageWorksheetButton.Name = "ManageWorksheetButton";
-            this.ManageWorksheetButton.OfficeImageId = "DefinePrintStyles";
-            this.ManageWorksheetButton.ShowImage = true;
-            this.ManageWorksheetButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ManageWorksheetButton_Click);
+            this.configButton.Label = "設定";
+            this.configButton.Name = "configButton";
+            this.configButton.OfficeImageId = "ControlToolboxOutlook";
+            this.configButton.ShowImage = true;
+            this.configButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ConfigButton_Click);
             // 
-            // HelpGroup
+            // helpMenu
             // 
-            this.HelpGroup.Items.Add(this.ConfigButton);
-            this.HelpGroup.Items.Add(this.HelpMenu);
-            this.HelpGroup.Name = "HelpGroup";
+            this.helpMenu.Items.Add(this.openHelpButton);
+            this.helpMenu.Items.Add(this.openVersionInfoButton);
+            this.helpMenu.Items.Add(this.reportIssuesButton);
+            this.helpMenu.Label = "ヘルプ";
+            this.helpMenu.Name = "helpMenu";
+            this.helpMenu.OfficeImageId = "ContentsAndIndex";
+            this.helpMenu.ShowImage = true;
             // 
-            // ConfigButton
+            // openHelpButton
             // 
-            this.ConfigButton.Label = "設定";
-            this.ConfigButton.Name = "ConfigButton";
-            this.ConfigButton.OfficeImageId = "ControlToolboxOutlook";
-            this.ConfigButton.ShowImage = true;
-            this.ConfigButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ConfigButton_Click);
+            this.openHelpButton.Label = "ヘルプの表示";
+            this.openHelpButton.Name = "openHelpButton";
+            this.openHelpButton.OfficeImageId = "ContentsAndIndex";
+            this.openHelpButton.ShowImage = true;
+            this.openHelpButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenHelpButton_Click);
             // 
-            // OpenHelpButton
+            // openVersionInfoButton
             // 
-            this.OpenHelpButton.Label = "ヘルプの表示";
-            this.OpenHelpButton.Name = "OpenHelpButton";
-            this.OpenHelpButton.OfficeImageId = "ContentsAndIndex";
-            this.OpenHelpButton.ShowImage = true;
-            this.OpenHelpButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenHelpButton_Click);
+            this.openVersionInfoButton.Label = "バージョン情報";
+            this.openVersionInfoButton.Name = "openVersionInfoButton";
+            this.openVersionInfoButton.OfficeImageId = "Info";
+            this.openVersionInfoButton.ShowImage = true;
+            this.openVersionInfoButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenVersionInfoButton_Click);
             // 
-            // OpenVersionInfoButton
+            // reportIssuesButton
             // 
-            this.OpenVersionInfoButton.Label = "バージョン情報";
-            this.OpenVersionInfoButton.Name = "OpenVersionInfoButton";
-            this.OpenVersionInfoButton.OfficeImageId = "Info";
-            this.OpenVersionInfoButton.ShowImage = true;
-            this.OpenVersionInfoButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OpenVersionInfoButton_Click);
-            // 
-            // HelpMenu
-            // 
-            this.HelpMenu.Items.Add(this.OpenHelpButton);
-            this.HelpMenu.Items.Add(this.OpenVersionInfoButton);
-            this.HelpMenu.Items.Add(this.ReportIssuesButton);
-            this.HelpMenu.Label = "ヘルプ";
-            this.HelpMenu.Name = "HelpMenu";
-            this.HelpMenu.OfficeImageId = "ContentsAndIndex";
-            this.HelpMenu.ShowImage = true;
-            // 
-            // ReportIssuesButton
-            // 
-            this.ReportIssuesButton.Label = "問題の報告";
-            this.ReportIssuesButton.Name = "ReportIssuesButton";
-            this.ReportIssuesButton.OfficeImageId = "HighImportance";
-            this.ReportIssuesButton.ShowImage = true;
-            this.ReportIssuesButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ReportIssuesButton_Click);
+            this.reportIssuesButton.Label = "問題の報告";
+            this.reportIssuesButton.Name = "reportIssuesButton";
+            this.reportIssuesButton.OfficeImageId = "HighImportance";
+            this.reportIssuesButton.ShowImage = true;
+            this.reportIssuesButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ReportIssuesButton_Click);
             // 
             // Ribbon
             // 
@@ -269,40 +269,40 @@
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon_Load);
             this.tab.ResumeLayout(false);
             this.tab.PerformLayout();
-            this.FileGroup.ResumeLayout(false);
-            this.FileGroup.PerformLayout();
-            this.EditGroup.ResumeLayout(false);
-            this.EditGroup.PerformLayout();
-            this.HelpGroup.ResumeLayout(false);
-            this.HelpGroup.PerformLayout();
+            this.fileGroup.ResumeLayout(false);
+            this.fileGroup.PerformLayout();
+            this.editGroup.ResumeLayout(false);
+            this.editGroup.PerformLayout();
+            this.helpGroup.ResumeLayout(false);
+            this.helpGroup.PerformLayout();
 
         }
 
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup EditGroup;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton SearchButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup FileGroup;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenFolderButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton ToggleEditModeButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenActiveWorkbookReadOnlyButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenActiveWorkbookEditableButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonMenu OpenFileMenu;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup editGroup;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton searchButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup fileGroup;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton openFolderButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton toggleEditModeButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton openActiveWorkbookReadOnlyButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton openActiveWorkbookEditableButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonMenu openFileMenu;
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator2;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenSelectWorkbookReadOnlyButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenSelectWorkbookEditableButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton SetA1Button;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton InitializeStyleButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton ManageWorksheetButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton MakeGridButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup HelpGroup;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenHelpButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenVersionInfoButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton ConfigButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonMenu HelpMenu;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton ReportIssuesButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton openSelectWorkbookReadOnlyButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton openSelectWorkbookEditableButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton setA1Button;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton initializeStyleButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton manageWorksheetButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton makeGridButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup helpGroup;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton openHelpButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton openVersionInfoButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton configButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonMenu helpMenu;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton reportIssuesButton;
     }
 
     partial class ThisRibbonCollection

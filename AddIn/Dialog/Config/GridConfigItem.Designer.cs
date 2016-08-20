@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.CmbSize = new System.Windows.Forms.ComboBox();
+            this.SizeComboBox = new System.Windows.Forms.ComboBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -44,10 +44,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "サイズ";
             // 
-            // CmbSize
+            // SizeComboBox
             // 
-            this.CmbSize.FormattingEnabled = true;
-            this.CmbSize.Items.AddRange(new object[] {
+            this.SizeComboBox.FormattingEnabled = true;
+            this.SizeComboBox.Items.AddRange(new object[] {
             "12",
             "13",
             "14",
@@ -57,11 +57,11 @@
             "18",
             "19",
             "20"});
-            this.CmbSize.Location = new System.Drawing.Point(109, 13);
-            this.CmbSize.Name = "CmbSize";
-            this.CmbSize.Size = new System.Drawing.Size(121, 20);
-            this.CmbSize.TabIndex = 1;
-            this.CmbSize.Validating += new System.ComponentModel.CancelEventHandler(this.CmbSize_Validating);
+            this.SizeComboBox.Location = new System.Drawing.Point(109, 13);
+            this.SizeComboBox.Name = "SizeComboBox";
+            this.SizeComboBox.Size = new System.Drawing.Size(121, 20);
+            this.SizeComboBox.TabIndex = 1;
+            this.SizeComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.SizeComboBox_Validating);
             // 
             // errorProvider
             // 
@@ -71,7 +71,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.CmbSize);
+            this.Controls.Add(this.SizeComboBox);
             this.Controls.Add(this.label1);
             this.Name = "GridConfigItem";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -83,7 +83,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox CmbSize;
+        private System.Windows.Forms.ComboBox SizeComboBox;
         private System.Windows.Forms.ErrorProvider errorProvider;
 
     }

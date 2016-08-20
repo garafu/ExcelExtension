@@ -30,17 +30,17 @@
             this.InitializeComponent();
 
             // 「検索範囲」リストを初期化
-            this.SearchScopeComboBox.Items.AddRange(new object[] 
+            this.searchScopeComboBox.Items.AddRange(new object[] 
             {
                     new ListBoxItem<SearchScopeType>(SearchScopeType.CURRENT_SHEET),
                     new ListBoxItem<SearchScopeType>(SearchScopeType.SELECTED_RANGE),
                     new ListBoxItem<SearchScopeType>(SearchScopeType.SELECTED_SHEET),
                     new ListBoxItem<SearchScopeType>(SearchScopeType.BOOK)
             });
-            this.SearchScopeComboBox.SelectedIndex = 0;
+            this.searchScopeComboBox.SelectedIndex = 0;
 
             // 「検索対象」リストを初期化
-            this.SearchTargetCheckedListBox.Items.AddRange(new object[]
+            this.searchTargetCheckedListBox.Items.AddRange(new object[]
             {
                 new ListBoxItem<SearchTargetType>(SearchTargetType.FORMULA),
                 new ListBoxItem<SearchTargetType>(SearchTargetType.VALUE),
@@ -48,7 +48,7 @@
                 new ListBoxItem<SearchTargetType>(SearchTargetType.SHAPE),
                 new ListBoxItem<SearchTargetType>(SearchTargetType.CHART)
             });
-            this.SearchTargetCheckedListBox.SetItemChecked(1, true);
+            this.searchTargetCheckedListBox.SetItemChecked(1, true);
         }
 
         /// <summary>
@@ -252,9 +252,9 @@
         private void SearchAll()
         {
             // 検索履歴を作成
-            var text = this.SearchTextComboBox.Text.Trim();
+            var text = this.searchTextComboBox.Text.Trim();
             var isIncluded = false;
-            foreach (var item in this.SearchTextComboBox.Items)
+            foreach (var item in this.searchTextComboBox.Items)
             {
                 if (text == item.ToString())
                 {
@@ -265,47 +265,47 @@
 
             if (isIncluded == false)
             {
-                if (this.SearchTextComboBox.Items.Count >= 10)
+                if (this.searchTextComboBox.Items.Count >= 10)
                 {
-                    this.SearchTextComboBox.Items.RemoveAt(this.SearchTextComboBox.Items.Count - 1);
+                    this.searchTextComboBox.Items.RemoveAt(this.searchTextComboBox.Items.Count - 1);
                 }
 
-                this.SearchTextComboBox.Items.Insert(0, text);
+                this.searchTextComboBox.Items.Insert(0, text);
             }
             else
             {
-                this.SearchTextComboBox.Items.Remove(text);
-                this.SearchTextComboBox.Items.Insert(0, text);
+                this.searchTextComboBox.Items.Remove(text);
+                this.searchTextComboBox.Items.Insert(0, text);
             }
 
             // 検索範囲を設定
             var scope = new SearchScope(
-                (this.SearchScopeComboBox.SelectedItem as ListBoxItem<SearchScopeType>).Key);
+                (this.searchScopeComboBox.SelectedItem as ListBoxItem<SearchScopeType>).Key);
 
             // 検索対象を設定
             var target = new SearchTarget(
-                this.SearchTargetCheckedListBox.GetItemChecked(0),
-                this.SearchTargetCheckedListBox.GetItemChecked(1),
-                this.SearchTargetCheckedListBox.GetItemChecked(2),
-                this.SearchTargetCheckedListBox.GetItemChecked(3),
-                this.SearchTargetCheckedListBox.GetItemChecked(4));
+                this.searchTargetCheckedListBox.GetItemChecked(0),
+                this.searchTargetCheckedListBox.GetItemChecked(1),
+                this.searchTargetCheckedListBox.GetItemChecked(2),
+                this.searchTargetCheckedListBox.GetItemChecked(3),
+                this.searchTargetCheckedListBox.GetItemChecked(4));
 
             // 検索条件を設定
             var condition = new SearchCondition(
-                this.SearchTextComboBox.Text,
-                this.MatchRegexpCheckBox.Checked,
-                this.MatchExactCheckBox.Checked,
-                this.MatchCaseCheckBox.Checked,
-                this.MatchByteCheckBox.Checked);
+                this.searchTextComboBox.Text,
+                this.matchRegexpCheckBox.Checked,
+                this.matchExactCheckBox.Checked,
+                this.matchCaseCheckBox.Checked,
+                this.matchByteCheckBox.Checked);
 
             // 検索の実行
             var engine = new SearchEngine();
             var result = engine.Execute(scope, target, condition);
 
             // 検索結果を画面に反映
-            this.ResultDataGridView.SuspendLayout();
-            this.ResultDataGridView.DataSource = result;
-            this.ResultDataGridView.ResumeLayout();
+            this.resultDataGridView.SuspendLayout();
+            this.resultDataGridView.DataSource = result;
+            this.resultDataGridView.ResumeLayout();
         }
 
         /// <summary>

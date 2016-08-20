@@ -91,7 +91,7 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void CmbSize_Validating(object sender, CancelEventArgs e)
+        private void SizeComboBox_Validating(object sender, CancelEventArgs e)
         {
             var combobox = sender as ComboBox;
             int size = 0;
@@ -113,7 +113,7 @@
         /// </summary>
         private void Deserialize()
         {
-            this.CmbSize.Text = this.config.Size.ToString();
+            this.SizeComboBox.Text = this.config.Size.ToString();
         }
 
         /// <summary>
@@ -121,7 +121,7 @@
         /// </summary>
         private void Serialize()
         {
-            this.config.Size = int.Parse(this.CmbSize.Text);
+            this.config.Size = int.Parse(this.SizeComboBox.Text);
         }
     }
 }

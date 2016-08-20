@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CloseButton = new System.Windows.Forms.Button();
-            this.SearchButton = new System.Windows.Forms.Button();
-            this.SearchTextComboBox = new System.Windows.Forms.ComboBox();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchTextComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.SearchScopeComboBox = new System.Windows.Forms.ComboBox();
+            this.searchScopeComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.SearchTargetCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.searchTargetCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.MatchExactCheckBox = new System.Windows.Forms.CheckBox();
-            this.MatchByteCheckBox = new System.Windows.Forms.CheckBox();
-            this.MatchCaseCheckBox = new System.Windows.Forms.CheckBox();
-            this.MatchRegexpCheckBox = new System.Windows.Forms.CheckBox();
-            this.ResultDataGridView = new System.Windows.Forms.DataGridView();
+            this.matchExactCheckBox = new System.Windows.Forms.CheckBox();
+            this.matchByteCheckBox = new System.Windows.Forms.CheckBox();
+            this.matchCaseCheckBox = new System.Windows.Forms.CheckBox();
+            this.matchRegexpCheckBox = new System.Windows.Forms.CheckBox();
+            this.resultDataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,41 +50,41 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResultDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // CloseButton
+            // closeButton
             // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseButton.Location = new System.Drawing.Point(537, 12);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(75, 23);
-            this.CloseButton.TabIndex = 6;
-            this.CloseButton.Text = "閉じる";
-            this.CloseButton.UseVisualStyleBackColor = true;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeButton.Location = new System.Drawing.Point(537, 12);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(75, 23);
+            this.closeButton.TabIndex = 6;
+            this.closeButton.Text = "閉じる";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // SearchButton
+            // searchButton
             // 
-            this.SearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchButton.Location = new System.Drawing.Point(456, 12);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 23);
-            this.SearchButton.TabIndex = 4;
-            this.SearchButton.Text = "検索";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchButton.Location = new System.Drawing.Point(456, 12);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 4;
+            this.searchButton.Text = "検索";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // SearchTextComboBox
+            // searchTextComboBox
             // 
-            this.SearchTextComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.searchTextComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchTextComboBox.FormattingEnabled = true;
-            this.SearchTextComboBox.Location = new System.Drawing.Point(100, 14);
-            this.SearchTextComboBox.Name = "SearchTextComboBox";
-            this.SearchTextComboBox.Size = new System.Drawing.Size(311, 20);
-            this.SearchTextComboBox.TabIndex = 0;
-            this.SearchTextComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTextComboBox_KeyPress);
+            this.searchTextComboBox.FormattingEnabled = true;
+            this.searchTextComboBox.Location = new System.Drawing.Point(100, 14);
+            this.searchTextComboBox.Name = "searchTextComboBox";
+            this.searchTextComboBox.Size = new System.Drawing.Size(311, 20);
+            this.searchTextComboBox.TabIndex = 0;
+            this.searchTextComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTextComboBox_KeyPress);
             // 
             // label1
             // 
@@ -104,14 +104,14 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "検索範囲";
             // 
-            // SearchScopeComboBox
+            // searchScopeComboBox
             // 
-            this.SearchScopeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SearchScopeComboBox.FormattingEnabled = true;
-            this.SearchScopeComboBox.Location = new System.Drawing.Point(100, 58);
-            this.SearchScopeComboBox.Name = "SearchScopeComboBox";
-            this.SearchScopeComboBox.Size = new System.Drawing.Size(176, 20);
-            this.SearchScopeComboBox.TabIndex = 1;
+            this.searchScopeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchScopeComboBox.FormattingEnabled = true;
+            this.searchScopeComboBox.Location = new System.Drawing.Point(100, 58);
+            this.searchScopeComboBox.Name = "searchScopeComboBox";
+            this.searchScopeComboBox.Size = new System.Drawing.Size(176, 20);
+            this.searchScopeComboBox.TabIndex = 1;
             // 
             // label3
             // 
@@ -122,20 +122,20 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "検索対象";
             // 
-            // SearchTargetCheckedListBox
+            // searchTargetCheckedListBox
             // 
-            this.SearchTargetCheckedListBox.FormattingEnabled = true;
-            this.SearchTargetCheckedListBox.Location = new System.Drawing.Point(100, 84);
-            this.SearchTargetCheckedListBox.Name = "SearchTargetCheckedListBox";
-            this.SearchTargetCheckedListBox.Size = new System.Drawing.Size(176, 74);
-            this.SearchTargetCheckedListBox.TabIndex = 2;
+            this.searchTargetCheckedListBox.FormattingEnabled = true;
+            this.searchTargetCheckedListBox.Location = new System.Drawing.Point(100, 84);
+            this.searchTargetCheckedListBox.Name = "searchTargetCheckedListBox";
+            this.searchTargetCheckedListBox.Size = new System.Drawing.Size(176, 74);
+            this.searchTargetCheckedListBox.TabIndex = 2;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.MatchExactCheckBox);
-            this.groupBox1.Controls.Add(this.MatchByteCheckBox);
-            this.groupBox1.Controls.Add(this.MatchCaseCheckBox);
-            this.groupBox1.Controls.Add(this.MatchRegexpCheckBox);
+            this.groupBox1.Controls.Add(this.matchExactCheckBox);
+            this.groupBox1.Controls.Add(this.matchByteCheckBox);
+            this.groupBox1.Controls.Add(this.matchCaseCheckBox);
+            this.groupBox1.Controls.Add(this.matchRegexpCheckBox);
             this.groupBox1.Location = new System.Drawing.Point(282, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 106);
@@ -143,56 +143,56 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "検索オプション";
             // 
-            // MatchExactCheckBox
+            // matchExactCheckBox
             // 
-            this.MatchExactCheckBox.AutoSize = true;
-            this.MatchExactCheckBox.Location = new System.Drawing.Point(6, 40);
-            this.MatchExactCheckBox.Name = "MatchExactCheckBox";
-            this.MatchExactCheckBox.Size = new System.Drawing.Size(162, 16);
-            this.MatchExactCheckBox.TabIndex = 1;
-            this.MatchExactCheckBox.Text = "完全一致するものを検索する";
-            this.MatchExactCheckBox.UseVisualStyleBackColor = true;
+            this.matchExactCheckBox.AutoSize = true;
+            this.matchExactCheckBox.Location = new System.Drawing.Point(6, 40);
+            this.matchExactCheckBox.Name = "matchExactCheckBox";
+            this.matchExactCheckBox.Size = new System.Drawing.Size(162, 16);
+            this.matchExactCheckBox.TabIndex = 1;
+            this.matchExactCheckBox.Text = "完全一致するものを検索する";
+            this.matchExactCheckBox.UseVisualStyleBackColor = true;
             // 
-            // MatchByteCheckBox
+            // matchByteCheckBox
             // 
-            this.MatchByteCheckBox.AutoSize = true;
-            this.MatchByteCheckBox.Location = new System.Drawing.Point(6, 84);
-            this.MatchByteCheckBox.Name = "MatchByteCheckBox";
-            this.MatchByteCheckBox.Size = new System.Drawing.Size(130, 16);
-            this.MatchByteCheckBox.TabIndex = 3;
-            this.MatchByteCheckBox.Text = "半角/全角を区別する";
-            this.MatchByteCheckBox.UseVisualStyleBackColor = true;
+            this.matchByteCheckBox.AutoSize = true;
+            this.matchByteCheckBox.Location = new System.Drawing.Point(6, 84);
+            this.matchByteCheckBox.Name = "matchByteCheckBox";
+            this.matchByteCheckBox.Size = new System.Drawing.Size(130, 16);
+            this.matchByteCheckBox.TabIndex = 3;
+            this.matchByteCheckBox.Text = "半角/全角を区別する";
+            this.matchByteCheckBox.UseVisualStyleBackColor = true;
             // 
-            // MatchCaseCheckBox
+            // matchCaseCheckBox
             // 
-            this.MatchCaseCheckBox.AutoSize = true;
-            this.MatchCaseCheckBox.Location = new System.Drawing.Point(6, 62);
-            this.MatchCaseCheckBox.Name = "MatchCaseCheckBox";
-            this.MatchCaseCheckBox.Size = new System.Drawing.Size(154, 16);
-            this.MatchCaseCheckBox.TabIndex = 2;
-            this.MatchCaseCheckBox.Text = "大文字/小文字を区別する";
-            this.MatchCaseCheckBox.UseVisualStyleBackColor = true;
+            this.matchCaseCheckBox.AutoSize = true;
+            this.matchCaseCheckBox.Location = new System.Drawing.Point(6, 62);
+            this.matchCaseCheckBox.Name = "matchCaseCheckBox";
+            this.matchCaseCheckBox.Size = new System.Drawing.Size(154, 16);
+            this.matchCaseCheckBox.TabIndex = 2;
+            this.matchCaseCheckBox.Text = "大文字/小文字を区別する";
+            this.matchCaseCheckBox.UseVisualStyleBackColor = true;
             // 
-            // MatchRegexpCheckBox
+            // matchRegexpCheckBox
             // 
-            this.MatchRegexpCheckBox.AutoSize = true;
-            this.MatchRegexpCheckBox.Location = new System.Drawing.Point(6, 18);
-            this.MatchRegexpCheckBox.Name = "MatchRegexpCheckBox";
-            this.MatchRegexpCheckBox.Size = new System.Drawing.Size(124, 16);
-            this.MatchRegexpCheckBox.TabIndex = 0;
-            this.MatchRegexpCheckBox.Text = "正規表現を使用する";
-            this.MatchRegexpCheckBox.UseVisualStyleBackColor = true;
+            this.matchRegexpCheckBox.AutoSize = true;
+            this.matchRegexpCheckBox.Location = new System.Drawing.Point(6, 18);
+            this.matchRegexpCheckBox.Name = "matchRegexpCheckBox";
+            this.matchRegexpCheckBox.Size = new System.Drawing.Size(124, 16);
+            this.matchRegexpCheckBox.TabIndex = 0;
+            this.matchRegexpCheckBox.Text = "正規表現を使用する";
+            this.matchRegexpCheckBox.UseVisualStyleBackColor = true;
             // 
-            // ResultDataGridView
+            // resultDataGridView
             // 
-            this.ResultDataGridView.AllowUserToAddRows = false;
-            this.ResultDataGridView.AllowUserToDeleteRows = false;
-            this.ResultDataGridView.AllowUserToResizeRows = false;
-            this.ResultDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.resultDataGridView.AllowUserToAddRows = false;
+            this.resultDataGridView.AllowUserToDeleteRows = false;
+            this.resultDataGridView.AllowUserToResizeRows = false;
+            this.resultDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ResultDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.resultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resultDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -200,15 +200,15 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            this.ResultDataGridView.Location = new System.Drawing.Point(12, 184);
-            this.ResultDataGridView.Name = "ResultDataGridView";
-            this.ResultDataGridView.ReadOnly = true;
-            this.ResultDataGridView.RowHeadersVisible = false;
-            this.ResultDataGridView.RowTemplate.Height = 21;
-            this.ResultDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ResultDataGridView.Size = new System.Drawing.Size(600, 165);
-            this.ResultDataGridView.TabIndex = 5;
-            this.ResultDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResultDataGridView_CellClick);
+            this.resultDataGridView.Location = new System.Drawing.Point(12, 184);
+            this.resultDataGridView.Name = "resultDataGridView";
+            this.resultDataGridView.ReadOnly = true;
+            this.resultDataGridView.RowHeadersVisible = false;
+            this.resultDataGridView.RowTemplate.Height = 21;
+            this.resultDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.resultDataGridView.Size = new System.Drawing.Size(600, 165);
+            this.resultDataGridView.TabIndex = 5;
+            this.resultDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResultDataGridView_CellClick);
             // 
             // Column1
             // 
@@ -265,23 +265,23 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 361);
-            this.Controls.Add(this.ResultDataGridView);
+            this.Controls.Add(this.resultDataGridView);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.SearchTargetCheckedListBox);
+            this.Controls.Add(this.searchTargetCheckedListBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.SearchScopeComboBox);
+            this.Controls.Add(this.searchScopeComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.SearchTextComboBox);
-            this.Controls.Add(this.SearchButton);
-            this.Controls.Add(this.CloseButton);
+            this.Controls.Add(this.searchTextComboBox);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.closeButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "SearchReplaceWindow";
             this.ShowInTaskbar = false;
             this.Text = "検索/置換";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResultDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,20 +289,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Button CloseButton;
-        private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.ComboBox SearchTextComboBox;
+        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.ComboBox searchTextComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox SearchScopeComboBox;
+        private System.Windows.Forms.ComboBox searchScopeComboBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckedListBox SearchTargetCheckedListBox;
+        private System.Windows.Forms.CheckedListBox searchTargetCheckedListBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox MatchByteCheckBox;
-        private System.Windows.Forms.CheckBox MatchCaseCheckBox;
-        private System.Windows.Forms.CheckBox MatchRegexpCheckBox;
-        private System.Windows.Forms.CheckBox MatchExactCheckBox;
-        private System.Windows.Forms.DataGridView ResultDataGridView;
+        private System.Windows.Forms.CheckBox matchByteCheckBox;
+        private System.Windows.Forms.CheckBox matchCaseCheckBox;
+        private System.Windows.Forms.CheckBox matchRegexpCheckBox;
+        private System.Windows.Forms.CheckBox matchExactCheckBox;
+        private System.Windows.Forms.DataGridView resultDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

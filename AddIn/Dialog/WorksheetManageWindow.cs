@@ -37,8 +37,8 @@
             this.datasource.DataSource = this.manager.WorksheetInfoList;
 
             // DataGridView に データソース を適用
-            this.DataGridView.AutoGenerateColumns = false;
-            this.DataGridView.DataSource = this.datasource;
+            this.dataGridView.AutoGenerateColumns = false;
+            this.dataGridView.DataSource = this.datasource;
         }
 
         /// <summary>
@@ -93,13 +93,13 @@
         /// <param name="e">イベント変数</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if (this.datasource.Count == this.DataGridView.SelectedRows.Count)
+            if (this.datasource.Count == this.dataGridView.SelectedRows.Count)
             {
                 return;
             }
 
             // 選択された行を削除
-            foreach (DataGridViewRow row in this.DataGridView.SelectedRows)
+            foreach (DataGridViewRow row in this.dataGridView.SelectedRows)
             {
                 var target = this.datasource[row.Index] as WorksheetInfo;
                 this.datasource.RemoveAt(row.Index);
@@ -117,13 +117,13 @@
         /// <param name="e">イベント変数</param>
         private void UpButton_Click(object sender, EventArgs e)
         {
-            if (this.DataGridView.SelectedRows.Count != 1)
+            if (this.dataGridView.SelectedRows.Count != 1)
             {
                 return;
             }
 
             // 選択中の行を取得
-            DataGridViewRow row = this.DataGridView.SelectedRows[0];
+            DataGridViewRow row = this.dataGridView.SelectedRows[0];
 
             // 先頭行の場合、何もしない
             if (row.Index == 0)
@@ -142,7 +142,7 @@
             target.NewIndex = index;
 
             // 新しい行を選択
-            this.DataGridView.CurrentCell = this.DataGridView.Rows[source.NewIndex - 1].Cells[0];
+            this.dataGridView.CurrentCell = this.dataGridView.Rows[source.NewIndex - 1].Cells[0];
         }
 
         /// <summary>
@@ -152,16 +152,16 @@
         /// <param name="e">イベント変数</param>
         private void DownButton_Click(object sender, EventArgs e)
         {
-            if (this.DataGridView.SelectedRows.Count != 1)
+            if (this.dataGridView.SelectedRows.Count != 1)
             {
                 return;
             }
 
             // 選択中の行を取得
-            DataGridViewRow row = this.DataGridView.SelectedRows[0];
+            DataGridViewRow row = this.dataGridView.SelectedRows[0];
 
             // 末尾行の場合、何もしない
-            if (row.Index == this.DataGridView.Rows.Count - 1)
+            if (row.Index == this.dataGridView.Rows.Count - 1)
             {
                 return;
             }
@@ -177,7 +177,7 @@
             target.NewIndex = index;
 
             // 新しい行を選択
-            this.DataGridView.CurrentCell = this.DataGridView.Rows[source.NewIndex - 1].Cells[0];
+            this.dataGridView.CurrentCell = this.dataGridView.Rows[source.NewIndex - 1].Cells[0];
         }
 
         /// <summary>
@@ -187,7 +187,7 @@
         /// <param name="e">イベント変数</param>
         private void AscButton_Click(object sender, EventArgs e)
         {
-            this.DataGridView.Sort(this.DataGridView.Columns[2], ListSortDirection.Ascending);
+            this.dataGridView.Sort(this.dataGridView.Columns[2], ListSortDirection.Ascending);
             for (var i = 0; i < this.datasource.Count; i++)
             {
                 var item = this.datasource[i] as WorksheetInfo;
@@ -202,7 +202,7 @@
         /// <param name="e">イベント変数</param>
         private void DescButton_Click(object sender, EventArgs e)
         {
-            this.DataGridView.Sort(this.DataGridView.Columns[2], ListSortDirection.Descending);
+            this.dataGridView.Sort(this.dataGridView.Columns[2], ListSortDirection.Descending);
             for (var i = 0; i < this.datasource.Count; i++)
             {
                 var item = this.datasource[i] as WorksheetInfo;
@@ -217,13 +217,13 @@
         /// <param name="e">イベント変数</param>
         private void DataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.DataGridView.SelectedRows.Count != 1)
+            if (this.dataGridView.SelectedRows.Count != 1)
             {
                 return;
             }
 
             // 選択中の行を取得
-            DataGridViewRow row = this.DataGridView.SelectedRows[0];
+            DataGridViewRow row = this.dataGridView.SelectedRows[0];
 
             // 選択中のワークシート情報を取得
             var info = this.datasource[row.Index] as WorksheetInfo;
@@ -245,7 +245,7 @@
             }
 
             // エラーテキストは消去
-            this.DataGridView.Rows[e.RowIndex].ErrorText = string.Empty;
+            this.dataGridView.Rows[e.RowIndex].ErrorText = string.Empty;
 
             // 変更しようとしている新しいテキストを取得
             var text = e.FormattedValue.ToString();
@@ -253,7 +253,7 @@
             // 空文字かどうか
             if (string.IsNullOrEmpty(text) == true)
             {
-                this.DataGridView.Rows[e.RowIndex].ErrorText = "シート名を空文字にできません。";
+                this.dataGridView.Rows[e.RowIndex].ErrorText = "シート名を空文字にできません。";
                 e.Cancel = true;
                 return;
             }
@@ -268,7 +268,7 @@
 
                 if (item.NewName == text)
                 {
-                    this.DataGridView.Rows[e.RowIndex].ErrorText = string.Format("No.{0}シートと同じ名称のシート名を指定できません。", item.NewIndex);
+                    this.dataGridView.Rows[e.RowIndex].ErrorText = string.Format("No.{0}シートと同じ名称のシート名を指定できません。", item.NewIndex);
                     e.Cancel = true;
                     return;
                 }

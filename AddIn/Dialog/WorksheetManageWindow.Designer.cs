@@ -28,129 +28,129 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CompleteButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.UpButton = new System.Windows.Forms.Button();
-            this.DownButton = new System.Windows.Forms.Button();
-            this.AscButton = new System.Windows.Forms.Button();
-            this.DescButton = new System.Windows.Forms.Button();
-            this.DataGridView = new System.Windows.Forms.DataGridView();
+            this.completeButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.upButton = new System.Windows.Forms.Button();
+            this.downButton = new System.Windows.Forms.Button();
+            this.ascButton = new System.Windows.Forms.Button();
+            this.descButton = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.NoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VisibleColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ProtectionColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ApplyButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
+            this.applyButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // CompleteButton
+            // completeButton
             // 
-            this.CompleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CompleteButton.Location = new System.Drawing.Point(375, 326);
-            this.CompleteButton.Name = "CompleteButton";
-            this.CompleteButton.Size = new System.Drawing.Size(75, 23);
-            this.CompleteButton.TabIndex = 0;
-            this.CompleteButton.Text = "OK";
-            this.CompleteButton.UseVisualStyleBackColor = true;
-            this.CompleteButton.Click += new System.EventHandler(this.CompleteButton_Click);
+            this.completeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.completeButton.Location = new System.Drawing.Point(375, 326);
+            this.completeButton.Name = "completeButton";
+            this.completeButton.Size = new System.Drawing.Size(75, 23);
+            this.completeButton.TabIndex = 0;
+            this.completeButton.Text = "OK";
+            this.completeButton.UseVisualStyleBackColor = true;
+            this.completeButton.Click += new System.EventHandler(this.CompleteButton_Click);
             // 
-            // CancelButton
+            // cancelButton
             // 
-            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.Location = new System.Drawing.Point(456, 326);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 1;
-            this.CancelButton.Text = "キャンセル";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelButton.Location = new System.Drawing.Point(456, 326);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 1;
+            this.cancelButton.Text = "キャンセル";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // AddButton
+            // addButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(12, 12);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(75, 23);
-            this.AddButton.TabIndex = 4;
-            this.AddButton.Text = "追加";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.addButton.Location = new System.Drawing.Point(12, 12);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 4;
+            this.addButton.Text = "追加";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // DeleteButton
+            // deleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(93, 12);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
-            this.DeleteButton.TabIndex = 5;
-            this.DeleteButton.Text = "削除";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.deleteButton.Location = new System.Drawing.Point(93, 12);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 5;
+            this.deleteButton.Text = "削除";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // UpButton
+            // upButton
             // 
-            this.UpButton.Location = new System.Drawing.Point(174, 12);
-            this.UpButton.Name = "UpButton";
-            this.UpButton.Size = new System.Drawing.Size(75, 23);
-            this.UpButton.TabIndex = 6;
-            this.UpButton.Text = "上へ";
-            this.UpButton.UseVisualStyleBackColor = true;
-            this.UpButton.Click += new System.EventHandler(this.UpButton_Click);
+            this.upButton.Location = new System.Drawing.Point(174, 12);
+            this.upButton.Name = "upButton";
+            this.upButton.Size = new System.Drawing.Size(75, 23);
+            this.upButton.TabIndex = 6;
+            this.upButton.Text = "上へ";
+            this.upButton.UseVisualStyleBackColor = true;
+            this.upButton.Click += new System.EventHandler(this.UpButton_Click);
             // 
-            // DownButton
+            // downButton
             // 
-            this.DownButton.Location = new System.Drawing.Point(255, 12);
-            this.DownButton.Name = "DownButton";
-            this.DownButton.Size = new System.Drawing.Size(75, 23);
-            this.DownButton.TabIndex = 7;
-            this.DownButton.Text = "下へ";
-            this.DownButton.UseVisualStyleBackColor = true;
-            this.DownButton.Click += new System.EventHandler(this.DownButton_Click);
+            this.downButton.Location = new System.Drawing.Point(255, 12);
+            this.downButton.Name = "downButton";
+            this.downButton.Size = new System.Drawing.Size(75, 23);
+            this.downButton.TabIndex = 7;
+            this.downButton.Text = "下へ";
+            this.downButton.UseVisualStyleBackColor = true;
+            this.downButton.Click += new System.EventHandler(this.DownButton_Click);
             // 
-            // AscButton
+            // ascButton
             // 
-            this.AscButton.Location = new System.Drawing.Point(336, 12);
-            this.AscButton.Name = "AscButton";
-            this.AscButton.Size = new System.Drawing.Size(75, 23);
-            this.AscButton.TabIndex = 8;
-            this.AscButton.Text = "昇順";
-            this.AscButton.UseVisualStyleBackColor = true;
-            this.AscButton.Click += new System.EventHandler(this.AscButton_Click);
+            this.ascButton.Location = new System.Drawing.Point(336, 12);
+            this.ascButton.Name = "ascButton";
+            this.ascButton.Size = new System.Drawing.Size(75, 23);
+            this.ascButton.TabIndex = 8;
+            this.ascButton.Text = "昇順";
+            this.ascButton.UseVisualStyleBackColor = true;
+            this.ascButton.Click += new System.EventHandler(this.AscButton_Click);
             // 
-            // DescButton
+            // descButton
             // 
-            this.DescButton.Location = new System.Drawing.Point(417, 12);
-            this.DescButton.Name = "DescButton";
-            this.DescButton.Size = new System.Drawing.Size(75, 23);
-            this.DescButton.TabIndex = 9;
-            this.DescButton.Text = "降順";
-            this.DescButton.UseVisualStyleBackColor = true;
-            this.DescButton.Click += new System.EventHandler(this.DescButton_Click);
+            this.descButton.Location = new System.Drawing.Point(417, 12);
+            this.descButton.Name = "descButton";
+            this.descButton.Size = new System.Drawing.Size(75, 23);
+            this.descButton.TabIndex = 9;
+            this.descButton.Text = "降順";
+            this.descButton.UseVisualStyleBackColor = true;
+            this.descButton.Click += new System.EventHandler(this.DescButton_Click);
             // 
-            // DataGridView
+            // dataGridView
             // 
-            this.DataGridView.AllowUserToAddRows = false;
-            this.DataGridView.AllowUserToDeleteRows = false;
-            this.DataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NoColumn,
             this.TypeColumn,
             this.NameColumn,
             this.VisibleColumn,
             this.ProtectionColumn});
-            this.DataGridView.Location = new System.Drawing.Point(12, 41);
-            this.DataGridView.MultiSelect = false;
-            this.DataGridView.Name = "DataGridView";
-            this.DataGridView.RowTemplate.Height = 21;
-            this.DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView.Size = new System.Drawing.Size(600, 279);
-            this.DataGridView.TabIndex = 10;
-            this.DataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellDoubleClick);
-            this.DataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DataGridView_CellValidating);
+            this.dataGridView.Location = new System.Drawing.Point(12, 41);
+            this.dataGridView.MultiSelect = false;
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowTemplate.Height = 21;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView.Size = new System.Drawing.Size(600, 279);
+            this.dataGridView.TabIndex = 10;
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellDoubleClick);
+            this.dataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DataGridView_CellValidating);
             // 
             // NoColumn
             // 
@@ -191,53 +191,53 @@
             this.ProtectionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ProtectionColumn.Visible = false;
             // 
-            // ApplyButton
+            // applyButton
             // 
-            this.ApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyButton.Location = new System.Drawing.Point(537, 326);
-            this.ApplyButton.Name = "ApplyButton";
-            this.ApplyButton.Size = new System.Drawing.Size(75, 23);
-            this.ApplyButton.TabIndex = 11;
-            this.ApplyButton.Text = "適用";
-            this.ApplyButton.UseVisualStyleBackColor = true;
-            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
+            this.applyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.applyButton.Location = new System.Drawing.Point(537, 326);
+            this.applyButton.Name = "applyButton";
+            this.applyButton.Size = new System.Drawing.Size(75, 23);
+            this.applyButton.TabIndex = 11;
+            this.applyButton.Text = "適用";
+            this.applyButton.UseVisualStyleBackColor = true;
+            this.applyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
             // WorksheetManageWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 361);
-            this.Controls.Add(this.ApplyButton);
-            this.Controls.Add(this.DataGridView);
-            this.Controls.Add(this.DescButton);
-            this.Controls.Add(this.AscButton);
-            this.Controls.Add(this.DownButton);
-            this.Controls.Add(this.UpButton);
-            this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.CompleteButton);
+            this.Controls.Add(this.applyButton);
+            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.descButton);
+            this.Controls.Add(this.ascButton);
+            this.Controls.Add(this.downButton);
+            this.Controls.Add(this.upButton);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.completeButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "WorksheetManageWindow";
             this.ShowInTaskbar = false;
             this.Text = "ワークシート管理";
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button CompleteButton;
-        private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.Button UpButton;
-        private System.Windows.Forms.Button DownButton;
-        private System.Windows.Forms.Button AscButton;
-        private System.Windows.Forms.Button DescButton;
-        private System.Windows.Forms.Button ApplyButton;
-        private System.Windows.Forms.DataGridView DataGridView;
+        private System.Windows.Forms.Button completeButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button upButton;
+        private System.Windows.Forms.Button downButton;
+        private System.Windows.Forms.Button ascButton;
+        private System.Windows.Forms.Button descButton;
+        private System.Windows.Forms.Button applyButton;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;

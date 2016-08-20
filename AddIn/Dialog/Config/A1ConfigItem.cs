@@ -91,11 +91,11 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void ChkAutoSave_CheckedChanged(object sender, EventArgs e)
+        private void AutoSaveCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             var checkbox = sender as CheckBox;
 
-            this.DdlAutoSaveOverwrite.Enabled = checkbox.Checked;
+            this.autoSaveOverwriteDropDownList.Enabled = checkbox.Checked;
         }
 
         /// <summary>
@@ -103,14 +103,14 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void ChkGroupEnabled_CheckedChanged(object sender, EventArgs e)
+        private void GroupEnabledCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             var checkbox = sender as CheckBox;
 
-            this.LblRowLevels.Enabled = checkbox.Checked;
-            this.LblColumnLevels.Enabled = checkbox.Checked;
-            this.TxtRowLevels.Enabled = checkbox.Checked;
-            this.TxtColumnLevels.Enabled = checkbox.Checked;
+            this.rowLevelsLabel.Enabled = checkbox.Checked;
+            this.columnLevelsLabel.Enabled = checkbox.Checked;
+            this.rowLevelsTextBox.Enabled = checkbox.Checked;
+            this.columnLevelsTextBox.Enabled = checkbox.Checked;
         }
 
         /// <summary>
@@ -118,11 +118,11 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void ChkZoomEnabled_CheckedChanged(object sender, EventArgs e)
+        private void ZoomEnabledCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             var checkbox = sender as CheckBox;
 
-            this.CmbZoomRatio.Enabled = checkbox.Checked;
+            this.zoomRatioComboBox.Enabled = checkbox.Checked;
         }
 
         /// <summary>
@@ -130,7 +130,7 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void CmbZoomRatio_Validating(object sender, CancelEventArgs e)
+        private void ZoomRatioComboBox_Validating(object sender, CancelEventArgs e)
         {
             var combobox = sender as ComboBox;
             int ratio = 0;
@@ -153,21 +153,21 @@
         private void Deserialize()
         {
             // 値を設定する
-            this.ChkZoomEnabled.Checked = this.config.ZoomEnabled;
-            this.CmbZoomRatio.Text = this.config.ZoomRatio.ToString();
-            this.ChkGroupEnabled.Checked = this.config.GroupEnabled;
-            this.TxtRowLevels.Text = this.config.RowLevels.ToString();
-            this.TxtColumnLevels.Text = this.config.ColumnLevels.ToString();
-            this.ChkAutoSave.Checked = this.config.AutoSaveEnabled;
-            this.DdlAutoSaveOverwrite.SelectedIndex = this.config.AutoSaveOverwrite ? 0 : 1;
+            this.zoomEnabledCheckBox.Checked = this.config.ZoomEnabled;
+            this.zoomRatioComboBox.Text = this.config.ZoomRatio.ToString();
+            this.groupEnabledCheckBox.Checked = this.config.GroupEnabled;
+            this.rowLevelsTextBox.Text = this.config.RowLevels.ToString();
+            this.columnLevelsTextBox.Text = this.config.ColumnLevels.ToString();
+            this.autoSaveCheckBox.Checked = this.config.AutoSaveEnabled;
+            this.autoSaveOverwriteDropDownList.SelectedIndex = this.config.AutoSaveOverwrite ? 0 : 1;
 
             // 付随項目の表示状態を更新する
-            this.CmbZoomRatio.Enabled = this.config.ZoomEnabled;
-            this.LblRowLevels.Enabled = this.config.GroupEnabled;
-            this.LblColumnLevels.Enabled = this.config.GroupEnabled;
-            this.TxtRowLevels.Enabled = this.config.GroupEnabled;
-            this.TxtColumnLevels.Enabled = this.config.GroupEnabled;
-            this.DdlAutoSaveOverwrite.Enabled = this.config.AutoSaveEnabled;
+            this.zoomRatioComboBox.Enabled = this.config.ZoomEnabled;
+            this.rowLevelsLabel.Enabled = this.config.GroupEnabled;
+            this.columnLevelsLabel.Enabled = this.config.GroupEnabled;
+            this.rowLevelsTextBox.Enabled = this.config.GroupEnabled;
+            this.columnLevelsTextBox.Enabled = this.config.GroupEnabled;
+            this.autoSaveOverwriteDropDownList.Enabled = this.config.AutoSaveEnabled;
         }
 
         /// <summary>
@@ -175,13 +175,13 @@
         /// </summary>
         private void Serialize()
         {
-            this.config.ZoomEnabled = this.ChkZoomEnabled.Checked;
-            this.config.ZoomRatio = int.Parse(this.CmbZoomRatio.Text);
-            this.config.GroupEnabled = this.ChkGroupEnabled.Checked;
-            this.config.RowLevels = int.Parse(this.TxtRowLevels.Text);
-            this.config.ColumnLevels = int.Parse(this.TxtColumnLevels.Text);
-            this.config.AutoSaveEnabled = this.ChkAutoSave.Checked;
-            this.config.AutoSaveOverwrite = this.DdlAutoSaveOverwrite.SelectedIndex == 0;
+            this.config.ZoomEnabled = this.zoomEnabledCheckBox.Checked;
+            this.config.ZoomRatio = int.Parse(this.zoomRatioComboBox.Text);
+            this.config.GroupEnabled = this.groupEnabledCheckBox.Checked;
+            this.config.RowLevels = int.Parse(this.rowLevelsTextBox.Text);
+            this.config.ColumnLevels = int.Parse(this.columnLevelsTextBox.Text);
+            this.config.AutoSaveEnabled = this.autoSaveCheckBox.Checked;
+            this.config.AutoSaveOverwrite = this.autoSaveOverwriteDropDownList.SelectedIndex == 0;
         }
 
         /// <summary>
@@ -189,7 +189,7 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void TxtGroupLevels_Validating(object sender, CancelEventArgs e)
+        private void GroupLevelsTextBox_Validating(object sender, CancelEventArgs e)
         {
             var textbox = sender as TextBox;
             int level = 0;

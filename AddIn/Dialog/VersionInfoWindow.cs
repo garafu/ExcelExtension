@@ -24,10 +24,10 @@
             this.InitializeComponent();
 
             var asmprd = (AssemblyProductAttribute)Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(AssemblyProductAttribute));
-            this.label1.Text = asmprd.Product;
+            this.productNameLabel.Text = asmprd.Product;
 
             var version = Assembly.GetExecutingAssembly().GetName().Version;
-            this.label2.Text = version.ToString();
+            this.versionLabel.Text = version.ToString();
         }
 
         /// <summary>

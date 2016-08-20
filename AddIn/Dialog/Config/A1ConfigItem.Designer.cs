@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.ChkZoomEnabled = new System.Windows.Forms.CheckBox();
-            this.CmbZoomRatio = new System.Windows.Forms.ComboBox();
-            this.ChkGroupEnabled = new System.Windows.Forms.CheckBox();
-            this.LblRowLevels = new System.Windows.Forms.Label();
-            this.TxtRowLevels = new System.Windows.Forms.TextBox();
-            this.LblColumnLevels = new System.Windows.Forms.Label();
-            this.TxtColumnLevels = new System.Windows.Forms.TextBox();
-            this.ChkAutoSave = new System.Windows.Forms.CheckBox();
-            this.DdlAutoSaveOverwrite = new System.Windows.Forms.ComboBox();
+            this.zoomEnabledCheckBox = new System.Windows.Forms.CheckBox();
+            this.zoomRatioComboBox = new System.Windows.Forms.ComboBox();
+            this.groupEnabledCheckBox = new System.Windows.Forms.CheckBox();
+            this.rowLevelsLabel = new System.Windows.Forms.Label();
+            this.rowLevelsTextBox = new System.Windows.Forms.TextBox();
+            this.columnLevelsLabel = new System.Windows.Forms.Label();
+            this.columnLevelsTextBox = new System.Windows.Forms.TextBox();
+            this.autoSaveCheckBox = new System.Windows.Forms.CheckBox();
+            this.autoSaveOverwriteDropDownList = new System.Windows.Forms.ComboBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // ChkZoomEnabled
+            // zoomEnabledCheckBox
             // 
-            this.ChkZoomEnabled.AutoSize = true;
-            this.ChkZoomEnabled.Location = new System.Drawing.Point(23, 13);
-            this.ChkZoomEnabled.Name = "ChkZoomEnabled";
-            this.ChkZoomEnabled.Size = new System.Drawing.Size(124, 16);
-            this.ChkZoomEnabled.TabIndex = 0;
-            this.ChkZoomEnabled.Text = "表示倍率を設定する";
-            this.ChkZoomEnabled.UseVisualStyleBackColor = true;
-            this.ChkZoomEnabled.CheckedChanged += new System.EventHandler(this.ChkZoomEnabled_CheckedChanged);
+            this.zoomEnabledCheckBox.AutoSize = true;
+            this.zoomEnabledCheckBox.Location = new System.Drawing.Point(23, 13);
+            this.zoomEnabledCheckBox.Name = "zoomEnabledCheckBox";
+            this.zoomEnabledCheckBox.Size = new System.Drawing.Size(124, 16);
+            this.zoomEnabledCheckBox.TabIndex = 0;
+            this.zoomEnabledCheckBox.Text = "表示倍率を設定する";
+            this.zoomEnabledCheckBox.UseVisualStyleBackColor = true;
+            this.zoomEnabledCheckBox.CheckedChanged += new System.EventHandler(this.ZoomEnabledCheckBox_CheckedChanged);
             // 
-            // CmbZoomRatio
+            // zoomRatioComboBox
             // 
-            this.CmbZoomRatio.FormattingEnabled = true;
-            this.CmbZoomRatio.Items.AddRange(new object[] {
+            this.zoomRatioComboBox.FormattingEnabled = true;
+            this.zoomRatioComboBox.Items.AddRange(new object[] {
             "70",
             "80",
             "85",
@@ -64,79 +64,79 @@
             "100",
             "110",
             "120"});
-            this.CmbZoomRatio.Location = new System.Drawing.Point(216, 11);
-            this.CmbZoomRatio.Name = "CmbZoomRatio";
-            this.CmbZoomRatio.Size = new System.Drawing.Size(121, 20);
-            this.CmbZoomRatio.TabIndex = 2;
-            this.CmbZoomRatio.Validating += new System.ComponentModel.CancelEventHandler(this.CmbZoomRatio_Validating);
+            this.zoomRatioComboBox.Location = new System.Drawing.Point(216, 11);
+            this.zoomRatioComboBox.Name = "zoomRatioComboBox";
+            this.zoomRatioComboBox.Size = new System.Drawing.Size(121, 20);
+            this.zoomRatioComboBox.TabIndex = 2;
+            this.zoomRatioComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.ZoomRatioComboBox_Validating);
             // 
-            // ChkGroupEnabled
+            // groupEnabledCheckBox
             // 
-            this.ChkGroupEnabled.AutoSize = true;
-            this.ChkGroupEnabled.Location = new System.Drawing.Point(23, 65);
-            this.ChkGroupEnabled.Name = "ChkGroupEnabled";
-            this.ChkGroupEnabled.Size = new System.Drawing.Size(126, 16);
-            this.ChkGroupEnabled.TabIndex = 3;
-            this.ChkGroupEnabled.Text = "グループ化を設定する";
-            this.ChkGroupEnabled.UseVisualStyleBackColor = true;
-            this.ChkGroupEnabled.CheckedChanged += new System.EventHandler(this.ChkGroupEnabled_CheckedChanged);
+            this.groupEnabledCheckBox.AutoSize = true;
+            this.groupEnabledCheckBox.Location = new System.Drawing.Point(23, 65);
+            this.groupEnabledCheckBox.Name = "groupEnabledCheckBox";
+            this.groupEnabledCheckBox.Size = new System.Drawing.Size(126, 16);
+            this.groupEnabledCheckBox.TabIndex = 3;
+            this.groupEnabledCheckBox.Text = "グループ化を設定する";
+            this.groupEnabledCheckBox.UseVisualStyleBackColor = true;
+            this.groupEnabledCheckBox.CheckedChanged += new System.EventHandler(this.GroupEnabledCheckBox_CheckedChanged);
             // 
-            // LblRowLevels
+            // rowLevelsLabel
             // 
-            this.LblRowLevels.AutoSize = true;
-            this.LblRowLevels.Location = new System.Drawing.Point(214, 66);
-            this.LblRowLevels.Name = "LblRowLevels";
-            this.LblRowLevels.Size = new System.Drawing.Size(108, 12);
-            this.LblRowLevels.TabIndex = 4;
-            this.LblRowLevels.Text = "行グループ表示レベル";
+            this.rowLevelsLabel.AutoSize = true;
+            this.rowLevelsLabel.Location = new System.Drawing.Point(214, 66);
+            this.rowLevelsLabel.Name = "rowLevelsLabel";
+            this.rowLevelsLabel.Size = new System.Drawing.Size(108, 12);
+            this.rowLevelsLabel.TabIndex = 4;
+            this.rowLevelsLabel.Text = "行グループ表示レベル";
             // 
-            // TxtRowLevels
+            // rowLevelsTextBox
             // 
-            this.TxtRowLevels.Location = new System.Drawing.Point(340, 63);
-            this.TxtRowLevels.Name = "TxtRowLevels";
-            this.TxtRowLevels.Size = new System.Drawing.Size(100, 19);
-            this.TxtRowLevels.TabIndex = 5;
-            this.TxtRowLevels.Validating += new System.ComponentModel.CancelEventHandler(this.TxtGroupLevels_Validating);
+            this.rowLevelsTextBox.Location = new System.Drawing.Point(340, 63);
+            this.rowLevelsTextBox.Name = "rowLevelsTextBox";
+            this.rowLevelsTextBox.Size = new System.Drawing.Size(100, 19);
+            this.rowLevelsTextBox.TabIndex = 5;
+            this.rowLevelsTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.GroupLevelsTextBox_Validating);
             // 
-            // LblColumnLevels
+            // columnLevelsLabel
             // 
-            this.LblColumnLevels.AutoSize = true;
-            this.LblColumnLevels.Location = new System.Drawing.Point(214, 91);
-            this.LblColumnLevels.Name = "LblColumnLevels";
-            this.LblColumnLevels.Size = new System.Drawing.Size(108, 12);
-            this.LblColumnLevels.TabIndex = 6;
-            this.LblColumnLevels.Text = "列グループ表示レベル";
+            this.columnLevelsLabel.AutoSize = true;
+            this.columnLevelsLabel.Location = new System.Drawing.Point(214, 91);
+            this.columnLevelsLabel.Name = "columnLevelsLabel";
+            this.columnLevelsLabel.Size = new System.Drawing.Size(108, 12);
+            this.columnLevelsLabel.TabIndex = 6;
+            this.columnLevelsLabel.Text = "列グループ表示レベル";
             // 
-            // TxtColumnLevels
+            // columnLevelsTextBox
             // 
-            this.TxtColumnLevels.Location = new System.Drawing.Point(340, 88);
-            this.TxtColumnLevels.Name = "TxtColumnLevels";
-            this.TxtColumnLevels.Size = new System.Drawing.Size(100, 19);
-            this.TxtColumnLevels.TabIndex = 7;
-            this.TxtColumnLevels.Validating += new System.ComponentModel.CancelEventHandler(this.TxtGroupLevels_Validating);
+            this.columnLevelsTextBox.Location = new System.Drawing.Point(340, 88);
+            this.columnLevelsTextBox.Name = "columnLevelsTextBox";
+            this.columnLevelsTextBox.Size = new System.Drawing.Size(100, 19);
+            this.columnLevelsTextBox.TabIndex = 7;
+            this.columnLevelsTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.GroupLevelsTextBox_Validating);
             // 
-            // ChkAutoSave
+            // autoSaveCheckBox
             // 
-            this.ChkAutoSave.AutoSize = true;
-            this.ChkAutoSave.Location = new System.Drawing.Point(23, 137);
-            this.ChkAutoSave.Name = "ChkAutoSave";
-            this.ChkAutoSave.Size = new System.Drawing.Size(112, 16);
-            this.ChkAutoSave.TabIndex = 8;
-            this.ChkAutoSave.Text = "設定後に保存する";
-            this.ChkAutoSave.UseVisualStyleBackColor = true;
-            this.ChkAutoSave.CheckedChanged += new System.EventHandler(this.ChkAutoSave_CheckedChanged);
+            this.autoSaveCheckBox.AutoSize = true;
+            this.autoSaveCheckBox.Location = new System.Drawing.Point(23, 137);
+            this.autoSaveCheckBox.Name = "autoSaveCheckBox";
+            this.autoSaveCheckBox.Size = new System.Drawing.Size(112, 16);
+            this.autoSaveCheckBox.TabIndex = 8;
+            this.autoSaveCheckBox.Text = "設定後に保存する";
+            this.autoSaveCheckBox.UseVisualStyleBackColor = true;
+            this.autoSaveCheckBox.CheckedChanged += new System.EventHandler(this.AutoSaveCheckBox_CheckedChanged);
             // 
-            // DdlAutoSaveOverwrite
+            // autoSaveOverwriteDropDownList
             // 
-            this.DdlAutoSaveOverwrite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DdlAutoSaveOverwrite.FormattingEnabled = true;
-            this.DdlAutoSaveOverwrite.Items.AddRange(new object[] {
+            this.autoSaveOverwriteDropDownList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.autoSaveOverwriteDropDownList.FormattingEnabled = true;
+            this.autoSaveOverwriteDropDownList.Items.AddRange(new object[] {
             "上書き保存",
             "名前を付けて保存"});
-            this.DdlAutoSaveOverwrite.Location = new System.Drawing.Point(216, 135);
-            this.DdlAutoSaveOverwrite.Name = "DdlAutoSaveOverwrite";
-            this.DdlAutoSaveOverwrite.Size = new System.Drawing.Size(121, 20);
-            this.DdlAutoSaveOverwrite.TabIndex = 9;
+            this.autoSaveOverwriteDropDownList.Location = new System.Drawing.Point(216, 135);
+            this.autoSaveOverwriteDropDownList.Name = "autoSaveOverwriteDropDownList";
+            this.autoSaveOverwriteDropDownList.Size = new System.Drawing.Size(121, 20);
+            this.autoSaveOverwriteDropDownList.TabIndex = 9;
             // 
             // errorProvider
             // 
@@ -146,15 +146,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.DdlAutoSaveOverwrite);
-            this.Controls.Add(this.ChkAutoSave);
-            this.Controls.Add(this.TxtColumnLevels);
-            this.Controls.Add(this.LblColumnLevels);
-            this.Controls.Add(this.TxtRowLevels);
-            this.Controls.Add(this.LblRowLevels);
-            this.Controls.Add(this.ChkGroupEnabled);
-            this.Controls.Add(this.CmbZoomRatio);
-            this.Controls.Add(this.ChkZoomEnabled);
+            this.Controls.Add(this.autoSaveOverwriteDropDownList);
+            this.Controls.Add(this.autoSaveCheckBox);
+            this.Controls.Add(this.columnLevelsTextBox);
+            this.Controls.Add(this.columnLevelsLabel);
+            this.Controls.Add(this.rowLevelsTextBox);
+            this.Controls.Add(this.rowLevelsLabel);
+            this.Controls.Add(this.groupEnabledCheckBox);
+            this.Controls.Add(this.zoomRatioComboBox);
+            this.Controls.Add(this.zoomEnabledCheckBox);
             this.Name = "A1ConfigItem";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -164,15 +164,15 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox ChkZoomEnabled;
-        private System.Windows.Forms.ComboBox CmbZoomRatio;
-        private System.Windows.Forms.CheckBox ChkGroupEnabled;
-        private System.Windows.Forms.Label LblRowLevels;
-        private System.Windows.Forms.TextBox TxtRowLevels;
-        private System.Windows.Forms.Label LblColumnLevels;
-        private System.Windows.Forms.TextBox TxtColumnLevels;
-        private System.Windows.Forms.CheckBox ChkAutoSave;
-        private System.Windows.Forms.ComboBox DdlAutoSaveOverwrite;
+        private System.Windows.Forms.CheckBox zoomEnabledCheckBox;
+        private System.Windows.Forms.ComboBox zoomRatioComboBox;
+        private System.Windows.Forms.CheckBox groupEnabledCheckBox;
+        private System.Windows.Forms.Label rowLevelsLabel;
+        private System.Windows.Forms.TextBox rowLevelsTextBox;
+        private System.Windows.Forms.Label columnLevelsLabel;
+        private System.Windows.Forms.TextBox columnLevelsTextBox;
+        private System.Windows.Forms.CheckBox autoSaveCheckBox;
+        private System.Windows.Forms.ComboBox autoSaveOverwriteDropDownList;
         private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

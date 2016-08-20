@@ -46,7 +46,7 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void BtnApply_Click(object sender, EventArgs e)
+        private void ApplyButton_Click(object sender, EventArgs e)
         {
             this.Apply();
         }
@@ -56,7 +56,7 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void BtnCancel_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -66,7 +66,7 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void BtnConfirm_Click(object sender, EventArgs e)
+        private void ConfirmButton_Click(object sender, EventArgs e)
         {
             this.Apply();
             this.Close();
@@ -147,9 +147,9 @@
             }
 
             // TreeViewに反映
-            this.TrvConfigList.SuspendLayout();
-            this.TrvConfigList.Nodes.AddRange(trunk.ToArray());
-            this.TrvConfigList.ResumeLayout();
+            this.configListTreeView.SuspendLayout();
+            this.configListTreeView.Nodes.AddRange(trunk.ToArray());
+            this.configListTreeView.ResumeLayout();
         }
 
         /// <summary>
@@ -157,9 +157,9 @@
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void TrvConfigList_AfterSelect(object sender, TreeViewEventArgs e)
+        private void ConfigListTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            var pane = this.PnlConfigItemt;
+            var pane = this.configItemPanel;
             ConfigItemBase content;
 
             // 古いコンテンツを削除
