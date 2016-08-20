@@ -163,6 +163,7 @@
     <Compile Include="Command\MakeGridCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookFolderCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookEditableCommand.cs" />
+    <Compile Include="Command\OpenConfigWindowCommand.cs" />
     <Compile Include="Command\OpenFileCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookReadOnlyCommand.cs" />
     <Compile Include="Command\OpenHelpCommand.cs" />
@@ -179,6 +180,36 @@
     </Compile>
     <Compile Include="Config\EditConfig.cs" />
     <Compile Include="Config\GridConfig.cs" />
+    <Compile Include="Const\ConfigCategoryName.cs" />
+    <Compile Include="Const\ErrorMessage.cs" />
+    <Compile Include="Dialog\Config\A1ConfigItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dialog\Config\A1ConfigItem.Designer.cs">
+      <DependentUpon>A1ConfigItem.cs</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Dialog\Config\ConfigItemBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dialog\Config\ConfigItemBase.Designer.cs">
+      <DependentUpon>ConfigItemBase.cs</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Dialog\Config\ConfigWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\Config\ConfigWindow.Designer.cs">
+      <DependentUpon>ConfigWindow.cs</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Dialog\Config\GridConfigItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dialog\Config\GridConfigItem.Designer.cs">
+      <DependentUpon>GridConfigItem.cs</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Dialog\SearchReplaceWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +247,18 @@
       <SubType>Code</SubType>
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
+    <EmbeddedResource Include="Dialog\Config\A1ConfigItem.resx">
+      <DependentUpon>A1ConfigItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\Config\ConfigItemBase.resx">
+      <DependentUpon>ConfigItemBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\Config\ConfigWindow.resx">
+      <DependentUpon>ConfigWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\Config\GridConfigItem.resx">
+      <DependentUpon>GridConfigItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog\SearchReplaceWindow.resx">
       <DependentUpon>SearchReplaceWindow.cs</DependentUpon>
     </EmbeddedResource>

@@ -219,6 +219,7 @@
             this.Controls.Add(this.CompleteButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "WorksheetManageWindow";
+            this.ShowInTaskbar = false;
             this.Text = "ワークシート管理";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);

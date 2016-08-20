@@ -166,5 +166,16 @@
             var command = new OpenVersionInfoWindowCommand();
             command.Execute();
         }
+
+        /// <summary>
+        /// 「設定」ボタンを押下したときに呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元</param>
+        /// <param name="e">イベント変数</param>
+        private void ConfigButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            var command = new OpenConfigWindowCommand();
+            command.Execute();
+        }
     }
 }

@@ -25,12 +25,6 @@
         public int ZoomRatio { get; set; }
 
         /// <summary>
-        /// 自動保存するかどうかを示す値を取得または設定します。
-        /// </summary>
-        [XmlElement("AutoSave")]
-        public bool AutoSave { get; set; }
-
-        /// <summary>
         /// グループ化設定を変更するかどうかを示す値を取得または設定します。
         /// </summary>
         [XmlElement("GroupEnabled")]
@@ -47,5 +41,17 @@
         /// </summary>
         [XmlElement("ColumnLevels")]
         public int ColumnLevels { get; set; }
+
+        /// <summary>
+        /// 自動保存するかどうかを示す値を取得または設定します。
+        /// </summary>
+        [XmlElement("AutoSaveEnabled")]
+        public bool AutoSaveEnabled { get; set; }
+
+        /// <summary>
+        /// 上書き保存するかどうかを示す値を取得または設定します。
+        /// </summary>
+        [XmlElement("AutoSaveOverwrite")]
+        public bool AutoSaveOverwrite { get; set; }
     }
 }

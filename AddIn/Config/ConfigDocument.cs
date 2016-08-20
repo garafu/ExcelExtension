@@ -134,7 +134,8 @@
                 {
                     ZoomEnabled = false,
                     ZoomRatio = 100,
-                    AutoSave = false,
+                    AutoSaveEnabled = false,
+                    AutoSaveOverwrite = true,
                     GroupEnabled = false,
                     RowLevels = 1,
                     ColumnLevels = 1

@@ -52,6 +52,7 @@
             this.MakeGridButton = this.Factory.CreateRibbonButton();
             this.ManageWorksheetButton = this.Factory.CreateRibbonButton();
             this.HelpGroup = this.Factory.CreateRibbonGroup();
+            this.ConfigButton = this.Factory.CreateRibbonButton();
             this.OpenHelpButton = this.Factory.CreateRibbonButton();
             this.OpenVersionInfoButton = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
@@ -212,9 +213,18 @@
             // 
             // HelpGroup
             // 
+            this.HelpGroup.Items.Add(this.ConfigButton);
             this.HelpGroup.Items.Add(this.OpenHelpButton);
             this.HelpGroup.Items.Add(this.OpenVersionInfoButton);
             this.HelpGroup.Name = "HelpGroup";
+            // 
+            // ConfigButton
+            // 
+            this.ConfigButton.Label = "設定";
+            this.ConfigButton.Name = "ConfigButton";
+            this.ConfigButton.OfficeImageId = "ControlToolboxOutlook";
+            this.ConfigButton.ShowImage = true;
+            this.ConfigButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ConfigButton_Click);
             // 
             // OpenHelpButton
             // 
@@ -271,6 +281,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup HelpGroup;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenHelpButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton OpenVersionInfoButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ConfigButton;
     }
 
     partial class ThisRibbonCollection
