@@ -102,9 +102,7 @@
         {
             var builder = new FilterStringBuilder();
 
-            builder.Append(new FilterInfo(
-                "すべてのファイル",
-                "*"));
+            builder.Append(new FilterInfo("すべてのファイル", "*"));
             builder.Append(new FilterInfo("すべての Excel ファイル", "xl", "xlsx", "xlsm", "xlsb", "xlam", "xltx", "xltm", "xls", "xlt", "htm", "html", "mht", "mhtml", "xml", "xla", "xlm", "xlw", "odc", "ods"));
             builder.Append(new FilterInfo("Excel ファイル", "xl", "xlsx", "xlsm", "xlsb", "xlam", "xltx", "xltm", "xls", "xla", "xlt", "xlm", "xlw", "xjs", "xjm", "xjc"));
             builder.Append(new FilterInfo("すべての Web ページ", "htm", "html", "mht", "mhtml"));
@@ -129,115 +127,115 @@
             return builder.ToString();
         }
 
-        /// <summary>
-        /// OpenFileDialogのフィルタ情報
-        /// </summary>
-        public class FilterInfo
-        {
-            /// <summary>
-            /// FilterInfo クラス を初期化します。
-            /// </summary>
-            public FilterInfo()
-            {
-                this.DisplayName = string.Empty;
-                this.Extensions = new List<string>();
-            }
+        /////// <summary>
+        /////// OpenFileDialogのフィルタ情報
+        /////// </summary>
+        ////public class FilterInfo
+        ////{
+        ////    /// <summary>
+        ////    /// FilterInfo クラス を初期化します。
+        ////    /// </summary>
+        ////    public FilterInfo()
+        ////    {
+        ////        this.DisplayName = string.Empty;
+        ////        this.Extensions = new List<string>();
+        ////    }
 
-            /// <summary>
-            /// 表示名、拡張子を指定して FilterInfo クラス を初期化します。
-            /// </summary>
-            /// <param name="displayName">表示名</param>
-            /// <param name="extensions">拡張子</param>
-            public FilterInfo(string displayName, params string[] extensions)
-            {
-                this.DisplayName = displayName;
-                this.Extensions = new List<string>(extensions);
-            }
+        ////    /// <summary>
+        ////    /// 表示名、拡張子を指定して FilterInfo クラス を初期化します。
+        ////    /// </summary>
+        ////    /// <param name="displayName">表示名</param>
+        ////    /// <param name="extensions">拡張子</param>
+        ////    public FilterInfo(string displayName, params string[] extensions)
+        ////    {
+        ////        this.DisplayName = displayName;
+        ////        this.Extensions = new List<string>(extensions);
+        ////    }
 
-            /// <summary>
-            /// 表示名を取得または設定します。
-            /// </summary>
-            public string DisplayName { get; set; }
+        ////    /// <summary>
+        ////    /// 表示名を取得または設定します。
+        ////    /// </summary>
+        ////    public string DisplayName { get; set; }
 
-            /// <summary>
-            /// 拡張子を取得または設定します。
-            /// </summary>
-            public List<string> Extensions { get; set; }
+        ////    /// <summary>
+        ////    /// 拡張子を取得または設定します。
+        ////    /// </summary>
+        ////    public List<string> Extensions { get; set; }
 
-            /// <summary>
-            /// フィルターを表す文字列を取得します。
-            /// </summary>
-            /// <returns>フィルター文字列</returns>
-            public override string ToString()
-            {
-                var extensions = new StringBuilder();
+        ////    /// <summary>
+        ////    /// フィルターを表す文字列を取得します。
+        ////    /// </summary>
+        ////    /// <returns>フィルター文字列</returns>
+        ////    public override string ToString()
+        ////    {
+        ////        var extensions = new StringBuilder();
 
-                foreach (var ext in this.Extensions)
-                {
-                    extensions.Append("*.");
-                    extensions.Append(ext);
-                    extensions.Append(";");
-                }
+        ////        foreach (var ext in this.Extensions)
+        ////        {
+        ////            extensions.Append("*.");
+        ////            extensions.Append(ext);
+        ////            extensions.Append(";");
+        ////        }
 
-                extensions.Remove(extensions.Length - 1, 1);
+        ////        extensions.Remove(extensions.Length - 1, 1);
 
-                var filter = new StringBuilder();
+        ////        var filter = new StringBuilder();
 
-                filter.Append(this.DisplayName);
-                filter.Append("(");
-                filter.Append(extensions.ToString());
-                filter.Append(")|");
-                filter.Append(extensions.ToString());
+        ////        filter.Append(this.DisplayName);
+        ////        filter.Append("(");
+        ////        filter.Append(extensions.ToString());
+        ////        filter.Append(")|");
+        ////        filter.Append(extensions.ToString());
 
-                return filter.ToString();
-            }
-        }
+        ////        return filter.ToString();
+        ////    }
+        ////}
 
-        /// <summary>
-        /// OpenFileDialogのフィルタ文字列を生成します。
-        /// </summary>
-        public class FilterStringBuilder
-        {
-            /// <summary>
-            /// フィルターリスト
-            /// </summary>
-            private List<FilterInfo> filters;
+        /////// <summary>
+        /////// OpenFileDialogのフィルタ文字列を生成します。
+        /////// </summary>
+        ////public class FilterStringBuilder
+        ////{
+        ////    /// <summary>
+        ////    /// フィルターリスト
+        ////    /// </summary>
+        ////    private List<FilterInfo> filters;
 
-            /// <summary>
-            /// FilterStringBuilder クラス を初期化します。
-            /// </summary>
-            public FilterStringBuilder()
-            {
-                this.filters = new List<FilterInfo>();
-            }
+        ////    /// <summary>
+        ////    /// FilterStringBuilder クラス を初期化します。
+        ////    /// </summary>
+        ////    public FilterStringBuilder()
+        ////    {
+        ////        this.filters = new List<FilterInfo>();
+        ////    }
 
-            /// <summary>
-            /// フィルターを追加します。
-            /// </summary>
-            /// <param name="filterInfo">フィルター情報</param>
-            public void Append(FilterInfo filterInfo)
-            {
-                this.filters.Add(filterInfo);
-            }
+        ////    /// <summary>
+        ////    /// フィルターを追加します。
+        ////    /// </summary>
+        ////    /// <param name="filterInfo">フィルター情報</param>
+        ////    public void Append(FilterInfo filterInfo)
+        ////    {
+        ////        this.filters.Add(filterInfo);
+        ////    }
 
-            /// <summary>
-            /// フィルター文字列を生成します。
-            /// </summary>
-            /// <returns>フィルター文字列</returns>
-            public override string ToString()
-            {
-                var result = new StringBuilder();
+        ////    /// <summary>
+        ////    /// フィルター文字列を生成します。
+        ////    /// </summary>
+        ////    /// <returns>フィルター文字列</returns>
+        ////    public override string ToString()
+        ////    {
+        ////        var result = new StringBuilder();
 
-                foreach (var item in this.filters)
-                {
-                    result.Append(item.ToString());
-                    result.Append("|");
-                }
+        ////        foreach (var item in this.filters)
+        ////        {
+        ////            result.Append(item.ToString());
+        ////            result.Append("|");
+        ////        }
 
-                result.Remove(result.Length - 1, 1);
+        ////        result.Remove(result.Length - 1, 1);
 
-                return result.ToString();
-            }
-        }
+        ////        return result.ToString();
+        ////    }
+        ////}
     }
 }

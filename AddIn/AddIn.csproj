@@ -158,6 +158,8 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Command\FilterInfo.cs" />
+    <Compile Include="Command\FilterStringBuilder.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\InitializeStyleCommand.cs" />
     <Compile Include="Command\MakeGridCommand.cs" />
