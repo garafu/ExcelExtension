@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using ExcelX.AddIn.Config;
     using Excel = Microsoft.Office.Interop.Excel;
 
     /// <summary>
@@ -18,7 +19,7 @@
         public void Execute()
         {
             // グリッドサイズはピクセル指定
-            var size = 15;
+            var size = ConfigDocument.Current.Edit.Grid.Size;
 
             // ワークシートを取得
             var application = Globals.ThisAddIn.Application;

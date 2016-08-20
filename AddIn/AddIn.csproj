@@ -173,6 +173,12 @@
     <Compile Include="Command\OpenWorksheetManageWindowCommand.cs" />
     <Compile Include="Command\SetA1Command.cs" />
     <Compile Include="Command\ToggleEditModeCommand.cs" />
+    <Compile Include="Config\A1Config.cs" />
+    <Compile Include="Config\ConfigDocument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Config\EditConfig.cs" />
+    <Compile Include="Config\GridConfig.cs" />
     <Compile Include="Dialog\SearchReplaceWindow.cs">
       <SubType>Form</SubType>
     </Compile>

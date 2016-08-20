@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using System.Xml.Linq;
+    using ExcelX.AddIn.Config;
     using Microsoft.Office.Tools.Excel;
     using Excel = Microsoft.Office.Interop.Excel;
     using Office = Microsoft.Office.Core;
@@ -21,6 +22,8 @@
         /// <param name="e">イベント変数</param>
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            // 設定ファイルの読み込み
+            ConfigDocument.Load();
         }
 
         /// <summary>
@@ -30,6 +33,8 @@
         /// <param name="e">イベント変数</param>
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+            // 設定ファイルの保存
+            ConfigDocument.Save();
         }
 
         #region VSTO で生成されたコード

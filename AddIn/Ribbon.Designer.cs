@@ -36,8 +36,6 @@
         {
             this.tab = this.Factory.CreateRibbonTab();
             this.FileGroup = this.Factory.CreateRibbonGroup();
-            this.EditGroup = this.Factory.CreateRibbonGroup();
-            this.HelpGroup = this.Factory.CreateRibbonGroup();
             this.OpenFileMenu = this.Factory.CreateRibbonMenu();
             this.separator1 = this.Factory.CreateRibbonSeparator();
             this.OpenActiveWorkbookReadOnlyButton = this.Factory.CreateRibbonButton();
@@ -47,11 +45,13 @@
             this.OpenSelectWorkbookEditableButton = this.Factory.CreateRibbonButton();
             this.OpenFolderButton = this.Factory.CreateRibbonButton();
             this.ToggleEditModeButton = this.Factory.CreateRibbonButton();
+            this.EditGroup = this.Factory.CreateRibbonGroup();
             this.SearchButton = this.Factory.CreateRibbonButton();
             this.SetA1Button = this.Factory.CreateRibbonButton();
             this.InitializeStyleButton = this.Factory.CreateRibbonButton();
             this.MakeGridButton = this.Factory.CreateRibbonButton();
             this.ManageWorksheetButton = this.Factory.CreateRibbonButton();
+            this.HelpGroup = this.Factory.CreateRibbonGroup();
             this.OpenHelpButton = this.Factory.CreateRibbonButton();
             this.OpenVersionInfoButton = this.Factory.CreateRibbonButton();
             this.tab.SuspendLayout();
@@ -75,23 +75,6 @@
             this.FileGroup.Items.Add(this.ToggleEditModeButton);
             this.FileGroup.Label = "ファイル";
             this.FileGroup.Name = "FileGroup";
-            // 
-            // EditGroup
-            // 
-            this.EditGroup.Items.Add(this.SearchButton);
-            this.EditGroup.Items.Add(this.SetA1Button);
-            this.EditGroup.Items.Add(this.InitializeStyleButton);
-            this.EditGroup.Items.Add(this.MakeGridButton);
-            this.EditGroup.Items.Add(this.ManageWorksheetButton);
-            this.EditGroup.Label = "編集";
-            this.EditGroup.Name = "EditGroup";
-            // 
-            // HelpGroup
-            // 
-            this.HelpGroup.Items.Add(this.OpenHelpButton);
-            this.HelpGroup.Items.Add(this.OpenVersionInfoButton);
-            this.HelpGroup.Label = "ヘルプ";
-            this.HelpGroup.Name = "HelpGroup";
             // 
             // OpenFileMenu
             // 
@@ -172,6 +155,16 @@
             this.ToggleEditModeButton.ShowImage = true;
             this.ToggleEditModeButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ToggleEditModeButton_Click);
             // 
+            // EditGroup
+            // 
+            this.EditGroup.Items.Add(this.SearchButton);
+            this.EditGroup.Items.Add(this.SetA1Button);
+            this.EditGroup.Items.Add(this.InitializeStyleButton);
+            this.EditGroup.Items.Add(this.MakeGridButton);
+            this.EditGroup.Items.Add(this.ManageWorksheetButton);
+            this.EditGroup.Label = "編集";
+            this.EditGroup.Name = "EditGroup";
+            // 
             // SearchButton
             // 
             this.SearchButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -216,6 +209,12 @@
             this.ManageWorksheetButton.OfficeImageId = "DefinePrintStyles";
             this.ManageWorksheetButton.ShowImage = true;
             this.ManageWorksheetButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ManageWorksheetButton_Click);
+            // 
+            // HelpGroup
+            // 
+            this.HelpGroup.Items.Add(this.OpenHelpButton);
+            this.HelpGroup.Items.Add(this.OpenVersionInfoButton);
+            this.HelpGroup.Name = "HelpGroup";
             // 
             // OpenHelpButton
             // 
