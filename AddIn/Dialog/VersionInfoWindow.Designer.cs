@@ -76,6 +76,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VersionInfoWindow";
+            this.ShowInTaskbar = false;
             this.Text = "バージョン情報";
             this.ResumeLayout(false);
             this.PerformLayout();
