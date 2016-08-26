@@ -5,8 +5,8 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using Microsoft.Office.Interop.Excel;
     using Core = Microsoft.Office.Core;
+    using Excel = Microsoft.Office.Interop.Excel;
 
     /// <summary>
     /// 検索処理を行う実態クラス。
@@ -94,11 +94,37 @@
         }
 
         /// <summary>
+        /// 指定された検索結果に該当するオブジェクトにフォーカスします。
+        /// </summary>
+        /// <param name="result">検索結果</param>
+        public void Focus(SearchResult result)
+        {
+            switch (result.Type)
+            {
+                case SearchTargetType.FORMULA:
+                    this.FocusCell(result);
+                    break;
+                case SearchTargetType.VALUE:
+                    this.FocusCell(result);
+                    break;
+                case SearchTargetType.COMMENT:
+                    this.FocusComment(result);
+                    break;
+                case SearchTargetType.SHAPE:
+                    this.FocusAutoShape(result);
+                    break;
+                case SearchTargetType.CHART:
+                    this.FocusChart(result);
+                    break;
+            }
+        }
+
+        /// <summary>
         /// 指定された範囲のセル情報から 式 、 値 、 コメント を探します。
         /// </summary>
         /// <param name="range">検索範囲</param>
         /// <returns>検索結果</returns>
-        private List<SearchResult> FindCell(Range range)
+        private List<SearchResult> FindCell(Excel.Range range)
         {
             var result = new List<SearchResult>();
 
@@ -106,7 +132,7 @@
             {
                 for (var col = 1; col <= range.Columns.Count; col++)
                 {
-                    Range cell = range.Cells[row, col];
+                    Excel.Range cell = range.Cells[row, col];
                     string text = string.Empty;
 
                     // セル式に一致する文字列が存在するかどうか
@@ -169,7 +195,7 @@
         /// </summary>
         /// <param name="range">検索範囲</param>
         /// <returns>検索結果</returns>
-        private List<SearchResult> FindShape(Range range)
+        private List<SearchResult> FindShape(Excel.Range range)
         {
             var result = new List<SearchResult>();
 
@@ -183,16 +209,16 @@
                 switch (shape.Type)
                 {
                     case Core.MsoShapeType.msoGroup:
-                        this.FindGroupShape(shape, result);
+                        this.FindGroupShape(shape, i, -1, result);
                         break;
                     case Core.MsoShapeType.msoSmartArt:
-                        this.FindSmartArt(shape, result);
+                        this.FindSmartArt(shape, i, -1, result);
                         break;
                     case Core.MsoShapeType.msoAutoShape:
                     case Core.MsoShapeType.msoCallout:
                     case Core.MsoShapeType.msoFreeform:
                     case Core.MsoShapeType.msoTextBox:
-                        this.FindDefaultShape(shape, result);
+                        this.FindDefaultShape(shape, i, -1, result);
                         break;
                     default:
                         break;
@@ -206,8 +232,10 @@
         /// グループ化されたシェイプから検索対象を探します。
         /// </summary>
         /// <param name="parentShape">グループ化されたシェイプ</param>
+        /// <param name="parentIndex">親シェイプインデックス</param>
+        /// <param name="childIndex">子シェイプインデックス</param>
         /// <param name="result">検索結果の反映先</param>
-        private void FindGroupShape(Shape parentShape, List<SearchResult> result)
+        private void FindGroupShape(Excel.Shape parentShape, int parentIndex, int childIndex, List<SearchResult> result)
         {
             var groupItems = parentShape.GroupItems;
 
@@ -218,10 +246,10 @@
                 switch (childShape.Type)
                 {
                     case Core.MsoShapeType.msoSmartArt:
-                        this.FindSmartArt(childShape, result);
+                        this.FindSmartArt(childShape, parentIndex, i, result);
                         break;
                     default:
-                        this.FindDefaultShape(childShape, result);
+                        this.FindDefaultShape(childShape, parentIndex, i, result);
                         break;
                 }
             }
@@ -231,8 +259,10 @@
         /// スマートアートから検索対象を探します。
         /// </summary>
         /// <param name="parentShape">スマートアート</param>
+        /// <param name="parentIndex">親シェイプインデックス</param>
+        /// <param name="childIndex">子シェイプインデックス</param>
         /// <param name="result">検索結果の反映先</param>
-        private void FindSmartArt(Shape parentShape, List<SearchResult> result)
+        private void FindSmartArt(Excel.Shape parentShape, int parentIndex, int childIndex, List<SearchResult> result)
         {
             var nodes = parentShape.SmartArt.AllNodes;
             var book = this.scope.Book;
@@ -254,6 +284,8 @@
                     Book = book.Name,
                     Sheet = sheet.Name,
                     Cell = string.Format("{0}:{1}", parentShape.TopLeftCell.Address, parentShape.BottomRightCell.Address),
+                    ParentIndex = parentIndex,
+                    ChildIndex = childIndex,
                     Name = parentShape.Name,
                     Type = SearchTargetType.SHAPE,
                     Text = text
@@ -265,8 +297,10 @@
         /// 指定されたシェイプが検索対象かを判定します。
         /// </summary>
         /// <param name="shape">シェイプ</param>
+        /// <param name="parentIndex">親シェイプインデックス</param>
+        /// <param name="childIndex">子シェイプインデックス</param>
         /// <param name="result">検索結果の反映先</param>
-        private void FindDefaultShape(Shape shape, List<SearchResult> result)
+        private void FindDefaultShape(Excel.Shape shape, int parentIndex, int childIndex, List<SearchResult> result)
         {
             string text = string.Empty;
 
@@ -289,6 +323,8 @@
                 Book = this.scope.Book.Name,
                 Sheet = shape.TopLeftCell.Worksheet.Name,
                 Cell = string.Format("{0}:{1}", shape.TopLeftCell.Address, shape.BottomRightCell.Address),
+                ParentIndex = parentIndex,
+                ChildIndex = childIndex,
                 Name = shape.Name,
                 Type = SearchTargetType.SHAPE,
                 Text = text
@@ -300,18 +336,18 @@
         /// </summary>
         /// <param name="range">検索範囲</param>
         /// <returns>検索結果</returns>
-        private List<SearchResult> FindChart(Range range)
+        private List<SearchResult> FindChart(Excel.Range range)
         {
             var result = new List<SearchResult>();
 
-            Worksheet sheet = range.Worksheet;
-            ChartObjects chartObjects = sheet.ChartObjects();
+            Excel.Worksheet sheet = range.Worksheet;
+            Excel.ChartObjects chartObjects = sheet.ChartObjects();
             string text = string.Empty;
-            Axis axis = null;
+            Excel.Axis axis = null;
 
-            foreach (ChartObject chartObject in chartObjects)
+            foreach (Excel.ChartObject chartObject in chartObjects)
             {
-                Chart chart = chartObject.Chart;
+                Excel.Chart chart = chartObject.Chart;
 
                 // グラフタイトル
                 text = chart.ChartTitle.Text;
@@ -329,7 +365,7 @@
                 }
 
                 // 横軸タイトル
-                axis = chart.Axes(XlAxisType.xlCategory, XlAxisGroup.xlPrimary);
+                axis = chart.Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary);
                 if (axis.HasTitle &&
                     this.condition.Validate(text = axis.AxisTitle.Characters.Text))
                 {
@@ -345,7 +381,7 @@
                 }
 
                 // 縦軸タイトル
-                axis = chart.Axes(XlAxisType.xlValue, XlAxisGroup.xlPrimary);
+                axis = chart.Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlPrimary);
                 if (axis.HasTitle &&
                     this.condition.Validate(text = axis.AxisTitle.Characters.Text))
                 {
@@ -362,6 +398,148 @@
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 指定されたシート名のワークシートを取得します。
+        /// </summary>
+        /// <param name="sheetName">シート名</param>
+        /// <returns>Worksheet オブジェクト</returns>
+        private Excel.Worksheet GetWorksheet(string sheetName)
+        {
+            var application = Globals.ThisAddIn.Application;
+            Excel.Workbook book = application.ActiveWorkbook;
+            Excel.Worksheet sheet = null;
+
+            if (application.ActiveSheet.Name == sheetName)
+            {
+                sheet = application.ActiveSheet;
+            }
+            else
+            {
+                sheet = book.Sheets.Item[sheetName];
+                ((Excel._Worksheet)sheet).Activate();
+            }
+
+            return sheet;
+        }
+
+        /// <summary>
+        /// 指定された検索結果に該当する Shape を取得します。
+        /// </summary>
+        /// <param name="result">検索結果</param>
+        /// <returns>Shape オブジェクト</returns>
+        private Excel.Shape GetShape(SearchResult result)
+        {
+            var sheet = this.GetWorksheet(result.Sheet);
+
+            // 親要素取得
+            var shape1 = sheet.Shapes.Item(result.ParentIndex);
+
+            // グループ or SmartArt は子要素を再取得
+            if (shape1.Type == Microsoft.Office.Core.MsoShapeType.msoAutoShape ||
+                shape1.Type == Microsoft.Office.Core.MsoShapeType.msoGroup)
+            {
+                shape1 = shape1.GroupItems.Item(result.ChildIndex);
+            }
+
+            return shape1;
+        }
+
+        /// <summary>
+        /// 指定されたセルにフォーカスします。
+        /// </summary>
+        /// <param name="result">検索結果</param>
+        /// <returns>フォーカスした範囲</returns>
+        private Excel.Range FocusCell(SearchResult result)
+        {
+            var sheet = this.GetWorksheet(result.Sheet);
+            var range = sheet.Range[result.Cell];
+
+            // シートを選択
+            sheet.Select();
+
+            // 対象の範囲を選択
+            range.Select();
+            range.Activate();
+
+            return range;
+        }
+
+        /// <summary>
+        /// コメント入力されたセルにフォーカスします。
+        /// </summary>
+        /// <param name="result">検索結果</param>
+        /// <returns>フォーカスした範囲</returns>
+        private Excel.Range FocusComment(SearchResult result)
+        {
+            var sheet = this.GetWorksheet(result.Sheet);
+            var range = sheet.Range[result.Cell];
+
+            // シートを選択
+            sheet.Select();
+
+            // 対象の範囲を選択
+            range.Select();
+            range.Activate();
+
+            return range;
+        }
+
+        /// <summary>
+        /// 指定したシート、セルに存在するオートシェイプにフォーカスします。
+        /// </summary>
+        /// <param name="result">検索結果</param>
+        /// <returns>オートシェイプが存在する領域</returns>
+        private Excel.Range FocusAutoShape(SearchResult result)
+        {
+            var sheet = this.GetWorksheet(result.Sheet);
+            var range = sheet.Range[result.Cell];
+            var shape = this.GetShape(result);
+
+            // シートを選択
+            sheet.Select();
+
+            // 対象の範囲を選択
+            range.Select();
+            range.Activate();
+            
+            try
+            {
+                // オブジェクトを選択
+                shape.Select();
+            }
+            catch
+            {
+            }
+
+            return range;
+        }
+
+        /// <summary>
+        /// 指定されたグラフにフォーカスします。
+        /// </summary>
+        /// <param name="result">検索結果</param>
+        /// <returns>フォーカスした範囲</returns>
+        private Excel.Range FocusChart(SearchResult result)
+        {
+            var sheet = this.GetWorksheet(result.Sheet);
+            var range = sheet.Range[result.Cell];
+            var chart = sheet.ChartObjects(result.Name);
+
+            var application = Globals.ThisAddIn.Application;
+            application.Goto(range, true);
+
+            try
+            {
+                // オブジェクトを選択
+                chart.Select();
+            }
+            catch
+            {
+            }
+
+            return range;
         }
     }
 }

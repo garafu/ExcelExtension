@@ -49,6 +49,9 @@
                 new ListBoxItem<SearchTargetType>(SearchTargetType.CHART)
             });
             this.searchTargetCheckedListBox.SetItemChecked(1, true);
+
+            // 「検索結果」リストを設定
+            this.resultDataGridView.AutoGenerateColumns = false;
         }
 
         /// <summary>
@@ -88,122 +91,124 @@
             this.Close();
         }
 
-        /// <summary>
-        /// 指定したシート、セルに存在するオートシェイプにフォーカスします。
-        /// </summary>
-        /// <param name="sheetName">シート名</param>
-        /// <param name="cellName">セル名</param>
-        /// <param name="objectName">オブジェクト名</param>
-        /// <returns>オートシェイプが存在する領域</returns>
-        private Range FocusAutoShape(string sheetName, string cellName, string objectName)
-        {
-            var sheet = this.FocusSheet(sheetName);
-            var range = sheet.Range[cellName];
-            var shape = sheet.Shapes.Item(objectName);
+        /////// <summary>
+        /////// 指定したシート、セルに存在するオートシェイプにフォーカスします。
+        /////// </summary>
+        /////// <param name="sheetName">シート名</param>
+        /////// <param name="cellName">セル名</param>
+        /////// <param name="objectName">オブジェクト名</param>
+        /////// <returns>オートシェイプが存在する領域</returns>
+        ////private Range FocusAutoShape(SearchResult result)
+        ////{
+        ////    var sheet = this.FocusSheet(result.Sheet);
+        ////    var range = sheet.Range[result.Cell];
+        ////    var shape = sheet.Shapes.Count < result.ParentIndex ?
+        ////                    sheet.Shapes.Item(result.Name) :
+        ////                    sheet.Shapes.Item(result.ParentIndex);
 
-            // オブジェクトが存在する場所に表示領域を移動させる
-            range.Select();
-            range.Activate();
+        ////    // オブジェクトが存在する場所に表示領域を移動させる
+        ////    range.Select();
+        ////    range.Activate();
 
-            try
-            {
-                // オブジェクトを選択
-                shape.Select();
-            }
-            catch 
-            {
-            }
+        ////    try
+        ////    {
+        ////        // オブジェクトを選択
+        ////        shape.Select();
+        ////    }
+        ////    catch 
+        ////    {
+        ////    }
 
-            return range;
-        }
+        ////    return range;
+        ////}
 
-        /// <summary>
-        /// 指定されたセルにフォーカスします。
-        /// </summary>
-        /// <param name="sheetName">シート名</param>
-        /// <param name="cellName">セル名</param>
-        /// <returns>フォーカスした範囲</returns>
-        private Range FocusCell(string sheetName, string cellName)
-        {
-            var sheet = this.FocusSheet(sheetName);
-            var range = sheet.Range[cellName];
+        /////// <summary>
+        /////// 指定されたセルにフォーカスします。
+        /////// </summary>
+        /////// <param name="sheetName">シート名</param>
+        /////// <param name="cellName">セル名</param>
+        /////// <returns>フォーカスした範囲</returns>
+        ////private Range FocusCell(string sheetName, string cellName)
+        ////{
+        ////    var sheet = this.FocusSheet(sheetName);
+        ////    var range = sheet.Range[cellName];
 
-            range.Select();
-            range.Activate();
+        ////    range.Select();
+        ////    range.Activate();
 
-            return range;
-        }
+        ////    return range;
+        ////}
 
-        /// <summary>
-        /// 指定されたグラフにフォーカスします。
-        /// </summary>
-        /// <param name="sheetName">シート名</param>
-        /// <param name="cellName">セル名</param>
-        /// <param name="objectName">グラフ名</param>
-        /// <returns>フォーカスした範囲</returns>
-        private Range FocusChart(string sheetName, string cellName, string objectName)
-        {
-            var sheet = this.FocusSheet(sheetName);
-            var range = sheet.Range[cellName];
-            var chart = sheet.ChartObjects(objectName);
+        /////// <summary>
+        /////// 指定されたグラフにフォーカスします。
+        /////// </summary>
+        /////// <param name="sheetName">シート名</param>
+        /////// <param name="cellName">セル名</param>
+        /////// <param name="objectName">グラフ名</param>
+        /////// <returns>フォーカスした範囲</returns>
+        ////private Range FocusChart(string sheetName, string cellName, string objectName)
+        ////{
+        ////    var sheet = this.FocusSheet(sheetName);
+        ////    var range = sheet.Range[cellName];
+        ////    var chart = sheet.ChartObjects(objectName);
 
-            // オブジェクトが存在する場所に表示領域を移動させる
-            range.Select();
-            range.Activate();
+        ////    // オブジェクトが存在する場所に表示領域を移動させる
+        ////    range.Select();
+        ////    range.Activate();
 
-            try
-            {
-                // オブジェクトを選択
-                chart.Select();
-            }
-            catch 
-            {
-            }
+        ////    try
+        ////    {
+        ////        // オブジェクトを選択
+        ////        chart.Select();
+        ////    }
+        ////    catch 
+        ////    {
+        ////    }
 
-            return range;
-        }
+        ////    return range;
+        ////}
 
-        /// <summary>
-        /// コメント入力されたセルにフォーカスします。
-        /// </summary>
-        /// <param name="sheetName">シート名</param>
-        /// <param name="cellName">セル名</param>
-        /// <returns>フォーカスした範囲</returns>
-        private Range FocusComment(string sheetName, string cellName)
-        {
-            var sheet = this.FocusSheet(sheetName);
-            var range = sheet.Range[cellName];
+        /////// <summary>
+        /////// コメント入力されたセルにフォーカスします。
+        /////// </summary>
+        /////// <param name="sheetName">シート名</param>
+        /////// <param name="cellName">セル名</param>
+        /////// <returns>フォーカスした範囲</returns>
+        ////private Range FocusComment(string sheetName, string cellName)
+        ////{
+        ////    var sheet = this.FocusSheet(sheetName);
+        ////    var range = sheet.Range[cellName];
 
-            range.Select();
-            range.Activate();
+        ////    range.Select();
+        ////    range.Activate();
 
-            return range;
-        }
+        ////    return range;
+        ////}
 
-        /// <summary>
-        /// 指定されたシートが表示していなければ表示します。
-        /// </summary>
-        /// <param name="sheetName">シート名</param>
-        /// <returns>フォーカスしたシート</returns>
-        private Worksheet FocusSheet(string sheetName)
-        {
-            var application = Globals.ThisAddIn.Application;
-            Workbook book = application.ActiveWorkbook;
-            Worksheet sheet = null;
+        /////// <summary>
+        /////// 指定されたシートが表示していなければ表示します。
+        /////// </summary>
+        /////// <param name="sheetName">シート名</param>
+        /////// <returns>フォーカスしたシート</returns>
+        ////private Worksheet FocusSheet(string sheetName)
+        ////{
+        ////    var application = Globals.ThisAddIn.Application;
+        ////    Workbook book = application.ActiveWorkbook;
+        ////    Worksheet sheet = null;
 
-            if (application.ActiveSheet.Name == sheetName)
-            {
-                sheet = application.ActiveSheet;
-            }
-            else
-            {
-                sheet = book.Sheets.Item[sheetName];
-                sheet.Select();
-                ((Microsoft.Office.Interop.Excel._Worksheet)sheet).Activate();
-            }
+        ////    if (application.ActiveSheet.Name == sheetName)
+        ////    {
+        ////        sheet = application.ActiveSheet;
+        ////    }
+        ////    else
+        ////    {
+        ////        sheet = book.Sheets.Item[sheetName];
+        ////        sheet.Select();
+        ////        ((Microsoft.Office.Interop.Excel._Worksheet)sheet).Activate();
+        ////    }
 
-            return sheet;
-        }
+        ////    return sheet;
+        ////}
 
         /// <summary>
         /// 検索結果のセルを選択したとき、呼び出されます。
@@ -221,29 +226,10 @@
             // 行に設定したデータを取り出す
             var row = (sender as DataGridView).Rows[e.RowIndex];
             var result = row.DataBoundItem as SearchResult;
-            var sheetName = result.Sheet;
-            var cellName = result.Cell;
-            var objectName = result.Name;
 
-            // 種別に応じてフォーカス
-            switch (result.Type)
-            {
-                case SearchTargetType.FORMULA:
-                    this.FocusCell(sheetName, cellName);
-                    break;
-                case SearchTargetType.VALUE:
-                    this.FocusCell(sheetName, cellName);
-                    break;
-                case SearchTargetType.COMMENT:
-                    this.FocusComment(sheetName, cellName);
-                    break;
-                case SearchTargetType.SHAPE:
-                    this.FocusAutoShape(sheetName, cellName, objectName);
-                    break;
-                case SearchTargetType.CHART:
-                    this.FocusChart(sheetName, cellName, objectName);
-                    break;
-            }
+            // 該当のオブジェクトにフォーカス
+            var engine = new SearchEngine();
+            engine.Focus(result);
         }
 
         /// <summary>

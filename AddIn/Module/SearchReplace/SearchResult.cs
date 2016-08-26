@@ -53,6 +53,16 @@
         public string Name { get; set; }
 
         /// <summary>
+        /// オブジェクトの親インデックス値を取得または設定します。
+        /// </summary>
+        public int ParentIndex { get; set; }
+
+        /// <summary>
+        /// オブジェクトの親インデックス値を取得または設定します。
+        /// </summary>
+        public int ChildIndex { get; set; }
+
+        /// <summary>
         /// シート名を取得または設定します。
         /// </summary>
         public string Sheet { get; set; }
