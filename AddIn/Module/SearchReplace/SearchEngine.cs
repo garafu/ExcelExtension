@@ -395,6 +395,28 @@
                         Text = text
                     });
                 }
+
+                // 系列
+                var collection = (Excel.SeriesCollection)chart.SeriesCollection();
+                for (var j = 1; j <= collection.Count; j++)
+                {
+                    var series = chart.SeriesCollection(j) as Excel.Series;
+                    text = series.Name;
+
+                    if (string.IsNullOrEmpty(text) == false &&
+                        this.condition.Validate(text))
+                    {
+                        result.Add(new SearchResult()
+                        {
+                            Book = this.scope.Book.Name,
+                            Sheet = sheet.Name,
+                            Cell = string.Format("{0}:{1}", chartObject.TopLeftCell.Address, chartObject.BottomRightCell.Address),
+                            Name = chartObject.Name,
+                            Type = SearchTargetType.CHART,
+                            Text = text
+                        });
+                    }
+                }
             }
 
             return result;
