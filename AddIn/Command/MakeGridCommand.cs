@@ -26,9 +26,23 @@
             Excel.Workbook book = application.ActiveWorkbook;
             Excel.Worksheet sheet = book.ActiveSheet;
 
+            // 環境値の取得
+            var cell = sheet.Range["A1"];
+            double x1 = 10, x2 = 20, y1, y2, a, b;
+            
+            cell.ColumnWidth = x1;
+            y1 = cell.Width;
+
+            cell.ColumnWidth = x2;
+            y2 = cell.Width;
+
+            a = (y2 - y1) / (x2 - x1);
+            b = y2 - (y2 - y1) / (x2 - x1) * x2;
+
+
             // すべてのセルサイズを同一に設定
             Excel.Range all = sheet.Cells;
-            all.ColumnWidth = size * 0.118;
+            all.ColumnWidth = (size * 0.75 - b) / a;
             all.RowHeight = size * 0.75;
         }
     }
