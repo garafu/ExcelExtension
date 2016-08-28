@@ -30,16 +30,9 @@
         }
 
         /// <summary>
-        /// 画面上で設定された値を現在の設定に反映します。
+        /// 「適用」が実行されたとき発生します。
         /// </summary>
-        private void Apply()
-        {
-            foreach (var key in this.configlist.Keys)
-            {
-                var item = this.configlist[key];
-                item.OnApply();
-            }
-        }
+        public event EventHandler Apply;
 
         /// <summary>
         /// 「適用」ボタンが押下されたとき呼び出されます。
@@ -48,7 +41,7 @@
         /// <param name="e">イベント変数</param>
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            this.Apply();
+            this.OnApply();
         }
 
         /// <summary>
@@ -62,13 +55,40 @@
         }
 
         /// <summary>
+        /// 設定リスト項目が選択されたとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元オブジェクト</param>
+        /// <param name="e">イベント変数</param>
+        private void ConfigListTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            var pane = this.configItemPanel;
+            ConfigItemBase content;
+
+            // 古いコンテンツを削除
+            if (pane.Controls.Count > 0)
+            {
+                content = pane.Controls[0] as ConfigItemBase;
+                pane.Controls.Clear();
+                content.OnHide();
+            }
+
+            // 新しいコンテンツを表示
+            if (e.Node.Name != e.Node.Text)
+            {
+                content = this.configlist[e.Node.Name];
+                pane.Controls.Add(content);
+                content.OnShow();
+            }
+        }
+
+        /// <summary>
         /// 「OK」ボタンが押下されたとき呼び出されます。
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            this.Apply();
+            this.OnApply();
             this.Close();
         }
 
@@ -153,29 +173,19 @@
         }
 
         /// <summary>
-        /// 設定リスト項目が選択されたとき呼び出されます。
+        /// 画面上で設定された値を現在の設定に反映します。
         /// </summary>
-        /// <param name="sender">呼び出し元オブジェクト</param>
-        /// <param name="e">イベント変数</param>
-        private void ConfigListTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        private void OnApply()
         {
-            var pane = this.configItemPanel;
-            ConfigItemBase content;
-
-            // 古いコンテンツを削除
-            if (pane.Controls.Count > 0)
+            foreach (var key in this.configlist.Keys)
             {
-                content = pane.Controls[0] as ConfigItemBase;
-                pane.Controls.Clear();
-                content.OnHide();
+                var item = this.configlist[key];
+                item.OnApply();
             }
 
-            // 新しいコンテンツを表示
-            if (e.Node.Name != e.Node.Text)
+            if (this.Apply != null)
             {
-                content = this.configlist[e.Node.Name];
-                pane.Controls.Add(content);
-                content.OnShow();
+                this.Apply(this, new EventArgs());
             }
         }
     }

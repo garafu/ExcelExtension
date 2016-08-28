@@ -37,7 +37,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ConfigItemBase";
             this.Padding = new System.Windows.Forms.Padding(20, 10, 20, 10);
-            this.Size = new System.Drawing.Size(524, 403);
+            this.Size = new System.Drawing.Size(500, 400);
             this.ResumeLayout(false);
 
         }

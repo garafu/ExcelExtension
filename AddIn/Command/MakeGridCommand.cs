@@ -37,12 +37,11 @@
             y2 = cell.Width;
 
             a = (y2 - y1) / (x2 - x1);
-            b = y2 - (y2 - y1) / (x2 - x1) * x2;
-
+            b = y2 - (((y2 - y1) / (x2 - x1)) * x2);
 
             // すべてのセルサイズを同一に設定
             Excel.Range all = sheet.Cells;
-            all.ColumnWidth = (size * 0.75 - b) / a;
+            all.ColumnWidth = ((size * 0.75) - b) / a;
             all.RowHeight = size * 0.75;
         }
     }

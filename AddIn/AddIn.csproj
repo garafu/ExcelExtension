@@ -158,6 +158,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Command\AddBalloonCommand.cs" />
     <Compile Include="Command\FilterInfo.cs" />
     <Compile Include="Command\FilterStringBuilder.cs" />
     <Compile Include="Command\ICommand.cs" />
@@ -165,7 +166,9 @@
     <Compile Include="Command\MakeGridCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookFolderCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookEditableCommand.cs" />
-    <Compile Include="Command\OpenConfigWindowCommand.cs" />
+    <Compile Include="Command\OpenConfigWindowCommand.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Command\OpenFileCommand.cs" />
     <Compile Include="Command\OpenActiveWorkbookReadOnlyCommand.cs" />
     <Compile Include="Command\ReportIssuesCommand.cs" />
@@ -178,11 +181,14 @@
     <Compile Include="Command\SetA1Command.cs" />
     <Compile Include="Command\ToggleEditModeCommand.cs" />
     <Compile Include="Config\A1Config.cs" />
+    <Compile Include="Config\ColorConfig.cs" />
     <Compile Include="Config\ConfigDocument.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Config\EditConfig.cs" />
     <Compile Include="Config\GridConfig.cs" />
+    <Compile Include="Config\RectangleBalloonConfig.cs" />
+    <Compile Include="Config\ShapeConfig.cs" />
     <Compile Include="Const\ConfigCategoryName.cs" />
     <Compile Include="Const\ErrorMessage.cs" />
     <Compile Include="Dialog\Config\A1ConfigItem.cs">
@@ -190,6 +196,13 @@
     </Compile>
     <Compile Include="Dialog\Config\A1ConfigItem.Designer.cs">
       <DependentUpon>A1ConfigItem.cs</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Dialog\Config\RectangleBalloonConfigItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dialog\Config\RectangleBalloonConfigItem.Designer.cs">
+      <DependentUpon>RectangleBalloonConfigItem.cs</DependentUpon>
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Dialog\Config\ConfigItemBase.cs">
@@ -252,6 +265,9 @@
     </Compile>
     <EmbeddedResource Include="Dialog\Config\A1ConfigItem.resx">
       <DependentUpon>A1ConfigItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\Config\RectangleBalloonConfigItem.resx">
+      <DependentUpon>RectangleBalloonConfigItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Config\ConfigItemBase.resx">
       <DependentUpon>ConfigItemBase.cs</DependentUpon>

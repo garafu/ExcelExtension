@@ -25,5 +25,10 @@
         /// 「編集」
         /// </summary>
         public const string Edit = @"編集";
+
+        /// <summary>
+        /// 「図形」
+        /// </summary>
+        public const string Shape = @"図形";
     }
 }

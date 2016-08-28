@@ -22,6 +22,7 @@
         /// <param name="e">イベント変数</param>
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
+            this.InitializeShapeMenu();
         }
 
         /// <summary>
@@ -175,6 +176,10 @@
         private void ConfigButton_Click(object sender, RibbonControlEventArgs e)
         {
             var command = new OpenConfigWindowCommand();
+            command.Callback += (obj, evt) =>
+            {
+                this.InitializeShapeMenu();
+            };
             command.Execute();
         }
 
@@ -187,6 +192,60 @@
         {
             var command = new ReportIssuesCommand();
             command.Execute();
+        }
+
+        /// <summary>
+        /// 「吹き出し」ボタンを押下したとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元</param>
+        /// <param name="e">イベント変数</param>
+        private void AddBalloonButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            var button = sender as RibbonButton;
+            if (button == null)
+            {
+                return;
+            }
+
+            var command = new AddBalloonCommand();
+            command.Execute((int)button.Tag);
+        }
+
+        /// <summary>
+        /// 「図形」グループに含まれる個別メニューを初期化します。
+        /// </summary>
+        private void InitializeShapeMenu()
+        {
+            var config = Config.ConfigDocument.Current.Shape;
+
+            this.balloonMenu.SuspendLayout();
+            
+            // もともとのボタンは削除
+            this.balloonMenu.Items.Clear();
+
+            // 「吹き出し」メニューの初期化
+            for (var i = 0; i < config.RectangleBalloonList.Count; i++)
+            {
+                // 設定情報の取得
+                var item = config.RectangleBalloonList[i];
+
+                if (item.Enabled == false)
+                {
+                    continue;
+                }
+
+                // ボタンの生成
+                var button = this.Factory.CreateRibbonButton();
+                button.Label = item.DisplayName;
+                button.Name = "addBalloonButton" + i;
+                button.Tag = i;
+                button.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.AddBalloonButton_Click);
+
+                // ボタンをメニューに追加
+                this.balloonMenu.Items.Add(button);
+            }
+
+            this.balloonMenu.ResumeLayout();
         }
     }
 }

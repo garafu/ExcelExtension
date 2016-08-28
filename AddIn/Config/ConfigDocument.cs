@@ -14,13 +14,13 @@
     /// 設定ファイル
     /// </summary>
     [Serializable]
-    [XmlRoot("config")]
+    [XmlRoot("originals")]
     public class ConfigDocument
     {
         /// <summary>
         /// 設定ファイル名
         /// </summary>
-        private static string fileName = @"excelx.config";
+        private static string fileName = @"excelx.originals";
 
         /// <summary>
         /// 設定ファイルパス
@@ -48,6 +48,12 @@
         /// </summary>
         [XmlElement("Edit")]
         public EditConfig Edit { get; set; }
+
+        /// <summary>
+        /// 図形に関する設定を取得または設定します。
+        /// </summary>
+        [XmlElement("Shape")]
+        public ShapeConfig Shape { get; set; }
 
         /// <summary>
         /// ローカルファイルから設定を読み込みます。
@@ -143,6 +149,38 @@
                 Grid = new GridConfig()
                 {
                     Size = 15
+                }
+            };
+            this.Shape = new ShapeConfig()
+            {
+                RectangleBalloonList = new List<RectangleBalloonConfig>()
+                {
+                    new RectangleBalloonConfig()
+                    {
+                        DisplayName = "吹き出し(青)",
+                        Enabled = true,
+                        Width = 160,
+                        Height = 90,
+                        BorderSize = 1,
+                        BorderColor = new ColorConfig(0, 0, 255),
+                        BackgroundColor = new ColorConfig(153, 204, 255, 0.25f),
+                        FontSize = 9,
+                        FontColor = new ColorConfig(0, 0, 0),
+                        FontName = "ＭＳ Ｐゴシック"
+                    },
+                    new RectangleBalloonConfig()
+                    {
+                        DisplayName = "吹き出し(白)",
+                        Enabled = true,
+                        Width = 160,
+                        Height = 90,
+                        BorderSize = 1,
+                        BorderColor = new ColorConfig(51, 51, 51),
+                        BackgroundColor = new ColorConfig(255, 255, 255, 0.25f),
+                        FontSize = 9,
+                        FontColor = new ColorConfig(0, 0, 0),
+                        FontName = "ＭＳ Ｐゴシック"
+                    }
                 }
             };
         }
