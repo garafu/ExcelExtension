@@ -22,7 +22,6 @@
         /// <param name="e">イベント変数</param>
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
-            this.InitializeShapeMenu();
         }
 
         /// <summary>
@@ -147,6 +146,16 @@
         }
 
         /// <summary>
+        /// 吹き出しメニューの項目が読み込まれるとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元オブジェクト</param>
+        /// <param name="e">イベント変数</param>
+        private void BalloonMenu_ItemsLoading(object sender, RibbonControlEventArgs e)
+        {
+            this.InitializeShapeMenu();
+        }
+
+        /// <summary>
         /// 「ヘルプ」ボタンを押下したときに呼び出されます。
         /// </summary>
         /// <param name="sender">呼び出し元</param>
@@ -219,7 +228,7 @@
             var config = Config.ConfigDocument.Current.Shape;
 
             this.balloonMenu.SuspendLayout();
-            
+
             // もともとのボタンは削除
             this.balloonMenu.Items.Clear();
 

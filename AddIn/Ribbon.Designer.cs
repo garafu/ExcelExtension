@@ -36,6 +36,9 @@
         {
             this.tab = this.Factory.CreateRibbonTab();
             this.fileGroup = this.Factory.CreateRibbonGroup();
+            this.editGroup = this.Factory.CreateRibbonGroup();
+            this.shapeGroup = this.Factory.CreateRibbonGroup();
+            this.helpGroup = this.Factory.CreateRibbonGroup();
             this.openFileMenu = this.Factory.CreateRibbonMenu();
             this.separator1 = this.Factory.CreateRibbonSeparator();
             this.openActiveWorkbookReadOnlyButton = this.Factory.CreateRibbonButton();
@@ -45,15 +48,12 @@
             this.openSelectWorkbookEditableButton = this.Factory.CreateRibbonButton();
             this.openFolderButton = this.Factory.CreateRibbonButton();
             this.toggleEditModeButton = this.Factory.CreateRibbonButton();
-            this.editGroup = this.Factory.CreateRibbonGroup();
             this.searchButton = this.Factory.CreateRibbonButton();
             this.setA1Button = this.Factory.CreateRibbonButton();
             this.initializeStyleButton = this.Factory.CreateRibbonButton();
             this.makeGridButton = this.Factory.CreateRibbonButton();
             this.manageWorksheetButton = this.Factory.CreateRibbonButton();
-            this.shapeGroup = this.Factory.CreateRibbonGroup();
             this.balloonMenu = this.Factory.CreateRibbonMenu();
-            this.helpGroup = this.Factory.CreateRibbonGroup();
             this.configButton = this.Factory.CreateRibbonButton();
             this.helpMenu = this.Factory.CreateRibbonMenu();
             this.openHelpButton = this.Factory.CreateRibbonButton();
@@ -82,6 +82,28 @@
             this.fileGroup.Items.Add(this.toggleEditModeButton);
             this.fileGroup.Label = "ファイル";
             this.fileGroup.Name = "fileGroup";
+            // 
+            // editGroup
+            // 
+            this.editGroup.Items.Add(this.searchButton);
+            this.editGroup.Items.Add(this.setA1Button);
+            this.editGroup.Items.Add(this.initializeStyleButton);
+            this.editGroup.Items.Add(this.makeGridButton);
+            this.editGroup.Items.Add(this.manageWorksheetButton);
+            this.editGroup.Label = "編集";
+            this.editGroup.Name = "editGroup";
+            // 
+            // shapeGroup
+            // 
+            this.shapeGroup.Items.Add(this.balloonMenu);
+            this.shapeGroup.Label = "図形";
+            this.shapeGroup.Name = "shapeGroup";
+            // 
+            // helpGroup
+            // 
+            this.helpGroup.Items.Add(this.configButton);
+            this.helpGroup.Items.Add(this.helpMenu);
+            this.helpGroup.Name = "helpGroup";
             // 
             // openFileMenu
             // 
@@ -162,16 +184,6 @@
             this.toggleEditModeButton.ShowImage = true;
             this.toggleEditModeButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ToggleEditModeButton_Click);
             // 
-            // editGroup
-            // 
-            this.editGroup.Items.Add(this.searchButton);
-            this.editGroup.Items.Add(this.setA1Button);
-            this.editGroup.Items.Add(this.initializeStyleButton);
-            this.editGroup.Items.Add(this.makeGridButton);
-            this.editGroup.Items.Add(this.manageWorksheetButton);
-            this.editGroup.Label = "編集";
-            this.editGroup.Name = "editGroup";
-            // 
             // searchButton
             // 
             this.searchButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -217,12 +229,6 @@
             this.manageWorksheetButton.ShowImage = true;
             this.manageWorksheetButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ManageWorksheetButton_Click);
             // 
-            // shapeGroup
-            // 
-            this.shapeGroup.Items.Add(this.balloonMenu);
-            this.shapeGroup.Label = "図形";
-            this.shapeGroup.Name = "shapeGroup";
-            // 
             // balloonMenu
             // 
             this.balloonMenu.Dynamic = true;
@@ -230,12 +236,7 @@
             this.balloonMenu.Name = "balloonMenu";
             this.balloonMenu.OfficeImageId = "ShapeRoundedRectangularCallout";
             this.balloonMenu.ShowImage = true;
-            // 
-            // helpGroup
-            // 
-            this.helpGroup.Items.Add(this.configButton);
-            this.helpGroup.Items.Add(this.helpMenu);
-            this.helpGroup.Name = "helpGroup";
+            this.balloonMenu.ItemsLoading += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BalloonMenu_ItemsLoading);
             // 
             // configButton
             // 
