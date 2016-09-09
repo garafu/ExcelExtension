@@ -151,6 +151,7 @@
             this.dataGridView.TabIndex = 10;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellDoubleClick);
             this.dataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DataGridView_CellValidating);
+            this.dataGridView.Sorted += new System.EventHandler(this.DataGridView_Sorted);
             // 
             // NoColumn
             // 

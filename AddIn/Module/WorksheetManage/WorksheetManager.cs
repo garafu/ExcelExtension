@@ -97,6 +97,7 @@
                     crrWorksheet.Name = info.NewName;
                     crrWorksheet.Visible = info.NewVisible ? XlSheetVisibility.xlSheetVisible : XlSheetVisibility.xlSheetHidden;
                     info.Initialize(crrWorksheet);
+                    info.NewIndex = i + 1;
                 }
                 else if (info.IsUpdated)
                 {
@@ -110,6 +111,7 @@
                     }
 
                     info.Initialize(crrWorksheet);
+                    info.NewIndex = i + 1;
                 }
 
                 bfrWorksheet = info.Worksheet;

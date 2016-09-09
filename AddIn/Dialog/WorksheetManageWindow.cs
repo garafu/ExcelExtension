@@ -276,6 +276,20 @@
         }
 
         /// <summary>
+        /// DataGridViewがソートされたとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元オブジェクト</param>
+        /// <param name="e">イベント変数</param>
+        private void DataGridView_Sorted(object sender, EventArgs e)
+        {
+            for (var i = 0; i < this.datasource.Count; i++)
+            {
+                var item = this.datasource[i] as WorksheetInfo;
+                item.NewIndex = i + 1;
+            }
+        }
+
+        /// <summary>
         /// リストのインデックスをすべて更新します。
         /// </summary>
         private void UpdateListIndex()
