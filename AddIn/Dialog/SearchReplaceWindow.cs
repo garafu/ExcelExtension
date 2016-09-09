@@ -129,32 +129,14 @@
         /// </summary>
         private void SearchAll()
         {
+            // 検索条件が正しいか検証
+            if (this.ValidateSearchCondition() == false)
+            {
+                return;
+            }
+
             // 検索履歴を作成
-            var text = this.searchTextComboBox.Text.Trim();
-            var isIncluded = false;
-            foreach (var item in this.searchTextComboBox.Items)
-            {
-                if (text == item.ToString())
-                {
-                    isIncluded = true;
-                    break;
-                }
-            }
-
-            if (isIncluded == false)
-            {
-                if (this.searchTextComboBox.Items.Count >= 10)
-                {
-                    this.searchTextComboBox.Items.RemoveAt(this.searchTextComboBox.Items.Count - 1);
-                }
-
-                this.searchTextComboBox.Items.Insert(0, text);
-            }
-            else
-            {
-                this.searchTextComboBox.Items.Remove(text);
-                this.searchTextComboBox.Items.Insert(0, text);
-            }
+            this.CreateSearchHistory();
 
             // 検索範囲を設定
             var scope = new SearchScope(
@@ -184,6 +166,60 @@
             this.resultDataGridView.SuspendLayout();
             this.resultDataGridView.DataSource = result;
             this.resultDataGridView.ResumeLayout();
+        }
+
+        /// <summary>
+        /// 検索条件の設定が正しいかどうかを判定します。
+        /// </summary>
+        /// <returns>検索条件が正しく設定されている場合 true、それ以外の場合 false</returns>
+        private bool ValidateSearchCondition()
+        {
+            // 検索文字が何か入力されているか
+            var text = this.searchTextComboBox.Text.Trim();
+            if (string.IsNullOrEmpty(text))
+            {
+                return false;
+            }
+
+            // 検索対象が何か選ばれているか
+            if (this.searchTargetCheckedListBox.CheckedItems.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// 検索履歴を作成する
+        /// </summary>
+        private void CreateSearchHistory()
+        {
+            var text = this.searchTextComboBox.Text.Trim();
+            var isIncluded = false;
+            foreach (var item in this.searchTextComboBox.Items)
+            {
+                if (text == item.ToString())
+                {
+                    isIncluded = true;
+                    break;
+                }
+            }
+
+            if (isIncluded == false)
+            {
+                if (this.searchTextComboBox.Items.Count >= 10)
+                {
+                    this.searchTextComboBox.Items.RemoveAt(this.searchTextComboBox.Items.Count - 1);
+                }
+
+                this.searchTextComboBox.Items.Insert(0, text);
+            }
+            else
+            {
+                this.searchTextComboBox.Items.Remove(text);
+                this.searchTextComboBox.Items.Insert(0, text);
+            }
         }
 
         /// <summary>
