@@ -208,7 +208,7 @@
             this.resultDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.resultDataGridView.Size = new System.Drawing.Size(600, 165);
             this.resultDataGridView.TabIndex = 5;
-            this.resultDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResultDataGridView_CellClick);
+            this.resultDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ResultDataGridView_RowEnter);
             // 
             // Column1
             // 

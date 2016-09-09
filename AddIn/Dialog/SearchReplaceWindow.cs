@@ -91,145 +91,37 @@
             this.Close();
         }
 
-        /////// <summary>
-        /////// 指定したシート、セルに存在するオートシェイプにフォーカスします。
-        /////// </summary>
-        /////// <param name="sheetName">シート名</param>
-        /////// <param name="cellName">セル名</param>
-        /////// <param name="objectName">オブジェクト名</param>
-        /////// <returns>オートシェイプが存在する領域</returns>
-        ////private Range FocusAutoShape(SearchResult result)
-        ////{
-        ////    var sheet = this.FocusSheet(result.Sheet);
-        ////    var range = sheet.Range[result.Cell];
-        ////    var shape = sheet.Shapes.Count < result.ParentIndex ?
-        ////                    sheet.Shapes.Item(result.Name) :
-        ////                    sheet.Shapes.Item(result.ParentIndex);
-
-        ////    // オブジェクトが存在する場所に表示領域を移動させる
-        ////    range.Select();
-        ////    range.Activate();
-
-        ////    try
-        ////    {
-        ////        // オブジェクトを選択
-        ////        shape.Select();
-        ////    }
-        ////    catch 
-        ////    {
-        ////    }
-
-        ////    return range;
-        ////}
-
-        /////// <summary>
-        /////// 指定されたセルにフォーカスします。
-        /////// </summary>
-        /////// <param name="sheetName">シート名</param>
-        /////// <param name="cellName">セル名</param>
-        /////// <returns>フォーカスした範囲</returns>
-        ////private Range FocusCell(string sheetName, string cellName)
-        ////{
-        ////    var sheet = this.FocusSheet(sheetName);
-        ////    var range = sheet.Range[cellName];
-
-        ////    range.Select();
-        ////    range.Activate();
-
-        ////    return range;
-        ////}
-
-        /////// <summary>
-        /////// 指定されたグラフにフォーカスします。
-        /////// </summary>
-        /////// <param name="sheetName">シート名</param>
-        /////// <param name="cellName">セル名</param>
-        /////// <param name="objectName">グラフ名</param>
-        /////// <returns>フォーカスした範囲</returns>
-        ////private Range FocusChart(string sheetName, string cellName, string objectName)
-        ////{
-        ////    var sheet = this.FocusSheet(sheetName);
-        ////    var range = sheet.Range[cellName];
-        ////    var chart = sheet.ChartObjects(objectName);
-
-        ////    // オブジェクトが存在する場所に表示領域を移動させる
-        ////    range.Select();
-        ////    range.Activate();
-
-        ////    try
-        ////    {
-        ////        // オブジェクトを選択
-        ////        chart.Select();
-        ////    }
-        ////    catch 
-        ////    {
-        ////    }
-
-        ////    return range;
-        ////}
-
-        /////// <summary>
-        /////// コメント入力されたセルにフォーカスします。
-        /////// </summary>
-        /////// <param name="sheetName">シート名</param>
-        /////// <param name="cellName">セル名</param>
-        /////// <returns>フォーカスした範囲</returns>
-        ////private Range FocusComment(string sheetName, string cellName)
-        ////{
-        ////    var sheet = this.FocusSheet(sheetName);
-        ////    var range = sheet.Range[cellName];
-
-        ////    range.Select();
-        ////    range.Activate();
-
-        ////    return range;
-        ////}
-
-        /////// <summary>
-        /////// 指定されたシートが表示していなければ表示します。
-        /////// </summary>
-        /////// <param name="sheetName">シート名</param>
-        /////// <returns>フォーカスしたシート</returns>
-        ////private Worksheet FocusSheet(string sheetName)
-        ////{
-        ////    var application = Globals.ThisAddIn.Application;
-        ////    Workbook book = application.ActiveWorkbook;
-        ////    Worksheet sheet = null;
-
-        ////    if (application.ActiveSheet.Name == sheetName)
-        ////    {
-        ////        sheet = application.ActiveSheet;
-        ////    }
-        ////    else
-        ////    {
-        ////        sheet = book.Sheets.Item[sheetName];
-        ////        sheet.Select();
-        ////        ((Microsoft.Office.Interop.Excel._Worksheet)sheet).Activate();
-        ////    }
-
-        ////    return sheet;
-        ////}
-
         /// <summary>
-        /// 検索結果のセルを選択したとき、呼び出されます。
+        /// 検索文字列コンボボックスでキーを押下したとき、呼び出されます。
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
         /// <param name="e">イベント変数</param>
-        private void ResultDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void SearchTextComboBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // ヘッダー行を選択時は何もしない
-            if (e.RowIndex < 0)
+            if (e.KeyChar == (char)Keys.Return)
             {
-                return;
+                this.SearchAll();
             }
+        }
 
-            // 行に設定したデータを取り出す
-            var row = (sender as DataGridView).Rows[e.RowIndex];
-            var result = row.DataBoundItem as SearchResult;
+        /// <summary>
+        /// 「検索」ボタンが押下されたとき、呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元オブジェクト</param>
+        /// <param name="e">イベント変数</param>
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            this.SearchAll();
+        }
 
-            // 該当のオブジェクトにフォーカス
-            var engine = new SearchEngine();
-            engine.Focus(result);
+        /// <summary>
+        /// 検索結果の行に対するフォーカスが変更されたとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元オブジェクト</param>
+        /// <param name="e">イベント変数</param>
+        private void ResultDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            this.FocusSelectedResult();
         }
 
         /// <summary>
@@ -295,26 +187,25 @@
         }
 
         /// <summary>
-        /// 「検索」ボタンが押下されたとき、呼び出されます。
+        /// 現在選択されている検索結果に対してフォーカスします。
         /// </summary>
-        /// <param name="sender">呼び出し元オブジェクト</param>
-        /// <param name="e">イベント変数</param>
-        private void SearchButton_Click(object sender, EventArgs e)
+        private void FocusSelectedResult()
         {
-            this.SearchAll();
-        }
-
-        /// <summary>
-        /// 検索文字列コンボボックスでキーを押下したとき、呼び出されます。
-        /// </summary>
-        /// <param name="sender">呼び出し元オブジェクト</param>
-        /// <param name="e">イベント変数</param>
-        private void SearchTextComboBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Return)
+            if (this.resultDataGridView.SelectedRows.Count <= 0)
             {
-                this.SearchAll();
+                return;
             }
+
+            // 選択中の行からフォーカスするオブジェクト情報を取得
+            var row = this.resultDataGridView.SelectedRows[0];
+            var result = row.DataBoundItem as SearchResult;
+
+            // 該当のオブジェクトにフォーカス
+            var engine = new SearchEngine();
+            engine.Focus(result);
+
+            // 検索ウィンドウにフォーカスを戻す
+            this.Activate();
         }
     }
 }
