@@ -124,6 +124,7 @@
             // 
             // searchTargetCheckedListBox
             // 
+            this.searchTargetCheckedListBox.CheckOnClick = true;
             this.searchTargetCheckedListBox.FormattingEnabled = true;
             this.searchTargetCheckedListBox.Location = new System.Drawing.Point(100, 84);
             this.searchTargetCheckedListBox.Name = "searchTargetCheckedListBox";
