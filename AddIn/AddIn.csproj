@@ -226,6 +226,13 @@
       <DependentUpon>GridConfigItem.cs</DependentUpon>
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
+    <Compile Include="Dialog\InitializeStyleWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\InitializeStyleWindow.Designer.cs">
+      <DependentUpon>InitializeStyleWindow.cs</DependentUpon>
+      <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Dialog\SearchReplaceWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Config\GridConfigItem.resx">
       <DependentUpon>GridConfigItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\InitializeStyleWindow.resx">
+      <DependentUpon>InitializeStyleWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\SearchReplaceWindow.resx">
       <DependentUpon>SearchReplaceWindow.cs</DependentUpon>
