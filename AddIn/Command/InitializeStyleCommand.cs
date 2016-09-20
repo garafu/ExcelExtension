@@ -115,7 +115,13 @@
                         continue;
                     }
 
-                    style.Delete();
+                    try
+                    {
+                        style.Delete();
+                    }
+                    catch
+                    {
+                    }
                 }
 
                 dialog.PerformStep(string.Empty);

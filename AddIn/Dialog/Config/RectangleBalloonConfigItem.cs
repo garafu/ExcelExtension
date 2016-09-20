@@ -91,6 +91,12 @@
         /// </summary>
         public override void OnApply()
         {
+            // 起動したばかりで選択されていない場合何もしない
+            if (this.profileComboBox.SelectedIndex < 0)
+            {
+                return;
+            }
+
             // 現在の状態を保存
             this.Save(this.edits[this.profileComboBox.SelectedIndex]);
 
