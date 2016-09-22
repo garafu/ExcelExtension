@@ -108,13 +108,16 @@
                         break;
                     }
 
+                    // 処理中のスタイル名を表示
                     dialog.PerformStep(style.Name);
 
+                    // デフォルトスタイルは除外
                     if (style.BuiltIn == true)
                     {
                         continue;
                     }
 
+                    // スタイルを削除
                     try
                     {
                         style.Delete();
@@ -124,10 +127,14 @@
                     }
                 }
 
+                // 最後の状態を表示
                 dialog.PerformStep(string.Empty);
-                dialog.Close();
 
+                // ステータスを更新
                 this.isExecuting = false;
+
+                // ダイアログを閉じる
+                dialog.Close();
             });
         }
     }
