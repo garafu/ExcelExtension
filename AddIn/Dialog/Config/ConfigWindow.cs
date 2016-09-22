@@ -154,6 +154,7 @@
                 else
                 {
                     parentNode = this.CreateCategoryTreeNode(item);
+                    parentNode.Expand();
                     trunk.Add(parentNode);
                     category.Add(item.CategoryName, parentNode);
                 }
@@ -165,7 +166,7 @@
                 // ハッシュテーブルに保存
                 this.configlist.Add(item.GUID, item);
             }
-
+            
             // TreeViewに反映
             this.configListTreeView.SuspendLayout();
             this.configListTreeView.Nodes.AddRange(trunk.ToArray());
