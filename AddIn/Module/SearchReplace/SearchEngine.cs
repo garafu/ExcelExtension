@@ -28,6 +28,12 @@
         /// </summary>
         private SearchCondition condition;
 
+        public event EventHandler<SearchStartEventArgs> Start;
+
+        public event EventHandler<EventArgs> Perform;
+
+        public event EventHandler<SearchEndEventArgs> End;
+
         /// <summary>
         /// 検索範囲、検索対象、検索条件を指定して検索を行います。
         /// </summary>
@@ -37,12 +43,65 @@
         /// <returns>検索結果</returns>
         public SortableBindingList<SearchResult> Execute(SearchScope scope, SearchTarget target, SearchCondition condition)
         {
+            // 結果を保存する配列を準備
             var result = new List<SearchResult>();
 
+            // 引数で指定された内容を反映
             this.scope = scope;
             this.target = target;
             this.condition = condition;
 
+            // 初期化処理（検索個数を計算）
+            this.Initialize();
+
+            // 検索処理の実行
+            this.Main(result);
+
+            // 結果を返却
+            return new SortableBindingList<SearchResult>(result);
+        }
+
+        private void Initialize()
+        {
+            var count = 0;
+
+            // 検索対象にあわせて加算する
+            foreach (var range in this.scope.Ranges)
+            {
+                // 式、値、コメント
+                if (this.target.IncludeFormula ||
+                    this.target.IncludeValue ||
+                    this.target.IncludeComment)
+                {
+                    var row = range.Rows.Count;
+                    var col = range.Columns.Count;
+                    count += row * col;
+                }
+
+                // シェープ
+                if (this.target.IncludeShape)
+                {
+                    var sheet = range.Worksheet;
+                    var shapes = sheet.Shapes;
+                    count += shapes.Count;
+                }
+
+                // 表
+                if (this.target.IncludeChart)
+                {
+                    var sheet = range.Worksheet;
+                    var charts = sheet.ChartObjects();
+                    count += charts.Count;
+                }
+            }
+
+            // 開始イベントを発火する
+            this.OnStart(count);
+        }
+
+        private void Main(List<SearchResult> result)
+        {
+            // 検索の実行
             foreach (var range in this.scope.Ranges)
             {
                 if (this.target.IncludeFormula ||
@@ -75,7 +134,8 @@
                 }
             }
 
-            return new SortableBindingList<SearchResult>(result);
+            // 終了イベントを発火する
+            this.OnEnd(result.Count);
         }
 
         /// <summary>
@@ -134,6 +194,9 @@
                 {
                     Excel.Range cell = range.Cells[row, col];
                     string text = string.Empty;
+
+                    // 実行中イベントを発火する
+                    this.OnPerform();
 
                     // セル式に一致する文字列が存在するかどうか
                     if (this.target.IncludeFormula &&
@@ -206,6 +269,10 @@
             {
                 var shape = shapes.Item(i);
 
+                // 実行中イベントを発火する
+                this.OnPerform();
+
+                // タイプ別に合致するか確認
                 switch (shape.Type)
                 {
                     case Core.MsoShapeType.msoGroup:
@@ -348,6 +415,9 @@
             foreach (Excel.ChartObject chartObject in chartObjects)
             {
                 Excel.Chart chart = chartObject.Chart;
+
+                // 実行中イベントを発火する
+                this.OnPerform();
 
                 // グラフタイトル
                 text = chart.ChartTitle.Text;
@@ -562,6 +632,30 @@
             }
 
             return range;
+        }
+
+        private void OnStart(int max)
+        {
+            if (this.Start != null)
+            {
+                this.Start(this, new SearchStartEventArgs(max));
+            }
+        }
+
+        private void OnPerform()
+        {
+            if (this.Perform != null)
+            {
+                this.Perform(this, new EventArgs());
+            }
+        }
+
+        private void OnEnd(int count)
+        {
+            if (this.End != null)
+            {
+                this.End(this, new SearchEndEventArgs(count));
+            }
         }
     }
 }

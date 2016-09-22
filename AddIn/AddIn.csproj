@@ -258,9 +258,11 @@
     <Compile Include="EnumExtensions.cs" />
     <Compile Include="ListBoxItem.cs" />
     <Compile Include="Module\SearchReplace\SearchCondition.cs" />
+    <Compile Include="Module\SearchReplace\SearchEndEventArgs.cs" />
     <Compile Include="Module\SearchReplace\SearchEngine.cs" />
     <Compile Include="Module\SearchReplace\SearchResult.cs" />
     <Compile Include="Module\SearchReplace\SearchScope.cs" />
+    <Compile Include="Module\SearchReplace\SearchStartEventArgs.cs" />
     <Compile Include="Module\SearchReplace\SearchTarget.cs" />
     <Compile Include="Module\SearchReplace\SearchTargetType.cs" />
     <Compile Include="Module\SearchReplace\SearchScopeType.cs" />

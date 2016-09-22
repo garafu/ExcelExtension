@@ -158,8 +158,26 @@
                 this.matchCaseCheckBox.Checked,
                 this.matchByteCheckBox.Checked);
 
+            // 検索結果をクリア
+            this.resultDataGridView.Rows.Clear();
+
             // 検索の実行
             var engine = new SearchEngine();
+            engine.Start += (o, e) =>
+            {
+                this.progressBar.Minimum = 0;
+                this.progressBar.Maximum = e.Maxmimum;
+                this.progressBar.Value = 0;
+                this.statusLabel.Text = string.Empty;
+            };
+            engine.Perform += (o, e) =>
+            {
+                this.progressBar.PerformStep();
+            };
+            engine.End += (o, e) =>
+            {
+                this.statusLabel.Text = string.Format("検索結果：{0}件", e.Finds);
+            };
             var result = engine.Execute(scope, target, condition);
 
             // 検索結果を画面に反映
