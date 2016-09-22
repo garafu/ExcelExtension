@@ -28,10 +28,19 @@
         /// </summary>
         private SearchCondition condition;
 
+        /// <summary>
+        /// 検索開始準備が終わったとき呼び出されます。
+        /// </summary>
         public event EventHandler<SearchStartEventArgs> Start;
 
+        /// <summary>
+        /// 検索実行中に呼び出されます。
+        /// </summary>
         public event EventHandler<EventArgs> Perform;
 
+        /// <summary>
+        /// 検索終了したとき呼び出されます。
+        /// </summary>
         public event EventHandler<SearchEndEventArgs> End;
 
         /// <summary>
@@ -59,83 +68,6 @@
 
             // 結果を返却
             return new SortableBindingList<SearchResult>(result);
-        }
-
-        private void Initialize()
-        {
-            var count = 0;
-
-            // 検索対象にあわせて加算する
-            foreach (var range in this.scope.Ranges)
-            {
-                // 式、値、コメント
-                if (this.target.IncludeFormula ||
-                    this.target.IncludeValue ||
-                    this.target.IncludeComment)
-                {
-                    var row = range.Rows.Count;
-                    var col = range.Columns.Count;
-                    count += row * col;
-                }
-
-                // シェープ
-                if (this.target.IncludeShape)
-                {
-                    var sheet = range.Worksheet;
-                    var shapes = sheet.Shapes;
-                    count += shapes.Count;
-                }
-
-                // 表
-                if (this.target.IncludeChart)
-                {
-                    var sheet = range.Worksheet;
-                    var charts = sheet.ChartObjects();
-                    count += charts.Count;
-                }
-            }
-
-            // 開始イベントを発火する
-            this.OnStart(count);
-        }
-
-        private void Main(List<SearchResult> result)
-        {
-            // 検索の実行
-            foreach (var range in this.scope.Ranges)
-            {
-                if (this.target.IncludeFormula ||
-                    this.target.IncludeValue ||
-                    this.target.IncludeComment)
-                {
-                    var found = this.FindCell(range);
-                    if (found.Count > 0)
-                    {
-                        result.AddRange(found);
-                    }
-                }
-
-                if (this.target.IncludeShape)
-                {
-                    var found = this.FindShape(range);
-                    if (found.Count > 0)
-                    {
-                        result.AddRange(found);
-                    }
-                }
-
-                if (this.target.IncludeChart)
-                {
-                    var found = this.FindChart(range);
-                    if (found.Count > 0)
-                    {
-                        result.AddRange(found);
-                    }
-                }
-            }
-
-            // 終了イベントを発火する
-            this.OnEnd(result.Count);
         }
 
         /// <summary>
@@ -177,6 +109,90 @@
                     this.FocusChart(result);
                     break;
             }
+        }
+
+        /// <summary>
+        /// 検索前処理として検索範囲の個数を取得します。
+        /// </summary>
+        private void Initialize()
+        {
+            var count = 0;
+
+            // 検索対象にあわせて加算する
+            foreach (var range in this.scope.Ranges)
+            {
+                // 式、値、コメント
+                if (this.target.IncludeFormula ||
+                    this.target.IncludeValue ||
+                    this.target.IncludeComment)
+                {
+                    var row = range.Rows.Count;
+                    var col = range.Columns.Count;
+                    count += row * col;
+                }
+
+                // シェープ
+                if (this.target.IncludeShape)
+                {
+                    var sheet = range.Worksheet;
+                    var shapes = sheet.Shapes;
+                    count += shapes.Count;
+                }
+
+                // 表
+                if (this.target.IncludeChart)
+                {
+                    var sheet = range.Worksheet;
+                    var charts = sheet.ChartObjects();
+                    count += charts.Count;
+                }
+            }
+
+            // 開始イベントを発火する
+            this.OnStart(count);
+        }
+
+        /// <summary>
+        /// 検索の実処理。
+        /// </summary>
+        /// <param name="result">検索結果リスト</param>
+        private void Main(List<SearchResult> result)
+        {
+            // 検索の実行
+            foreach (var range in this.scope.Ranges)
+            {
+                if (this.target.IncludeFormula ||
+                    this.target.IncludeValue ||
+                    this.target.IncludeComment)
+                {
+                    var found = this.FindCell(range);
+                    if (found.Count > 0)
+                    {
+                        result.AddRange(found);
+                    }
+                }
+
+                if (this.target.IncludeShape)
+                {
+                    var found = this.FindShape(range);
+                    if (found.Count > 0)
+                    {
+                        result.AddRange(found);
+                    }
+                }
+
+                if (this.target.IncludeChart)
+                {
+                    var found = this.FindChart(range);
+                    if (found.Count > 0)
+                    {
+                        result.AddRange(found);
+                    }
+                }
+            }
+
+            // 終了イベントを発火する
+            this.OnEnd(result.Count);
         }
 
         /// <summary>
@@ -634,6 +650,10 @@
             return range;
         }
 
+        /// <summary>
+        /// 検索開始イベントを発火します。
+        /// </summary>
+        /// <param name="max">検索対象数</param>
         private void OnStart(int max)
         {
             if (this.Start != null)
@@ -642,6 +662,9 @@
             }
         }
 
+        /// <summary>
+        /// 検索実行中イベントを発火します。
+        /// </summary>
         private void OnPerform()
         {
             if (this.Perform != null)
@@ -650,6 +673,10 @@
             }
         }
 
+        /// <summary>
+        /// 検索終了イベントを発火します。
+        /// </summary>
+        /// <param name="count">検索ヒット数</param>
         private void OnEnd(int count)
         {
             if (this.End != null)
