@@ -64,6 +64,9 @@
             var pane = this.configItemPanel;
             ConfigItemBase content;
 
+            // スクロールを無効化してスクロール位置を初期化
+            pane.AutoScroll = false;
+
             // 古いコンテンツを削除
             if (pane.Controls.Count > 0)
             {
@@ -79,6 +82,9 @@
                 pane.Controls.Add(content);
                 content.OnShow();
             }
+
+            // スクロールを有効化して必要に応じてスクロール表示
+            pane.AutoScroll = true;
         }
 
         /// <summary>
