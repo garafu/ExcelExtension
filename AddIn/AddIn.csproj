@@ -26,7 +26,7 @@
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <RootNamespace>ExcelX.AddIn</RootNamespace>
-    <AssemblyName>ExcelExtensionAddin</AssemblyName>
+    <AssemblyName>ExcelExtensionAddIn</AssemblyName>
     <LoadBehavior>3</LoadBehavior>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
@@ -111,6 +111,10 @@
   -->
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Office.Tools.Excel.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -257,6 +261,7 @@
     <Compile Include="DisplayNameAttribute.cs" />
     <Compile Include="EnumExtensions.cs" />
     <Compile Include="ListBoxItem.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Module\SearchReplace\SearchCondition.cs" />
     <Compile Include="Module\SearchReplace\SearchEndEventArgs.cs" />
     <Compile Include="Module\SearchReplace\SearchEngine.cs" />
@@ -312,6 +317,10 @@
     <EmbeddedResource Include="Ribbon.resx">
       <DependentUpon>Ribbon.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

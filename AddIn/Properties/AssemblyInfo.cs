@@ -36,3 +36,5 @@ using System.Security;
 [assembly: AssemblyVersion("1.6.4.0")]
 [assembly: AssemblyFileVersion("1.6.4.0")]
 
+// log4net configuration file
+[assembly: log4net.Config.XmlConfigurator(ConfigFile=@"log4net.config", Watch=true)]

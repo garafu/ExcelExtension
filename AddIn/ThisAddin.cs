@@ -38,9 +38,7 @@
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             var exception = e.ExceptionObject as Exception;
-            var caption = "予期しない例外";
-            var text = exception.Message;
-            MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Log.Error(exception.Message, exception);
         }
 
         /// <summary>
