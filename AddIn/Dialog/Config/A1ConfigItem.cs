@@ -85,7 +85,16 @@
         public override void OnShow()
         {
         }
-        
+
+        /// <summary>
+        /// 「開く」ボタン押下時に呼び出されます。
+        /// </summary>
+        public override void OnRefresh()
+        {
+            this.config = ConfigDocument.Current.Edit.A1;
+            this.Deserialize();
+        }
+
         /// <summary>
         /// 「設定後に保存する」のチェック状態が変更されたとき呼び出されます。
         /// </summary>

@@ -124,6 +124,15 @@
         }
 
         /// <summary>
+        /// 「開く」ボタン押下時に呼び出されます。
+        /// </summary>
+        public override void OnRefresh()
+        {
+            this.originals = ConfigDocument.Current.Shape.RectangleBalloonList;
+            this.Deserialize();
+        }
+
+        /// <summary>
         /// 枠線透過率の数値が変更されたとき呼び出されます。
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>
@@ -318,6 +327,10 @@
                 this.edits.Add(editable);
                 this.profileComboBox.Items.Add(editable.DisplayName);
             }
+
+            this.profileComboBox.SelectedIndex = 0;
+            this.Load(this.edits[this.profileComboBox.SelectedIndex]);
+            this.CurrentSelectedIndex = this.profileComboBox.SelectedIndex;
         }
 
         /// <summary>

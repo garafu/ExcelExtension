@@ -70,5 +70,13 @@
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// 「開く」ボタン押下時に呼び出されます。
+        /// </summary>
+        public virtual void OnRefresh()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

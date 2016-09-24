@@ -14,13 +14,13 @@
     /// 設定ファイル
     /// </summary>
     [Serializable]
-    [XmlRoot("originals")]
+    [XmlRoot("ExcelExtensionAddIn")]
     public class ConfigDocument
     {
         /// <summary>
         /// 設定ファイル名
         /// </summary>
-        private static string fileName = @"excelx.originals";
+        private static string fileName = @"ExcelExtensionAddIn.config";
 
         /// <summary>
         /// 設定ファイルパス
@@ -42,6 +42,17 @@
         /// ConfigDocument の 現在のインスタンスを取得します。
         /// </summary>
         public static ConfigDocument Current { get; private set; }
+
+        /// <summary>
+        /// デフォルトのファイル名を取得します。
+        /// </summary>
+        public static string FileName
+        {
+            get
+            {
+                return ConfigDocument.fileName;
+            }
+        }
 
         /// <summary>
         /// 編集に関する設定を取得または設定します。
@@ -71,11 +82,34 @@
         }
 
         /// <summary>
+        /// パスを指定して設定を読み込みます。
+        /// </summary>
+        /// <param name="filePath">ファイルパス</param>
+        public static void Load(string filePath)
+        {
+            if (File.Exists(filePath) == false)
+            {
+                return;
+            }
+
+            ConfigDocument.Current = ConfigDocument.LoadFromFile(filePath);
+        }
+
+        /// <summary>
         /// ローカルファイルに設定を保存します。
         /// </summary>
         public static void Save()
         {
             ConfigDocument.SaveToFile(ConfigDocument.filePath, ConfigDocument.Current);
+        }
+
+        /// <summary>
+        /// 保存先を指定して設定を保存します。
+        /// </summary>
+        /// <param name="filePath">ファイルパス</param>
+        public static void Save(string filePath)
+        {
+            ConfigDocument.SaveToFile(filePath, ConfigDocument.Current);
         }
 
         /// <summary>

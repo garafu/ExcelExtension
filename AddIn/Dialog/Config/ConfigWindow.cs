@@ -99,6 +99,56 @@
         }
 
         /// <summary>
+        /// 「開く」ボタンが押下されたとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元オブジェクト</param>
+        /// <param name="e">イベント変数</param>
+        private void OpenButton_Click(object sender, EventArgs e)
+        {
+            // ファイルを開くダイアログを表示
+            var dialog = new OpenFileDialog();
+            dialog.FileName = ExcelX.AddIn.Config.ConfigDocument.FileName;
+            dialog.Filter = @"設定ファイル(*.config)|*.config|すべてのファイル(*.*)|*.*";
+            dialog.FilterIndex = 1;
+
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            // 指定された設定ファイルを読み込み
+            ExcelX.AddIn.Config.ConfigDocument.Load(dialog.FileName);
+
+            // 画面を更新
+            foreach (var tuple in this.configlist)
+            {
+                var panel = tuple.Value;
+                panel.OnRefresh();
+            }
+        }
+
+        /// <summary>
+        /// 「保存」ボタンが押下されたとき呼び出されます。
+        /// </summary>
+        /// <param name="sender">呼び出し元オブジェクト</param>
+        /// <param name="e">イベント変数</param>
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            
+            dialog.FileName = ExcelX.AddIn.Config.ConfigDocument.FileName;
+            dialog.Filter = @"設定ファイル(*.config)|*.config|すべてのファイル(*.*)|*.*";
+            dialog.FilterIndex = 1;
+
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            ExcelX.AddIn.Config.ConfigDocument.Save(dialog.FileName);
+        }
+
+        /// <summary>
         /// 指定された情報を元に設定カテゴリーを表す TreeNode を作成します。
         /// </summary>
         /// <param name="item">設定画面</param>

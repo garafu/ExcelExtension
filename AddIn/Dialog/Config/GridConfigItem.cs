@@ -87,6 +87,15 @@
         }
 
         /// <summary>
+        /// 「開く」ボタン押下時に呼び出されます。
+        /// </summary>
+        public override void OnRefresh()
+        {
+            this.config = ConfigDocument.Current.Edit.Grid;
+            this.Deserialize();
+        }
+
+        /// <summary>
         /// サイズの入力値が検証されるとき呼び出されます。
         /// </summary>
         /// <param name="sender">呼び出し元オブジェクト</param>

@@ -34,6 +34,8 @@
             this.configItemPanel = new System.Windows.Forms.Panel();
             this.border = new System.Windows.Forms.Label();
             this.applyButton = new System.Windows.Forms.Button();
+            this.openButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // confirmButton
@@ -100,11 +102,33 @@
             this.applyButton.UseVisualStyleBackColor = true;
             this.applyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
+            // openButton
+            // 
+            this.openButton.Location = new System.Drawing.Point(12, 426);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(75, 23);
+            this.openButton.TabIndex = 6;
+            this.openButton.Text = "開く";
+            this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.OpenButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(93, 426);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 7;
+            this.saveButton.Text = "保存";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
             // ConfigWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.openButton);
             this.Controls.Add(this.applyButton);
             this.Controls.Add(this.border);
             this.Controls.Add(this.configItemPanel);
@@ -128,5 +152,7 @@
         private System.Windows.Forms.Panel configItemPanel;
         private System.Windows.Forms.Label border;
         private System.Windows.Forms.Button applyButton;
+        private System.Windows.Forms.Button openButton;
+        private System.Windows.Forms.Button saveButton;
     }
 }
